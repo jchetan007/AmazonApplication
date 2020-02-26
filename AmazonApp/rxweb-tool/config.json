@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "AmazonApp.Api",
+    "model": "AmazonApp.Models",
+    "context": "AmazonApp.BoundedContext",
+    "domain": "AmazonApp.Domain",
+	"unitOfWork": "AmazonApp.UnitOfWork",
+    "infrastructure": "AmazonApp.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

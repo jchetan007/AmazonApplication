@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\AmazonApp.BoundedContext\AmazonApp.BoundedContext.csproj" />
+    <ProjectReference Include="..\AmazonApp.UnitOfWork\AmazonApp.UnitOfWork.csproj" />
+    <ProjectReference Include="..\AmazonApp.Models\AmazonApp.Models.csproj" />
+    <ProjectReference Include="..\AmazonApp.Infrastructure\AmazonApp.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ProductDomain\" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\bin\Debug\netcoreapp3.1\AmazonApp.Models.deps.json
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\bin\Debug\netcoreapp3.1\AmazonApp.Models.dll
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\bin\Debug\netcoreapp3.1\AmazonApp.Models.pdb
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\obj\Debug\netcoreapp3.1\AmazonApp.Models.csprojAssemblyReference.cache
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\obj\Debug\netcoreapp3.1\AmazonApp.Models.AssemblyInfoInputs.cache
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\obj\Debug\netcoreapp3.1\AmazonApp.Models.AssemblyInfo.cs
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\obj\Debug\netcoreapp3.1\AmazonApp.Models.dll
+C:\Users\radix\source\repos\AmazonApp\AmazonApp.Models\obj\Debug\netcoreapp3.1\AmazonApp.Models.pdb
