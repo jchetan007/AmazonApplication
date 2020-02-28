@@ -11,4 +11,15 @@ export class vProductCategoryLookup extends vProductCategoryLookupBase
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

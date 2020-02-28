@@ -10,22 +10,40 @@ namespace AmazonApp.Models.Main
     [Table("vCartItems",Schema="dbo")]
     public partial class vCartItem
     {
+		#region SellerId Annotations
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [System.ComponentModel.DataAnnotations.Key]
+		#endregion SellerId Annotations
+
+        public int SellerId { get; set; }
+
+
+        public int CartItemId { get; set; }
+
 
         public string ProductName { get; set; }
 
 
-        public long ProductPrice { get; set; }
+        public long OriginalProductPrice { get; set; }
 
-		#region ProductQuantity Annotations
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [System.ComponentModel.DataAnnotations.Key]
-		#endregion ProductQuantity Annotations
+        public Nullable<long> DiscountProductPrice { get; set; }
+
 
         public int ProductQuantity { get; set; }
 
 
+        public int TotalPrice { get; set; }
+
+
         public int CartValue { get; set; }
+
+
+        public int CartQuantity { get; set; }
+
+
+        public int ProductId { get; set; }
 
 
         public vCartItem()

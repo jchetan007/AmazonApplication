@@ -15,4 +15,15 @@ role : RoleBase;
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

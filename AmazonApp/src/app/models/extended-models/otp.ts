@@ -15,4 +15,15 @@ appUser : AppUserBase;
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

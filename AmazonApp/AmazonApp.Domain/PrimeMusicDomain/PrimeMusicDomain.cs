@@ -13,24 +13,15 @@ namespace AmazonApp.Domain.PrimeMusicModule
             this.Uow = uow;
         }
 
-        public async Task<object> GetAsync(PrimeMusic parameters)
+        public Task<object> GetAsync(PrimeMusic parameters)
         {
-            var login = await Uow.Repository<PrimeMusic>().SingleOrDefaultAsync(t => t.AppUserId == parameters.AppUserId );
-            if (login != null)
-            {
-                return await Task.FromResult("Success");
-            }
-            else
-            {
-                return await Task.FromResult("Failed");
-            }
-
+           
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(PrimeMusic parameters)
+        public async Task<object> GetBy(PrimeMusic parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<PrimeMusic>().FindByAsync(t => t.AppUserId == parameters.AppUserId);
         }
         
 

@@ -19,4 +19,15 @@ invoices : InvoiceBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

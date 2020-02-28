@@ -15,4 +15,15 @@ sellers : SellerBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -4,47 +4,36 @@ using System.Threading.Tasks;
 using RxWeb.Core;
 using AmazonApp.UnitOfWork.Main;
 using AmazonApp.Models.Main;
+using RxWeb.Core.Data;
+using AmazonApp.BoundedContext.SqlContext;
+using Microsoft.Data.SqlClient;
+using AmazonApp.Models.ViewModels;
+using RxWeb.Core.Security.Cryptography;
 
 namespace AmazonApp.Domain.UserModule
 {
     public class AppUserDomain : IAppUserDomain
     {
         bool flag = true;
-        public AppUserDomain(IUserUow uow) {
+        private IPasswordHash PasswordHash { get; set; }
+        public AppUserDomain(IUserUow uow, IDbContextManager<MainSqlDbContext> dbContextManager, IPasswordHash passwordHash) {
             this.Uow = uow;
+            PasswordHash = passwordHash;
         }
 
         public async Task<object> GetAsync(AppUser parameters)
         {
-            var login = await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber && t.UserPassword == parameters.UserPassword);
-            if (login != null)
-            {
-                return await Task.FromResult("Success");
-            }
-            else
-            {
-                return await Task.FromResult("Failed");
-            }
-
+            
+             return await Uow.Repository<AppUser>().AllAsync();
+           
             //throw new NotImplementedException();
         }
 
         public async Task<object> GetBy(AppUser parameters)
         {
-            var isAvailable = await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.AppUserName == parameters.AppUserName);
-            if (isAvailable == null)
-            {
-                flag = false;
-                //generating OTP
-                Random random = new Random();
-                int randomNumber = random.Next(1000, 9999);
-                return await Task.FromResult(randomNumber);
-            }
-            else
-            {
-                flag = true;
-                return await Task.FromResult("Available");
-            }
+           
+            return await Uow.Repository<AppUser>().FindByAsync(t => t.MobileNumber == parameters.MobileNumber);
+            
             //throw new NotImplementedException();
         }
 
@@ -56,8 +45,12 @@ namespace AmazonApp.Domain.UserModule
 
         public async Task AddAsync(AppUser entity)
         {
-            await Uow.RegisterNewAsync(entity);
-            await Uow.CommitAsync();
+
+            PasswordResult passwordResult = PasswordHash.Encrypt(Convert.ToBase64String(entity.Password));
+            entity.Password = passwordResult.Signature;
+            entity.Salt = passwordResult.Salt;
+            await Uow.RegisterNewAsync<AppUser>(entity);
+            //throw new NotImplementedException();
         }
 
         public HashSet<string> UpdateValidation(AppUser entity)
@@ -65,10 +58,18 @@ namespace AmazonApp.Domain.UserModule
             return ValidationMessages;
         }
 
-        public async Task UpdateAsync(AppUser entity)
+        public async Task UpdateAsync(AppUser parameters)
         {
-            await Uow.RegisterDirtyAsync(entity);
-            await Uow.CommitAsync();
+           
+
+            var spParameters = new SqlParameter[2];
+            spParameters[0] = new SqlParameter() { ParameterName = "AppUserId", Value = parameters.AppUserId };
+            spParameters[1] = new SqlParameter() { ParameterName = "UserPassword", Value = parameters.Password };
+
+
+
+            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spChangePassword ", spParameters);
+            
         }
 
         public HashSet<string> DeleteValidation(AppUser parameters)
@@ -81,49 +82,11 @@ namespace AmazonApp.Domain.UserModule
             throw new NotImplementedException();
         }
 
-        Task<object> ICoreDomain<AppUser, AppUser>.GetAsync(AppUser parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<object> ICoreDomain<AppUser, AppUser>.GetBy(AppUser parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        HashSet<string> ICoreDomain<AppUser, AppUser>.AddValidation(AppUser entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        HashSet<string> ICoreDomain<AppUser, AppUser>.UpdateValidation(AppUser entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task ICoreDomain<AppUser, AppUser>.AddAsync(AppUser entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task ICoreDomain<AppUser, AppUser>.UpdateAsync(AppUser entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        HashSet<string> ICoreDomain<AppUser, AppUser>.DeleteValidation(AppUser parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task ICoreDomain<AppUser, AppUser>.DeleteAsync(AppUser parameters)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public IUserUow Uow { get; set; }
 
         private HashSet<string> ValidationMessages { get; set; } = new HashSet<string>();
+        private IDbContextManager<MainSqlDbContext> DbContextManager { get; set; }
     }
 
     public interface IAppUserDomain : ICoreDomain<AppUser, AppUser> { }

@@ -19,14 +19,6 @@ namespace AmazonApp.Models.Main
 
         public int CartId { get; set; }
 
-		#region Quantity Annotations
-
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion Quantity Annotations
-
-        public int Quantity { get; set; }
-
 		#region CartValue Annotations
 
         [Range(1,int.MaxValue)]
@@ -52,13 +44,6 @@ namespace AmazonApp.Models.Main
 
         public virtual AppUser AppUser { get; set; }
 
-		#region OrderDetails Annotations
-
-        [InverseProperty("Cart")]
-		#endregion OrderDetails Annotations
-
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
 		#region CartItems Annotations
 
         [InverseProperty("Cart")]
@@ -66,11 +51,18 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<CartItem> CartItems { get; set; }
 
+		#region OrderDetails Annotations
+
+        [InverseProperty("Cart")]
+		#endregion OrderDetails Annotations
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
 
         public Cart()
         {
-			OrderDetails = new HashSet<OrderDetail>();
 			CartItems = new HashSet<CartItem>();
+			OrderDetails = new HashSet<OrderDetail>();
         }
 	}
 }

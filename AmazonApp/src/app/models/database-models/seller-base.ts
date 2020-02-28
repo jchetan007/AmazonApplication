@@ -17,10 +17,10 @@ export class SellerBase {
 //#endregion productName Prop
 
 
-//#region productPrice Prop
+//#region originalProductPrice Prop
         @required()
-        productPrice : any;
-//#endregion productPrice Prop
+        originalProductPrice : any;
+//#endregion originalProductPrice Prop
 
 
 //#region sellerDetailId Prop
@@ -78,6 +78,12 @@ export class SellerBase {
         @prop()
         bankDetailId : number;
 //#endregion bankDetailId Prop
+
+
+//#region discountProductPrice Prop
+        @prop()
+        discountProductPrice : any;
+//#endregion discountProductPrice Prop
 
 
 

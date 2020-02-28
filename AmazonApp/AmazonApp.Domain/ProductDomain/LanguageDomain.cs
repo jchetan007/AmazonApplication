@@ -15,16 +15,21 @@ namespace AmazonApp.Domain.ProductModule
     {
         public LanguageDomain(IProductUow uow, IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
+            DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(Language parameters)
+        public async Task<object> GetAsync(Language parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<Language>().AllAsync();
         }
 
-        public Task<object> GetBy(Language parameters)
+        public async Task<object> GetBy(Language parameters)
         {
-            throw new NotImplementedException();
+            //  var spParameters = new SqlParameter[1];
+            //  spParameters[0] = new SqlParameter() { ParameterName = "LanguageName", Value = parameters.LanguageName };
+
+            return await Uow.Repository<Language>().FindByAsync(t => t.LanguageId == parameters.LanguageId);
+           // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterLanguages ", spParameters);
         }
         
 
@@ -33,23 +38,13 @@ namespace AmazonApp.Domain.ProductModule
             return ValidationMessages;
         }
 
-        public async Task AddAsync(Language parameters)
+        public async Task AddAsync(Language entity)
         {
-            await DbContextManager.BeginTransactionAsync();
 
-            var spParameters = new SqlParameter[1];
-            spParameters[0] = new SqlParameter() { ParameterName = "LanguageName", Value = parameters.LanguageName };
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
 
 
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterLanguages ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
         }
 
         public HashSet<string> UpdateValidation(Language entity)
@@ -73,6 +68,7 @@ namespace AmazonApp.Domain.ProductModule
             throw new NotImplementedException();
         }
 
+        
         public IProductUow Uow { get; set; }
 
         private HashSet<string> ValidationMessages { get; set; } = new HashSet<string>();

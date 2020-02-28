@@ -19,4 +19,15 @@ product : ProductBase;
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -25,9 +25,9 @@ export class BankDetailBase {
 
 
 //#region accountNumber Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
-        accountNumber : number;
+        @maxLength({value:20})
+        accountNumber : string;
 //#endregion accountNumber Prop
 
 

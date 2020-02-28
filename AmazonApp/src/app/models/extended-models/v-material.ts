@@ -11,4 +11,5 @@ export class vMaterial extends vMaterialBase
 //#endregion Generated Reference Properties
 
 
+
 }

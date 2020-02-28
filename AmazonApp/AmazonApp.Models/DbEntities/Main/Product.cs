@@ -53,6 +53,13 @@ namespace AmazonApp.Models.Main
 
         public virtual Seller Seller { get; set; }
 
+		#region CartItems Annotations
+
+        [InverseProperty("Product")]
+		#endregion CartItems Annotations
+
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
 		#region Offers Annotations
 
         [InverseProperty("Product")]
@@ -67,19 +74,12 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<FeedBack> FeedBacks { get; set; }
 
-		#region CartItems Annotations
-
-        [InverseProperty("Product")]
-		#endregion CartItems Annotations
-
-        public virtual ICollection<CartItem> CartItems { get; set; }
-
 
         public Product()
         {
+			CartItems = new HashSet<CartItem>();
 			Offers = new HashSet<Offer>();
 			FeedBacks = new HashSet<FeedBack>();
-			CartItems = new HashSet<CartItem>();
         }
 	}
 }

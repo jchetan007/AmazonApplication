@@ -15,4 +15,15 @@ productCategories : ProductCategoryBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

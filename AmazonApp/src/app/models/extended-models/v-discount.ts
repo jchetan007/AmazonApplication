@@ -7,5 +7,16 @@ export class vDiscount extends vDiscountBase
 
 
 //#region Generated Reference Properties
+
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
 }

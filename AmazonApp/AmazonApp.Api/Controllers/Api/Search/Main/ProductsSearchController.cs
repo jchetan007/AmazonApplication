@@ -24,7 +24,7 @@ namespace AmazonApp.Api.Controllers.Module
         {
             var spParameters = new SqlParameter[1];
             spParameters[0] = new SqlParameter() { ParameterName = "Product", Value = searchParams["Product"] };
-            var result = await DbContextManager.StoreProc<StoreProcResult>("EXEC [dbo].spSearchProducts @Product", spParameters);
+            var result = await DbContextManager.StoreProc<StoreProcResult>("[dbo].spSearchProducts", spParameters);
             return Ok(result.SingleOrDefault()?.Result);
         }
 

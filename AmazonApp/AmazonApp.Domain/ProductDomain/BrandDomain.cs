@@ -18,14 +18,22 @@ namespace AmazonApp.Domain.ProductModule
             DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(Brand parameters)
+        public async Task<object> GetAsync(Brand parameters)
         {
-            throw new NotImplementedException();
+            //var spParameters = new SqlParameter[1];
+            //spParameters[0] = new SqlParameter() { ParameterName = "BrandName", Value = parameters.BrandName };
+
+            return await Uow.Repository<Brand>().AllAsync();
+            //throw new NotImplementedException();
+
+            //await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterBrands ", spParameters);
+
         }
 
-        public Task<object> GetBy(Brand parameters)
+        public async Task<object> GetBy(Brand parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<Brand>().FindByAsync(t => t.BrandId == parameters.BrandId);
+            //throw new NotImplementedException();
         }
         
 
@@ -34,23 +42,12 @@ namespace AmazonApp.Domain.ProductModule
             return ValidationMessages;
         }
 
-        public async Task AddAsync(Brand parameters)
+        public async Task AddAsync(Brand entity)
         {
-            await DbContextManager.BeginTransactionAsync();
 
-            var spParameters = new SqlParameter[1];
-            spParameters[0] = new SqlParameter() { ParameterName = "BrandName", Value = parameters.BrandName };
-            
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
 
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterBrands ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
         }
 
         public HashSet<string> UpdateValidation(Brand entity)
@@ -73,6 +70,8 @@ namespace AmazonApp.Domain.ProductModule
         {
             throw new NotImplementedException();
         }
+
+        
 
         public IProductUow Uow { get; set; }
 

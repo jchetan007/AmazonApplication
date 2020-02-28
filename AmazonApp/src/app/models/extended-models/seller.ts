@@ -8,10 +8,10 @@ import {MaterialBase} from '../database-models/material-base';
 import {RoleBase} from '../database-models/role-base';
 import {SellerDetailBase} from '../database-models/seller-detail-base';
 import {SizeBase} from '../database-models/size-base';
-import {ProductBase} from '../database-models/product-base';
 import {ShippingDetailBase} from '../database-models/shipping-detail-base';
 import {TransactionBase} from '../database-models/transaction-base';
 import {DiscountBase} from '../database-models/discount-base';
+import {ProductBase} from '../database-models/product-base';
 //Generated Imports
 export class Seller extends SellerBase 
 {
@@ -47,9 +47,6 @@ sellerDetail : SellerDetailBase;
 //#region size Prop
 size : SizeBase;
 //#endregion size Prop
-//#region products Prop
-products : ProductBase[];
-//#endregion products Prop
 //#region shippingDetails Prop
 shippingDetails : ShippingDetailBase[];
 //#endregion shippingDetails Prop
@@ -59,8 +56,22 @@ transactions : TransactionBase[];
 //#region discounts Prop
 discounts : DiscountBase[];
 //#endregion discounts Prop
+//#region products Prop
+products : ProductBase[];
+//#endregion products Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

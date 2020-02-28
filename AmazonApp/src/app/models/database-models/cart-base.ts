@@ -10,13 +10,6 @@ export class CartBase {
 //#endregion cartId Prop
 
 
-//#region quantity Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        quantity : number;
-//#endregion quantity Prop
-
-
 //#region cartValue Prop
         @range({minimumNumber:1,maximumNumber:2147483647})
         @required()

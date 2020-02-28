@@ -13,6 +13,14 @@ namespace AmazonApp.Models.Main
 
         public string ProductCategoryName { get; set; }
 
+		#region ProductCategoryId Annotations
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [System.ComponentModel.DataAnnotations.Key]
+		#endregion ProductCategoryId Annotations
+
+        public int ProductCategoryId { get; set; }
+
 
         public vProductCategoryLookup()
         {

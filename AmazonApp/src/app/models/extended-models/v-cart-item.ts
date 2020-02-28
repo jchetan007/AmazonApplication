@@ -11,4 +11,15 @@ export class vCartItem extends vCartItemBase
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

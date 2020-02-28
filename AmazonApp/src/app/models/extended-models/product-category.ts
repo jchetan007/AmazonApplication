@@ -16,12 +16,22 @@ store : StoreBase;
 //#region productSubCategories Prop
 productSubCategories : ProductSubCategoryBase[];
 //#endregion productSubCategories Prop
-
 //#region discounts Prop
-        discounts : DiscountBase[];
+discounts : DiscountBase[];
 //#endregion discounts Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

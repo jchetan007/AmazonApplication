@@ -25,11 +25,7 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<Color> Color { get; set; }
 		public DbSet<Material> Material { get; set; }
 		public DbSet<Language> Language { get; set; }
-		public DbSet<vBrand> vBrand { get; set; }
-		public DbSet<vSize> vSize { get; set; }
-		public DbSet<vColor> vColor { get; set; }
-		public DbSet<vMaterial> vMaterial { get; set; }
-		public DbSet<vLanguage> vLanguage { get; set; }
+	
 		public DbSet<vProductCategoryLookup> vProductCategoryLookup { get; set; }
             #endregion DbSets
 

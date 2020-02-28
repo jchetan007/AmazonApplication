@@ -19,7 +19,8 @@ export class AppUserBase {
 
 //#region mobileNumber Prop
         @required()
-        mobileNumber : any;
+        @maxLength({value:20})
+        mobileNumber : string;
 //#endregion mobileNumber Prop
 
 
@@ -30,11 +31,10 @@ export class AppUserBase {
 //#endregion emailId Prop
 
 
-//#region userPassword Prop
-        @required()
+//#region password Prop
         @maxLength({value:50})
-        userPassword : string;
-//#endregion userPassword Prop
+        password : any;
+//#endregion password Prop
 
 
 //#region createdDate Prop
@@ -48,6 +48,12 @@ export class AppUserBase {
         @required()
         roleId : number;
 //#endregion roleId Prop
+
+
+//#region salt Prop
+        @maxLength({value:50})
+        salt : any;
+//#endregion salt Prop
 
 
 

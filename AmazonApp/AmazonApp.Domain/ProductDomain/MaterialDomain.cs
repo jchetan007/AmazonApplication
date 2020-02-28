@@ -15,16 +15,21 @@ namespace AmazonApp.Domain.ProductModule
     {
         public MaterialDomain(IProductUow uow, IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
+            DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(Material parameters)
+        public async Task<object> GetAsync(Material parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<Material>().AllAsync();
         }
 
-        public Task<object> GetBy(Material parameters)
+        public async Task<object> GetBy(Material parameters)
         {
-            throw new NotImplementedException();
+           // var spParameters = new SqlParameter[1];
+           // spParameters[0] = new SqlParameter() { ParameterName = "MaterialType", Value = parameters.MaterialType };
+
+            return await Uow.Repository<Material>().FindByAsync(t => t.MaterialId == parameters.MaterialId);
+           // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterMaterials ", spParameters);
         }
         
 
@@ -33,23 +38,11 @@ namespace AmazonApp.Domain.ProductModule
             return ValidationMessages;
         }
 
-        public async Task AddAsync(Material parameters)
+        public async Task AddAsync(Material entity)
         {
-            await DbContextManager.BeginTransactionAsync();
-
-            var spParameters = new SqlParameter[1];
-            spParameters[0] = new SqlParameter() { ParameterName = "MaterialType", Value = parameters.MaterialType };
-
-
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterMaterials ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
+            
         }
 
         public HashSet<string> UpdateValidation(Material entity)
@@ -73,6 +66,7 @@ namespace AmazonApp.Domain.ProductModule
             throw new NotImplementedException();
         }
 
+        
         public IProductUow Uow { get; set; }
 
         private HashSet<string> ValidationMessages { get; set; } = new HashSet<string>();

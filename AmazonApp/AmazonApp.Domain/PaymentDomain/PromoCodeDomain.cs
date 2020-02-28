@@ -22,9 +22,11 @@ namespace AmazonApp.Domain.PaymentModule
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(PromoCode parameters)
+        public async Task GetBy(PromoCode parameters)
         {
-            throw new NotImplementedException();
+            await Uow.RegisterNewAsync(parameters);
+            await Uow.CommitAsync();
+
         }
         
 
@@ -33,23 +35,11 @@ namespace AmazonApp.Domain.PaymentModule
             return ValidationMessages;
         }
 
-        public async Task AddAsync(PromoCode parameters)
+        public async Task AddAsync(PromoCode entity)
         {
-            await DbContextManager.BeginTransactionAsync();
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
 
-            var spParameters = new SqlParameter[2];
-            spParameters[0] = new SqlParameter() { ParameterName = "Amount", Value = parameters.Amount };
-            spParameters[1] = new SqlParameter() { ParameterName = "PromoCodeName", Value = parameters.PromoCodeName };
-
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spPromoCodes ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
         }
 
         public HashSet<string> UpdateValidation(PromoCode entity)
@@ -59,8 +49,11 @@ namespace AmazonApp.Domain.PaymentModule
 
         public async Task UpdateAsync(PromoCode entity)
         {
-            await Uow.RegisterDirtyAsync(entity);
-            await Uow.CommitAsync();
+            var spParameters = new SqlParameter[2];
+            spParameters[0] = new SqlParameter() { ParameterName = "Amount", Value = entity.Amount };
+            spParameters[1] = new SqlParameter() { ParameterName = "PromoCodeName", Value = entity.PromoCodeName };
+
+            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spPromoCodes ", spParameters);
         }
 
         public HashSet<string> DeleteValidation(PromoCode parameters)
@@ -69,6 +62,46 @@ namespace AmazonApp.Domain.PaymentModule
         }
 
         public Task DeleteAsync(PromoCode parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<object> ICoreDomain<PromoCode, PromoCode>.GetAsync(PromoCode parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<object> ICoreDomain<PromoCode, PromoCode>.GetBy(PromoCode parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        HashSet<string> ICoreDomain<PromoCode, PromoCode>.AddValidation(PromoCode entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        HashSet<string> ICoreDomain<PromoCode, PromoCode>.UpdateValidation(PromoCode entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task ICoreDomain<PromoCode, PromoCode>.AddAsync(PromoCode entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task ICoreDomain<PromoCode, PromoCode>.UpdateAsync(PromoCode entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        HashSet<string> ICoreDomain<PromoCode, PromoCode>.DeleteValidation(PromoCode parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task ICoreDomain<PromoCode, PromoCode>.DeleteAsync(PromoCode parameters)
         {
             throw new NotImplementedException();
         }

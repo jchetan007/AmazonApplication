@@ -15,4 +15,15 @@ offer : OfferBase;
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -6376,11 +6376,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\radix\\source\\repos\\AmazonApp\\AmazonApp.UnitOfWork\\AmazonApp.UnitOfWork.csproj",
+      "projectUniqueName": "C:\\Users\\radix\\Source\\Repos\\AmazonApplication2\\AmazonApp\\AmazonApp.UnitOfWork\\AmazonApp.UnitOfWork.csproj",
       "projectName": "AmazonApp.UnitOfWork",
-      "projectPath": "C:\\Users\\radix\\source\\repos\\AmazonApp\\AmazonApp.UnitOfWork\\AmazonApp.UnitOfWork.csproj",
+      "projectPath": "C:\\Users\\radix\\Source\\Repos\\AmazonApplication2\\AmazonApp\\AmazonApp.UnitOfWork\\AmazonApp.UnitOfWork.csproj",
       "packagesPath": "C:\\Users\\radix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\radix\\source\\repos\\AmazonApp\\AmazonApp.UnitOfWork\\obj\\",
+      "outputPath": "C:\\Users\\radix\\Source\\Repos\\AmazonApplication2\\AmazonApp\\AmazonApp.UnitOfWork\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\radix\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6396,8 +6396,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\radix\\source\\repos\\AmazonApp\\AmazonApp.BoundedContext\\AmazonApp.BoundedContext.csproj": {
-              "projectPath": "C:\\Users\\radix\\source\\repos\\AmazonApp\\AmazonApp.BoundedContext\\AmazonApp.BoundedContext.csproj"
+            "C:\\Users\\radix\\Source\\Repos\\AmazonApplication2\\AmazonApp\\AmazonApp.BoundedContext\\AmazonApp.BoundedContext.csproj": {
+              "projectPath": "C:\\Users\\radix\\Source\\Repos\\AmazonApplication2\\AmazonApp\\AmazonApp.BoundedContext\\AmazonApp.BoundedContext.csproj"
             }
           }
         }

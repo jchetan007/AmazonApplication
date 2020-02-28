@@ -12,7 +12,8 @@ export class CardBase {
 
 //#region cardNumber Prop
         @required()
-        cardNumber : any;
+        @maxLength({value:20})
+        cardNumber : string;
 //#endregion cardNumber Prop
 
 
@@ -31,8 +32,9 @@ export class CardBase {
 
 
 //#region cvv Prop
+        @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
-        cvv : any;
+        cvv : number;
 //#endregion cvv Prop
 
 

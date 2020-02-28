@@ -19,4 +19,15 @@ orderDetails : OrderDetailBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

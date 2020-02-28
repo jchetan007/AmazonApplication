@@ -37,11 +37,11 @@ namespace AmazonApp.Models.Main
 
 		#region AccountNumber Annotations
 
-        [Range(1,int.MaxValue)]
         [Required]
+        [MaxLength(20)]
 		#endregion AccountNumber Annotations
 
-        public int AccountNumber { get; set; }
+        public string AccountNumber { get; set; }
 
 		#region Balance Annotations
 

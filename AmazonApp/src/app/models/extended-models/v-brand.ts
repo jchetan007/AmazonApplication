@@ -11,4 +11,5 @@ export class vBrand extends vBrandBase
 //#endregion Generated Reference Properties
 
 
+
 }

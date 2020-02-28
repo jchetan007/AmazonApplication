@@ -19,4 +19,15 @@ musicSubCategories : MusicSubCategoryBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

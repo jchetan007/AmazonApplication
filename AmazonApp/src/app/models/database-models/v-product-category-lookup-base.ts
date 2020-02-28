@@ -9,4 +9,10 @@ export class vProductCategoryLookupBase {
         productCategoryName : string;
 //#endregion productCategoryName Prop
 
+
+//#region productCategoryId Prop
+        @gridColumn({visible: true, columnIndex:1, allowSorting: true, headerKey: 'productCategoryId', keyColumn: true})
+        productCategoryId : number;
+//#endregion productCategoryId Prop
+
 }

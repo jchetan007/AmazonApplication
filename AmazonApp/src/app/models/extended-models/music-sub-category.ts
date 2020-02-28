@@ -19,4 +19,15 @@ musics : MusicBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

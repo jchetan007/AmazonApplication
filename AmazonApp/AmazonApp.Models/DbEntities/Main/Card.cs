@@ -22,9 +22,10 @@ namespace AmazonApp.Models.Main
 		#region CardNumber Annotations
 
         [Required]
+        [MaxLength(20)]
 		#endregion CardNumber Annotations
 
-        public long CardNumber { get; set; }
+        public string CardNumber { get; set; }
 
 		#region CardType Annotations
 
@@ -44,10 +45,11 @@ namespace AmazonApp.Models.Main
 
 		#region Cvv Annotations
 
+        [Range(1,int.MaxValue)]
         [Required]
 		#endregion Cvv Annotations
 
-        public short Cvv { get; set; }
+        public int Cvv { get; set; }
 
 		#region AppUserId Annotations
 

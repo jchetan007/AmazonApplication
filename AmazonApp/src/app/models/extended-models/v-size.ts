@@ -11,4 +11,5 @@ export class vSize extends vSizeBase
 //#endregion Generated Reference Properties
 
 
+
 }

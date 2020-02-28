@@ -23,4 +23,15 @@ shippingFeeDetail : ShippingFeeDetailBase;
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

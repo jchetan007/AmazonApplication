@@ -31,6 +31,20 @@ export class CartItemBase {
 //#endregion productQuantity Prop
 
 
+//#region totalPrice Prop
+        @range({minimumNumber:1,maximumNumber:2147483647})
+        @required()
+        totalPrice : number;
+//#endregion totalPrice Prop
+
+
+//#region cartQuantity Prop
+        @range({minimumNumber:1,maximumNumber:2147483647})
+        @required()
+        cartQuantity : number;
+//#endregion cartQuantity Prop
+
+
 
 
 

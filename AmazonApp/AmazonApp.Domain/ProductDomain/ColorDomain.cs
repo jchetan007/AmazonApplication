@@ -15,16 +15,22 @@ namespace AmazonApp.Domain.ProductModule
     {
         public ColorDomain(IProductUow uow, IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
+            DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(Color parameters)
+        public async Task<object> GetAsync(Color parameters)
         {
+            return await Uow.Repository<Color>().AllAsync();
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(Color parameters)
+        public async Task<object> GetBy(Color parameters)
         {
-            throw new NotImplementedException();
+            // var spParameters = new SqlParameter[1];
+            // spParameters[0] = new SqlParameter() { ParameterName = "ColorName", Value = parameters.ColorName };
+
+            return await Uow.Repository<Color>().FindByAsync(t => t.ColorId == parameters.ColorId);
+            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterColors ", spParameters);
         }
         
 
@@ -33,23 +39,14 @@ namespace AmazonApp.Domain.ProductModule
             return ValidationMessages;
         }
 
-        public async Task AddAsync(Color parameters)
+        public async Task AddAsync(Color entity)
         {
-            await DbContextManager.BeginTransactionAsync();
-
-            var spParameters = new SqlParameter[1];
-            spParameters[0] = new SqlParameter() { ParameterName = "ColorName", Value = parameters.ColorName };
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
 
 
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterColors ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
+
+
         }
 
         public HashSet<string> UpdateValidation(Color entity)
@@ -72,6 +69,8 @@ namespace AmazonApp.Domain.ProductModule
         {
             throw new NotImplementedException();
         }
+
+        
 
         public IProductUow Uow { get; set; }
 

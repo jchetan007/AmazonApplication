@@ -10,7 +10,7 @@ namespace AmazonApp.Api.Controllers.PaymentModule
     [ApiController]
     [Route("api/[controller]")]
 	
-	public class PromoCodesController : BaseDomainController<PromoCode>
+	public class PromoCodesController : BaseDomainController<PromoCode, PromoCode>
 
     {
         public PromoCodesController(IPromoCodeDomain domain):base(domain) {}

@@ -27,16 +27,16 @@ namespace AmazonApp.Models.Main
 
         public string ProductName { get; set; }
 
-		#region ProductPrice Annotations
+		#region OriginalProductPrice Annotations
 
         [Required]
-		#endregion ProductPrice Annotations
+		#endregion OriginalProductPrice Annotations
 
-        public long ProductPrice { get; set; }
+        public long OriginalProductPrice { get; set; }
 
 		#region SellerDetailId Annotations
 
-        [Range(1,int.MaxValue)]
+        [Range(1, int.MaxValue)]
         [Required]
         [RelationshipTableAttribue("SellerDetails","dbo","","SellerDetailId")]
 		#endregion SellerDetailId Annotations
@@ -45,7 +45,7 @@ namespace AmazonApp.Models.Main
 
 		#region ApplicationObjectId Annotations
 
-        [Range(1,int.MaxValue)]
+        [Range(1, int.MaxValue)]
         [Required]
 		#endregion ApplicationObjectId Annotations
 
@@ -86,7 +86,6 @@ namespace AmazonApp.Models.Main
 
         public Nullable<int> LanguageId { get; set; }
 
-		
         public int RoleId { get; set; }
 
 		#region BankDetailId Annotations
@@ -95,6 +94,9 @@ namespace AmazonApp.Models.Main
 		#endregion BankDetailId Annotations
 
         public Nullable<int> BankDetailId { get; set; }
+
+
+        public Nullable<long> DiscountProductPrice { get; set; }
 
 		#region AppUser Annotations
 
@@ -168,13 +170,6 @@ namespace AmazonApp.Models.Main
 
         public virtual Size Size { get; set; }
 
-		#region Products Annotations
-
-        [InverseProperty("Seller")]
-		#endregion Products Annotations
-
-        public virtual ICollection<Product> Products { get; set; }
-
 		#region ShippingDetails Annotations
 
         [InverseProperty("Seller")]
@@ -196,13 +191,20 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Discount> Discounts { get; set; }
 
+		#region Products Annotations
+
+        [InverseProperty("Seller")]
+		#endregion Products Annotations
+
+        public virtual ICollection<Product> Products { get; set; }
+
 
         public Seller()
         {
-			Products = new HashSet<Product>();
 			ShippingDetails = new HashSet<ShippingDetail>();
 			Transactions = new HashSet<Transaction>();
 			Discounts = new HashSet<Discount>();
+			Products = new HashSet<Product>();
         }
 	}
 }

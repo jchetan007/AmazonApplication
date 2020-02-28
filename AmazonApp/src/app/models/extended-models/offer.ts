@@ -23,4 +23,15 @@ advertisements : AdvertisementBase[];
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -11,4 +11,15 @@ export class vInvoice extends vInvoiceBase
 //#endregion Generated Reference Properties
 
 
+
+
+
+
+
+
+
+
+
+
+
 }
