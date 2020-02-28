@@ -81,34 +81,6 @@ namespace AmazonApp.Models.Main
 
         public virtual Role Role { get; set; }
 
-		#region FeedBacks Annotations
-
-        [InverseProperty("AppUser")]
-		#endregion FeedBacks Annotations
-
-        public virtual ICollection<FeedBack> FeedBacks { get; set; }
-
-		#region Sellers Annotations
-
-        [InverseProperty("AppUser")]
-		#endregion Sellers Annotations
-
-        public virtual ICollection<Seller> Sellers { get; set; }
-
-		#region Otps Annotations
-
-        [InverseProperty("AppUser")]
-		#endregion Otps Annotations
-
-        public virtual ICollection<Otp> Otps { get; set; }
-
-		#region PrimeMusics Annotations
-
-        [InverseProperty("AppUser")]
-		#endregion PrimeMusics Annotations
-
-        public virtual ICollection<PrimeMusic> PrimeMusics { get; set; }
-
 		#region UserAddresses Annotations
 
         [InverseProperty("AppUser")]
@@ -158,13 +130,37 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Card> Cards { get; set; }
 
+		#region FeedBacks Annotations
+
+        [InverseProperty("AppUser")]
+		#endregion FeedBacks Annotations
+
+        public virtual ICollection<FeedBack> FeedBacks { get; set; }
+
+		#region Sellers Annotations
+
+        [InverseProperty("AppUser")]
+		#endregion Sellers Annotations
+
+        public virtual ICollection<Seller> Sellers { get; set; }
+
+		#region Otps Annotations
+
+        [InverseProperty("AppUser")]
+		#endregion Otps Annotations
+
+        public virtual ICollection<Otp> Otps { get; set; }
+
+		#region PrimeMusics Annotations
+
+        [InverseProperty("AppUser")]
+		#endregion PrimeMusics Annotations
+
+        public virtual ICollection<PrimeMusic> PrimeMusics { get; set; }
+
 
         public AppUser()
         {
-			FeedBacks = new HashSet<FeedBack>();
-			Sellers = new HashSet<Seller>();
-			Otps = new HashSet<Otp>();
-			PrimeMusics = new HashSet<PrimeMusic>();
 			UserAddresses = new HashSet<UserAddress>();
 			Transactions = new HashSet<Transaction>();
 			Carts = new HashSet<Cart>();
@@ -172,6 +168,10 @@ namespace AmazonApp.Models.Main
 			SellerDetails = new HashSet<SellerDetail>();
 			Orders = new HashSet<Order>();
 			Cards = new HashSet<Card>();
+			FeedBacks = new HashSet<FeedBack>();
+			Sellers = new HashSet<Seller>();
+			Otps = new HashSet<Otp>();
+			PrimeMusics = new HashSet<PrimeMusic>();
         }
 	}
 }

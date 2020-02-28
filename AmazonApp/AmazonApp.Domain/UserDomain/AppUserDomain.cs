@@ -46,10 +46,11 @@ namespace AmazonApp.Domain.UserModule
         public async Task AddAsync(AppUser entity)
         {
 
-            PasswordResult passwordResult = PasswordHash.Encrypt(Convert.ToBase64String(entity.Password));
+            PasswordResult passwordResult = PasswordHash.Encrypt(entity.UserPassword);
             entity.Password = passwordResult.Signature;
             entity.Salt = passwordResult.Salt;
             await Uow.RegisterNewAsync<AppUser>(entity);
+            await Uow.CommitAsync();
             //throw new NotImplementedException();
         }
 
@@ -66,10 +67,9 @@ namespace AmazonApp.Domain.UserModule
             spParameters[0] = new SqlParameter() { ParameterName = "AppUserId", Value = parameters.AppUserId };
             spParameters[1] = new SqlParameter() { ParameterName = "UserPassword", Value = parameters.Password };
 
-
-
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spChangePassword ", spParameters);
-            
+            await DbContextManager.CommitAsync();
+
         }
 
         public HashSet<string> DeleteValidation(AppUser parameters)

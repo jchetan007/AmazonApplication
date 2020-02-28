@@ -25,11 +25,11 @@ namespace AmazonApp.Domain.ProductModule
 
         public async Task<object> GetBy(Language parameters)
         {
+            return await Uow.Repository<Language>().FindByAsync(t => t.LanguageId == parameters.LanguageId);
+            
             //  var spParameters = new SqlParameter[1];
             //  spParameters[0] = new SqlParameter() { ParameterName = "LanguageName", Value = parameters.LanguageName };
-
-            return await Uow.Repository<Language>().FindByAsync(t => t.LanguageId == parameters.LanguageId);
-           // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterLanguages ", spParameters);
+            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterLanguages ", spParameters);
         }
         
 

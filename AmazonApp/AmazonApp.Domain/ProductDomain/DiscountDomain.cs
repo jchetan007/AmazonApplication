@@ -52,6 +52,7 @@ namespace AmazonApp.Domain.ProductModule
             spParameters[1] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spDiscounts ", spParameters);
+            await DbContextManager.CommitAsync();
         }
 
         public HashSet<string> DeleteValidation(Discount parameters)

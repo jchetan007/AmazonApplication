@@ -21,15 +21,15 @@ namespace AmazonApp.Domain.ProductModule
         public async Task<object> GetAsync(Color parameters)
         {
             return await Uow.Repository<Color>().AllAsync();
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public async Task<object> GetBy(Color parameters)
         {
+            return await Uow.Repository<Color>().FindByAsync(t => t.ColorId == parameters.ColorId);
+
             // var spParameters = new SqlParameter[1];
             // spParameters[0] = new SqlParameter() { ParameterName = "ColorName", Value = parameters.ColorName };
-
-            return await Uow.Repository<Color>().FindByAsync(t => t.ColorId == parameters.ColorId);
             // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterColors ", spParameters);
         }
         

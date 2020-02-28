@@ -7,7 +7,7 @@
 	"unitOfWork": "AmazonApp.UnitOfWork",
     "infrastructure": "AmazonApp.Infrastructure",
     "azureFunctionHttp":"",
-    "portal":"",
+    "portal":"AmazonApp-portal",
     "azureFunctionBackground":""
   },
   "path": {

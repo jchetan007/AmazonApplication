@@ -24,11 +24,11 @@ namespace AmazonApp.Domain.ProductModule
 
         public async Task<object> GetBy(Size parameters)
         {
-           // var spParameters = new SqlParameter[1];
-           // spParameters[0] = new SqlParameter() { ParameterName = "SizeType", Value = parameters.SizeType };
+            return await Uow.Repository<Size>().FindByAsync(t => t.SizeId == parameters.SizeId);
 
-            return await Uow.Repository<Size>().FindByAsync(t => t.SizeId== parameters.SizeId);
-           // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterSizes ", spParameters);
+            // var spParameters = new SqlParameter[1];
+            // spParameters[0] = new SqlParameter() { ParameterName = "SizeType", Value = parameters.SizeType };
+            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterSizes ", spParameters);
         }
         
 

@@ -25,11 +25,11 @@ namespace AmazonApp.Domain.ProductModule
 
         public async Task<object> GetBy(Material parameters)
         {
-           // var spParameters = new SqlParameter[1];
-           // spParameters[0] = new SqlParameter() { ParameterName = "MaterialType", Value = parameters.MaterialType };
-
             return await Uow.Repository<Material>().FindByAsync(t => t.MaterialId == parameters.MaterialId);
-           // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterMaterials ", spParameters);
+
+            // var spParameters = new SqlParameter[1];
+            // spParameters[0] = new SqlParameter() { ParameterName = "MaterialType", Value = parameters.MaterialType };
+            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterMaterials ", spParameters);
         }
         
 

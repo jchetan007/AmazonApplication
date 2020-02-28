@@ -41,6 +41,7 @@ namespace AmazonApp.Domain.CartModule
             spParameters[1] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCartItems ", spParameters);
+            await DbContextManager.CommitAsync();
         }
 
         public HashSet<string> UpdateValidation(vCartItem entity)

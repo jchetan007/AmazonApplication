@@ -22,10 +22,9 @@ namespace AmazonApp.Domain.PaymentModule
             throw new NotImplementedException();
         }
 
-        public async Task GetBy(PromoCode parameters)
+        public Task GetBy(PromoCode parameters)
         {
-            await Uow.RegisterNewAsync(parameters);
-            await Uow.CommitAsync();
+            throw new NotImplementedException();
 
         }
         
@@ -54,6 +53,7 @@ namespace AmazonApp.Domain.PaymentModule
             spParameters[1] = new SqlParameter() { ParameterName = "PromoCodeName", Value = entity.PromoCodeName };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spPromoCodes ", spParameters);
+            await DbContextManager.CommitAsync();
         }
 
         public HashSet<string> DeleteValidation(PromoCode parameters)

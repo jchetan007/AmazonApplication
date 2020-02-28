@@ -86,6 +86,7 @@ namespace AmazonApp.Models.Main
 
         public Nullable<int> LanguageId { get; set; }
 
+
         public int RoleId { get; set; }
 
 		#region BankDetailId Annotations
