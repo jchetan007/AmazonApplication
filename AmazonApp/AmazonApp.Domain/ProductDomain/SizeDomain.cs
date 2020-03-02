@@ -25,10 +25,7 @@ namespace AmazonApp.Domain.ProductModule
         public async Task<object> GetBy(Size parameters)
         {
             return await Uow.Repository<Size>().FindByAsync(t => t.SizeId == parameters.SizeId);
-
-            // var spParameters = new SqlParameter[1];
-            // spParameters[0] = new SqlParameter() { ParameterName = "SizeType", Value = parameters.SizeType };
-            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterSizes ", spParameters);
+                      
         }
         
 

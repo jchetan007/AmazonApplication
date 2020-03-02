@@ -32,7 +32,7 @@ namespace AmazonApp.Domain.UserModule
         public async Task<object> GetBy(AppUser parameters)
         {
            
-            return await Uow.Repository<AppUser>().FindByAsync(t => t.MobileNumber == parameters.MobileNumber);
+            return await Uow.Repository<AppUser>().FindByAsync(t => t.MobileNumber == parameters.MobileNumber || t.EmailId == parameters.EmailId);
             
             //throw new NotImplementedException();
         }

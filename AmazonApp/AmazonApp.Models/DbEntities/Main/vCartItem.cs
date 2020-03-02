@@ -34,16 +34,19 @@ namespace AmazonApp.Models.Main
         public int ProductQuantity { get; set; }
 
 
-        public int TotalPrice { get; set; }
+        public Nullable<int> TotalPrice { get; set; }
 
 
         public int CartValue { get; set; }
 
 
-        public int CartQuantity { get; set; }
+        public Nullable<int> CartQuantity { get; set; }
 
 
         public int ProductId { get; set; }
+
+
+        public int CartId { get; set; }
 
 
         public vCartItem()

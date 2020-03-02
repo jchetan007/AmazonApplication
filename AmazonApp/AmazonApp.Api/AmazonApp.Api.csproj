@@ -19,6 +19,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Api\CartModule\" />
     <Folder Include="Controllers\Api\ProductModule\" />
+    <Folder Include="Controllers\Api\Search\Main\" />
   </ItemGroup>
 
   <PropertyGroup>

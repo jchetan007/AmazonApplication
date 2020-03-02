@@ -21,13 +21,8 @@ namespace AmazonApp.Domain.ProductModule
         public async Task<object> GetAsync(Brand parameters)
         {
             return await Uow.Repository<Brand>().AllAsync();
+                     
             
-            
-            //var spParameters = new SqlParameter[1];
-            //spParameters[0] = new SqlParameter() { ParameterName = "BrandName", Value = parameters.BrandName };
-            //throw new NotImplementedException();
-            //await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterBrands ", spParameters);
-
         }
 
         public async Task<object> GetBy(Brand parameters)

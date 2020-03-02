@@ -27,10 +27,7 @@ namespace AmazonApp.Domain.ProductModule
         public async Task<object> GetBy(Color parameters)
         {
             return await Uow.Repository<Color>().FindByAsync(t => t.ColorId == parameters.ColorId);
-
-            // var spParameters = new SqlParameter[1];
-            // spParameters[0] = new SqlParameter() { ParameterName = "ColorName", Value = parameters.ColorName };
-            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterColors ", spParameters);
+                        
         }
         
 
@@ -43,10 +40,6 @@ namespace AmazonApp.Domain.ProductModule
         {
             await Uow.RegisterNewAsync(entity);
             await Uow.CommitAsync();
-
-
-
-
         }
 
         public HashSet<string> UpdateValidation(Color entity)

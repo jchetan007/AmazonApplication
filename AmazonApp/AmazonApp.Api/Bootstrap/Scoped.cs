@@ -13,7 +13,11 @@ using AmazonApp.Domain.UserModule;
             using AmazonApp.Domain.PrimeMusicModule;
             using AmazonApp.Domain.ProductModule;
             using AmazonApp.Domain.CartModule;
+            using AmazonApp.Domain.SellerModule;
+            using AmazonApp.Domain.OrderModule;
             #endregion Namespace
+
+
 
 
 
@@ -99,7 +103,13 @@ namespace AmazonApp.Api.Bootstrap
       
             
             serviceCollection.AddScoped<IvCartItemDomain, vCartItemDomain>();
+            
+            serviceCollection.AddScoped<ISellerDomain, SellerDomain>();
+            
+            serviceCollection.AddScoped<IOrderDomain, OrderDomain>();
             #endregion DomainService
+
+
 
 
 

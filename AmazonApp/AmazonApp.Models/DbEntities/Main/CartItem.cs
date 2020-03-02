@@ -45,21 +45,11 @@ namespace AmazonApp.Models.Main
 
         public int ProductQuantity { get; set; }
 
-		#region TotalPrice Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion TotalPrice Annotations
+        public Nullable<int> TotalPrice { get; set; }
 
-        public int TotalPrice { get; set; }
 
-		#region CartQuantity Annotations
-
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion CartQuantity Annotations
-
-        public int CartQuantity { get; set; }
+        public Nullable<int> CartQuantity { get; set; }
 
 		#region Cart Annotations
 

@@ -1,6 +1,5 @@
 import {AppUserBase} from '../database-models/app-user-base';
 import {RoleBase} from '../database-models/role-base';
-import {UserAddressBase} from '../database-models/user-address-base';
 import {TransactionBase} from '../database-models/transaction-base';
 import {CartBase} from '../database-models/cart-base';
 import {BankDetailBase} from '../database-models/bank-detail-base';
@@ -11,6 +10,7 @@ import {FeedBackBase} from '../database-models/feed-back-base';
 import {SellerBase} from '../database-models/seller-base';
 import {OtpBase} from '../database-models/otp-base';
 import {PrimeMusicBase} from '../database-models/prime-music-base';
+import {UserAddressBase} from '../database-models/user-address-base';
 //Generated Imports
 export class AppUser extends AppUserBase 
 {
@@ -22,10 +22,6 @@ export class AppUser extends AppUserBase
 //#region role Prop
         role : RoleBase;
 //#endregion role Prop
-
-//#region userAddresses Prop
-        userAddresses : UserAddressBase[];
-//#endregion userAddresses Prop
 
 //#region transactions Prop
         transactions : TransactionBase[];
@@ -66,6 +62,10 @@ export class AppUser extends AppUserBase
 //#region primeMusics Prop
         primeMusics : PrimeMusicBase[];
 //#endregion primeMusics Prop
+
+//#region userAddresses Prop
+        userAddresses : UserAddressBase[];
+//#endregion userAddresses Prop
 
 //#endregion Generated Reference Properties
 }

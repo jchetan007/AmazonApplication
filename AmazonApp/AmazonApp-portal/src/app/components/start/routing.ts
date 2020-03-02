@@ -8,13 +8,26 @@ var routings = [
     {
         path: "login",
         loadChildren: () => import("../login/login.module").then(m => m.LoginModule),
-    }, {
+	},
+	{
 		path: "v-cart-items",
 		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
 	},
 	{
 		path: "v-cart-items",
 		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
+	},
+	{
+		path: "v-cart-items",
+		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
 	},
 	{
 		path: "promo-codes",
@@ -27,6 +40,10 @@ var routings = [
 	{
 		path: "v-cart-items",
 		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
 	},
 	{
 		path: "promo-codes",
@@ -43,6 +60,54 @@ var routings = [
 	{
 		path: "v-cart-items",
 		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
+	},
+	{
+		path: "promo-codes",
+		loadChildren: () => import("../payment/promo-codes/promo-code.module").then(m => m.PromoCodeModule)
+	},
+	{
+		path: "transactions",
+		loadChildren: () => import("../payment/transactions/transaction.module").then(m => m.TransactionModule)
+	},
+	{
+		path: "prime-musics",
+		loadChildren: () => import("../prime-music/prime-musics/prime-music.module").then(m => m.PrimeMusicModule)
+	},
+	{
+		path: "brands",
+		loadChildren: () => import("../product/brands/brand.module").then(m => m.BrandModule)
+	},
+	{
+		path: "colors",
+		loadChildren: () => import("../product/colors/color.module").then(m => m.ColorModule)
+	},
+	{
+		path: "discounts",
+		loadChildren: () => import("../product/discounts/discount.module").then(m => m.DiscountModule)
+	},
+	{
+		path: "languages",
+		loadChildren: () => import("../product/languages/language.module").then(m => m.LanguageModule)
+	},
+	{
+		path: "materials",
+		loadChildren: () => import("../product/materials/material.module").then(m => m.MaterialModule)
+	},
+	{
+		path: "sizes",
+		loadChildren: () => import("../product/sizes/size.module").then(m => m.SizeModule)
+	},
+	{
+		path: "v-cart-items",
+		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
 	},
 	{
 		path: "promo-codes",
@@ -81,8 +146,16 @@ var routings = [
 		loadChildren: () => import("../product/sizes/size.module").then(m => m.SizeModule)
 	},
 	{
+		path: "sellers",
+		loadChildren: () => import("../seller/sellers/seller.module").then(m => m.SellerModule)
+	},
+	{
 		path: "v-cart-items",
 		loadChildren: () => import("../cart/v-cart-items/v-cart-item.module").then(m => m.vCartItemModule)
+	},
+	{
+		path: "orders",
+		loadChildren: () => import("../order/orders/order.module").then(m => m.OrderModule)
 	},
 	{
 		path: "promo-codes",
@@ -119,6 +192,10 @@ var routings = [
 	{
 		path: "sizes",
 		loadChildren: () => import("../product/sizes/size.module").then(m => m.SizeModule)
+	},
+	{
+		path: "sellers",
+		loadChildren: () => import("../seller/sellers/seller.module").then(m => m.SellerModule)
 	},
 	{
 		path: "app-users",
@@ -127,9 +204,9 @@ var routings = [
 	{
 		path: "otps",
 		loadChildren: () => import("../user/otps/otp.module").then(m => m.OtpModule)
-	}
+	},
 ]
-       
+      
 //generated code
 //])
 

@@ -51,6 +51,7 @@ namespace AmazonApp.Domain.ProductModule
             spParameters[0] = new SqlParameter() { ParameterName = "DiscountPrice", Value = entity.DiscountPrice };
             spParameters[1] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
 
+
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spDiscounts ", spParameters);
             await DbContextManager.CommitAsync();
         }

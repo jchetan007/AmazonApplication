@@ -23,9 +23,10 @@ namespace AmazonApp.Domain.PaymentModule
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(Transaction parameters)
+        public async Task<object> GetBy(Transaction parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<Transaction>().FindByAsync(t => t.TransactionId == parameters.TransactionId);
+            //throw new NotImplementedException();
         }
         
 

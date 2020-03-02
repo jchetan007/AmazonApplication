@@ -15,11 +15,13 @@ namespace AmazonApp.Domain.PaymentModule
     {
         public PromoCodeDomain(IPaymentUow uow ,IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
+            DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(PromoCode parameters)
+        public async Task<object> GetAsync(PromoCode parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<PromoCode>().AllAsync();
+            //throw new NotImplementedException();
         }
 
         public Task GetBy(PromoCode parameters)

@@ -11,8 +11,7 @@ export class CartBase {
 
 
 //#region cartValue Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
+        @prop()
         cartValue : number;
 //#endregion cartValue Prop
 

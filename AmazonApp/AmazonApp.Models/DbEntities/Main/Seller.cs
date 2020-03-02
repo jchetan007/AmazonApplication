@@ -86,6 +86,13 @@ namespace AmazonApp.Models.Main
 
         public Nullable<int> LanguageId { get; set; }
 
+		#region RoleId Annotations
+
+        [Range(1,int.MaxValue)]
+        [Required]
+        [RelationshipTableAttribue("AppUsers","dbo","","RoleId")]
+        [RelationshipTableAttribue("Roles","dbo","","RoleId")]
+		#endregion RoleId Annotations
 
         public int RoleId { get; set; }
 

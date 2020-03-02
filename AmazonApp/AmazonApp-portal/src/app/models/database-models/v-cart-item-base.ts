@@ -42,7 +42,7 @@ export class vCartItemBase {
 
 //#region totalPrice Prop
         @gridColumn({visible: true, columnIndex:6, allowSorting: true, headerKey: 'totalPrice', keyColumn: false})
-        totalPrice : number;
+        totalPrice : any;
 //#endregion totalPrice Prop
 
 
@@ -54,7 +54,7 @@ export class vCartItemBase {
 
 //#region cartQuantity Prop
         @gridColumn({visible: true, columnIndex:8, allowSorting: true, headerKey: 'cartQuantity', keyColumn: false})
-        cartQuantity : number;
+        cartQuantity : any;
 //#endregion cartQuantity Prop
 
 
@@ -62,5 +62,11 @@ export class vCartItemBase {
         @gridColumn({visible: true, columnIndex:9, allowSorting: true, headerKey: 'productId', keyColumn: false})
         productId : number;
 //#endregion productId Prop
+
+
+//#region cartId Prop
+        @gridColumn({visible: true, columnIndex:10, allowSorting: true, headerKey: 'cartId', keyColumn: false})
+        cartId : number;
+//#endregion cartId Prop
 
 }

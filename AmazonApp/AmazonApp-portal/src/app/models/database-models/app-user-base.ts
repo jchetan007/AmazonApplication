@@ -32,8 +32,9 @@ export class AppUserBase {
 
 
 //#region password Prop
-        @maxLength({value:20})
-        password : string;
+        @required()
+        @maxLength({value:132})
+        password : any;
 //#endregion password Prop
 
 

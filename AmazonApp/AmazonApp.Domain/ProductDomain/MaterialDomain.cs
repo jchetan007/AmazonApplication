@@ -26,10 +26,7 @@ namespace AmazonApp.Domain.ProductModule
         public async Task<object> GetBy(Material parameters)
         {
             return await Uow.Repository<Material>().FindByAsync(t => t.MaterialId == parameters.MaterialId);
-
-            // var spParameters = new SqlParameter[1];
-            // spParameters[0] = new SqlParameter() { ParameterName = "MaterialType", Value = parameters.MaterialType };
-            // await DbContextManager.StoreProc<StoreProcResult>("[dbo].spFilterMaterials ", spParameters);
+          
         }
         
 

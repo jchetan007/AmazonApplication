@@ -20,7 +20,12 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<OrderDetail> OrderDetail { get; set; }
 		public DbSet<ShippingDetail> ShippingDetail { get; set; }
 		public DbSet<Invoice> Invoice { get; set; }
+            		public DbSet<Order> Order { get; set; }
+		public DbSet<OrderDetail> OrderDetail { get; set; }
+		public DbSet<Invoice> Invoice { get; set; }
+		public DbSet<ShippingDetail> ShippingDetail { get; set; }
             #endregion DbSets
+
 
 
     }

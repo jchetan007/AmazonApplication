@@ -16,6 +16,8 @@ namespace AmazonApp.Domain.CartModule
     {
         public vCartItemDomain(ICartUow uow, IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
+            DbContextManager = dbContextManager;
+
         }
 
         public Task<object> GetAsync(vCartItem parameters)
@@ -23,9 +25,10 @@ namespace AmazonApp.Domain.CartModule
             throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(vCartItem parameters)
+        public async Task<object> GetBy(vCartItem parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<vCartItem>().FindByAsync(t => t.CartId == parameters.CartId);
+            //throw new NotImplementedException();
         }
         
 
@@ -36,12 +39,8 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task AddAsync(vCartItem entity)
         {
-            var spParameters = new SqlParameter[2];
-            spParameters[0] = new SqlParameter() { ParameterName = "CartItemId", Value = entity.CartItemId };
-            spParameters[1] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
-
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCartItems ", spParameters);
-            await DbContextManager.CommitAsync();
+            await Uow.RegisterNewAsync(entity);
+            await Uow.CommitAsync();
         }
 
         public HashSet<string> UpdateValidation(vCartItem entity)
@@ -51,8 +50,15 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task UpdateAsync(vCartItem entity)
         {
-            await Uow.RegisterDirtyAsync(entity);
-            await Uow.CommitAsync();
+            var spParameters = new SqlParameter[3];
+            spParameters[0] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
+            spParameters[1] = new SqlParameter() { ParameterName = "CartItemId", Value = entity.CartItemId };
+            spParameters[2] = new SqlParameter() { ParameterName = "CartId", Value = entity.CartId };
+
+            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCarts ", spParameters);
+            await DbContextManager.CommitAsync();
+            //await Uow.RegisterDirtyAsync(entity);
+            //await Uow.CommitAsync();
         }
 
         public HashSet<string> DeleteValidation(vCartItem parameters)
