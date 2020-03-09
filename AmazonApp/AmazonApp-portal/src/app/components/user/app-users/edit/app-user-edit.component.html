@@ -1,1 +1,65 @@
-<h1>AppUsers EDIT</h1>
+<h2 style="margin-left: 900px;">Add Your Address Here</h2>
+<div class="container">
+    <div class="jumbotron">
+        <form  [formGroup]="userFormGroup">
+           
+           
+          
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" formControlName="mobilenumber" class="form-control"/> <br/>
+                <!-- <small class="form-text text-danger" *ngIf="userFormGroup.controls.mobilenumber?.errors">{{userFormGroup.controls.mobilenumber.errors?.digit?.required?.message}}<br/></small>            -->
+            </div>
+         
+            <div class="form-group">
+                <label>Pin Code</label>
+                <input type="text" formControlName="pincode" class="form-control"/><br/>
+                <!-- <small class="form-text text-danger" *ngIf="userFormGroup.controls.pincode?.errors">{{userFormGroup.controls.pincode.errors?.digit?.required?.message}}<br/></small>              -->
+            </div>
+    
+            <div class="form-group">
+                <label>Flat, House no., Building, Company, Apartment</label>
+                <input type="text" formControlName="flat" class="form-control"/>   <br/>
+                <!-- <small class="form-text text-danger" *ngIf="userFormGroup.controls.flat?.errors">{{userFormGroup.controls.flat.errors?.required?.message}}<br/></small>          -->
+            </div>
+    
+            <div class="form-group">
+                <label>Area, Colony, Street, Sector, Village</label>
+                <input type="text" formControlName="area" class="form-control"/>  <br/>        
+            </div>
+    
+    
+            <div class="form-group">
+                <label>Landmark e.g. near Apollo Hospital</label>
+                <input type="text" formControlName="landmark" class="form-control"/>   <br/>      
+            </div>
+    
+    
+            <div class="form-group">
+                <label>Town/City</label>
+                <input type="text" formControlName="city" class="form-control"/>  <br/>
+                <!-- <small class="form-text text-danger" *ngIf="userFormGroup.controls.town?.errors">{{userFormGroup.controls.town.errors?.required?.message}}<br/></small>         -->
+            </div>
+    
+    
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" formControlName="state" class="form-control"/>   <br/>
+                <!-- <small class="form-text text-danger" *ngIf="userFormGroup.controls.state?.errors">{{userFormGroup.controls.state.errors?.required?.message}}<br/></small>          -->
+            </div>
+    
+            <div>
+                <label >Address Type</label>
+                <select id = "addresstype">          
+                <option value = "1">Home</option>
+                <option value = "2">Office</option>          
+                </select><br/>
+            </div><br/>
+
+            <div>
+                <button type="button" class="btn btn-primary" (click)="Post()" style="margin-left: 450px;">Submit</button><br/>
+            </div>   
+          
+        </form>
+    </div>
+</div>

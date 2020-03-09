@@ -9,6 +9,7 @@ import { BaseToastr } from './domain/customize-design/toastr';
 import { ModalView } from './domain/customize-design/modal';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+//import { SellerAddComponent } from './components/sellers/add/seller-add.component';
 
 const route = RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: 'reload' });
 @NgModule({

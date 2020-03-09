@@ -19,7 +19,12 @@ namespace AmazonApp.BoundedContext.Main
             		public DbSet<PrimeMusic> PrimeMusic { get; set; }
 		public DbSet<Music> Music { get; set; }
 		public DbSet<MusicSubCategory> MusicSubCategory { get; set; }
+            		
+            		
+            		public DbSet<MusicCategory> MusicCategory { get; set; }
             #endregion DbSets
+
+
 
 
     }

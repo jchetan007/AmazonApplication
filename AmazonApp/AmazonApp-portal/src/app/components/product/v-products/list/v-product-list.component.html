@@ -1,0 +1,14 @@
+<h1>vProducts LIST</h1>
+<div>
+    <button class="btn btn-primary" (click)="Get()">Get Data</button><br />
+        </div>
+    
+    <div *ngFor="let product of vProducts">
+        {{product.ProductId}}
+    
+        <img src="..." class="img-fluid" alt="Responsive image"><a href="#" [routerLink]="['/product-edit',product.ProductId]"></a>
+    
+    </div>
+    
+
+    

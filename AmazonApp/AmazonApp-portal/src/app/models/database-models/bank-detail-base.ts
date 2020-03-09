@@ -32,7 +32,7 @@ export class BankDetailBase {
 
 
 //#region balance Prop
-        @required()
+        @prop()
         balance : any;
 //#endregion balance Prop
 

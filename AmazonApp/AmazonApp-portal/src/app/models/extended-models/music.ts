@@ -9,8 +9,23 @@ export class Music extends MusicBase
 
 //#region Generated Reference Properties
 //#region musicSubCategory Prop
-        musicSubCategory : MusicSubCategoryBase;
+musicSubCategory : MusicSubCategoryBase;
 //#endregion musicSubCategory Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

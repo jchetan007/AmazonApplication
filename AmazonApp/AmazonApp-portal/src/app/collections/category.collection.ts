@@ -1,11 +1,11 @@
 export const CATEGORY = [
 	{
         id : 9,
-		name : 'Mens Fashion'
+		name : 'Men's Fashion'
 	},
 	{
         id : 10,
-		name : 'Womens Fashion'
+		name : 'Women's Fashion'
 	},
 	{
         id : 11,

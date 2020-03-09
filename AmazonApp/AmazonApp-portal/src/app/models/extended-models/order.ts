@@ -12,20 +12,32 @@ export class Order extends OrderBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
-
 //#region promoCode Prop
-        promoCode : PromoCodeBase;
+promoCode : PromoCodeBase;
 //#endregion promoCode Prop
-
 //#region orderDetails Prop
-        orderDetails : OrderDetailBase[];
+orderDetails : OrderDetailBase[];
 //#endregion orderDetails Prop
-
 //#region payments Prop
-        payments : PaymentBase[];
+payments : PaymentBase[];
 //#endregion payments Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

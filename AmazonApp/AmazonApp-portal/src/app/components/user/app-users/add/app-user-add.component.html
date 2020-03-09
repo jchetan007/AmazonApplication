@@ -1,1 +1,68 @@
-<h1>AppUsers ADD</h1>
+<h2 style="margin-left: 900px;">Create Your Account</h2>
+<div class="container">
+
+  <div class="jumbotron">
+
+  <form  [formGroup]="userFormGroup">
+    <div class="form-group">
+      <div>
+        <label>Your Name </label>
+        <input type="text" formControlName="appusername" class="form-control">
+    
+      </div>
+      <div>
+        <label>Mobile Number </label>
+        <input type="text" formControlName="mobilenumber" class="form-control"> 
+        
+      </div>
+     
+      <div>
+        <label>Email Id </label>
+        <input type="text" formControlName="emailid" class="form-control">
+      </div>
+
+      <div>
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control"  />  
+      </div><br/>
+
+      <button type="button" class="btn btn-primary"  style="margin-left: 450px;">Submit</button>
+      <div>{{result| json}}</div><br/>
+
+      
+
+    </div>  
+  </form>
+</div>
+</div>
+
+<div class="container">
+  <div class="jumbotron">
+<form>
+      <div>
+        
+        <button type="button" class="btn btn-primary" (click)="getOTP()" style="margin-left: 450px;"> Get OTP</button>
+
+      </div>
+    
+
+   
+          <div [ngStyle]="otpStyle" style="display:none;">
+          <label>Enter OTP</label>
+          <input type="text" formControlName="otpnumber" class="form-control"  /> 
+      </div><br/>
+
+      <div>
+          <button type="button" class="btn btn-primary" (click)="otpSubmit()" style="margin-left: 450px;">
+            Submit
+          </button>
+      </div>
+      
+    </form>
+
+
+  </div>
+</div>
+
+  
+  

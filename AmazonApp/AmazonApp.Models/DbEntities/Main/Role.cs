@@ -49,19 +49,19 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Admin> Admins { get; set; }
 
-		#region Sellers Annotations
-
-        [InverseProperty("Role")]
-		#endregion Sellers Annotations
-
-        public virtual ICollection<Seller> Sellers { get; set; }
-
 		#region AppUsers Annotations
 
         [InverseProperty("Role")]
 		#endregion AppUsers Annotations
 
         public virtual ICollection<AppUser> AppUsers { get; set; }
+
+		#region Sellers Annotations
+
+        [InverseProperty("Role")]
+		#endregion Sellers Annotations
+
+        public virtual ICollection<Seller> Sellers { get; set; }
 
 		#region RolePermissions Annotations
 
@@ -75,8 +75,8 @@ namespace AmazonApp.Models.Main
         {
 			UserRoles = new HashSet<UserRole>();
 			Admins = new HashSet<Admin>();
-			Sellers = new HashSet<Seller>();
 			AppUsers = new HashSet<AppUser>();
+			Sellers = new HashSet<Seller>();
 			RolePermissions = new HashSet<RolePermission>();
         }
 	}

@@ -21,7 +21,6 @@ namespace AmazonApp.Models.Main
 
 		#region HouseNumber Annotations
 
-        [Required]
         [MaxLength(50)]
 		#endregion HouseNumber Annotations
 
@@ -57,13 +56,13 @@ namespace AmazonApp.Models.Main
 
         public string State { get; set; }
 
-		#region ApplicationObjectId Annotations
+		#region AddressType Annotations
 
-        [Range(1,int.MaxValue)]
         [Required]
-		#endregion ApplicationObjectId Annotations
+        [MaxLength(50)]
+		#endregion AddressType Annotations
 
-        public ApplicationObject ApplicationObjectId { get; set; }
+        public string AddressType { get; set; }
 
 		#region AppUserId Annotations
 

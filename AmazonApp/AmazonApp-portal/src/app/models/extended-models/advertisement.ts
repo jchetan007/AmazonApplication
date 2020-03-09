@@ -9,8 +9,23 @@ export class Advertisement extends AdvertisementBase
 
 //#region Generated Reference Properties
 //#region offer Prop
-        offer : OfferBase;
+offer : OfferBase;
 //#endregion offer Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

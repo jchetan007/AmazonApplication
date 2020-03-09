@@ -31,16 +31,19 @@ namespace AmazonApp.Models.Main
         public string ProductName { get; set; }
 
 
+        public long OriginalProductPrice { get; set; }
+
+
+        public long DiscountProductPrice { get; set; }
+
+
         public int ProductQuantity { get; set; }
-
-
-        public long ProductPrice { get; set; }
 
 
         public System.DateTimeOffset CreatedDate { get; set; }
 
 
-        public int CartValue { get; set; }
+        public Nullable<int> CartValue { get; set; }
 
 
         public vInvoice()

@@ -10,12 +10,26 @@ export class PrimeMusic extends PrimeMusicBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
-
 //#region musicSubCategories Prop
-        musicSubCategories : MusicSubCategoryBase[];
+musicSubCategories : MusicSubCategoryBase[];
 //#endregion musicSubCategories Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -24,11 +24,11 @@ export class MusicSubCategoryBase {
 //#endregion categoryName Prop
 
 
-//#region applicationObjectId Prop
+//#region musicCategoryId Prop
         @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
+        musicCategoryId : number;
+//#endregion musicCategoryId Prop
 
 
 

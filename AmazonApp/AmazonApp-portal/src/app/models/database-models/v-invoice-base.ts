@@ -34,16 +34,22 @@ export class vInvoiceBase {
 //#endregion productName Prop
 
 
+//#region originalProductPrice Prop
+        @gridColumn({visible: true, columnIndex:5, allowSorting: true, headerKey: 'originalProductPrice', keyColumn: false})
+        originalProductPrice : any;
+//#endregion originalProductPrice Prop
+
+
+//#region discountProductPrice Prop
+        @gridColumn({visible: true, columnIndex:6, allowSorting: true, headerKey: 'discountProductPrice', keyColumn: false})
+        discountProductPrice : any;
+//#endregion discountProductPrice Prop
+
+
 //#region productQuantity Prop
         @gridColumn({visible: true, columnIndex:5, allowSorting: true, headerKey: 'productQuantity', keyColumn: false})
         productQuantity : number;
 //#endregion productQuantity Prop
-
-
-//#region productPrice Prop
-        @gridColumn({visible: true, columnIndex:6, allowSorting: true, headerKey: 'productPrice', keyColumn: false})
-        productPrice : any;
-//#endregion productPrice Prop
 
 
 //#region createdDate Prop
@@ -54,7 +60,7 @@ export class vInvoiceBase {
 
 //#region cartValue Prop
         @gridColumn({visible: true, columnIndex:8, allowSorting: true, headerKey: 'cartValue', keyColumn: false})
-        cartValue : number;
+        cartValue : any;
 //#endregion cartValue Prop
 
 }

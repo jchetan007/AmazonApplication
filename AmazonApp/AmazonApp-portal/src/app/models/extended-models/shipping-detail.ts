@@ -9,8 +9,23 @@ export class ShippingDetail extends ShippingDetailBase
 
 //#region Generated Reference Properties
 //#region seller Prop
-        seller : SellerBase;
+seller : SellerBase;
 //#endregion seller Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

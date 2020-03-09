@@ -1,0 +1,53 @@
+<h2 style="margin-left: 1000px;">Login</h2>
+<div class="container">
+  <div class="jumbotron">
+    <form  [formGroup]="userFormGroup1">
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobilenumber" class="form-control"  />
+        <small class="form-text text-danger" *ngIf="userFormGroup1.controls.mobilenumber?.errors">{{userFormGroup1.controls.mobilenumber.errors?.required?.message}}<br/></small>        
+      </div>
+      
+    </form>
+
+ 
+ 
+    <form  [formGroup]="userFormGroup1">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control"  />
+        <small class="form-text text-danger" *ngIf="userFormGroup1.controls.password?.errors">{{userFormGroup1.controls.password.errors?.required?.message}}<br/></small>  
+      </div>
+      <button [disabled]="!userFormGroup1.valid" class="btn btn-primary" (click)="getOTP()">Submit</button>
+    </form><br/>
+
+  </div>
+</div>   
+
+
+<div class="container">
+    <form>
+    
+      <a [routerLink]="['/app-users/add']" style="margin-left: 450px;"> Create New Account</a>
+    
+    </form>
+  </div><br/>
+
+
+  <div class="container">
+    <div class="jumbotron">
+    <form  [formGroup]="userFormGroup2">
+      <div class="form-group">
+        <label>OTP</label>
+        <input type="text" formControlName="otpnumber" class="form-control"  />
+        <small class="form-text text-danger" *ngIf="userFormGroup2.controls.otpnumber?.errors">{{userFormGroup2.controls.otpnumber.errors?.required?.message}}<br/></small>  
+      </div>
+      <button type="button" [disabled]="!userFormGroup2.valid" class="btn btn-primary"  (click)="otpSubmit()">Submit</button>
+    </form><br/>
+
+
+    </div>
+  </div>
+
+   
+

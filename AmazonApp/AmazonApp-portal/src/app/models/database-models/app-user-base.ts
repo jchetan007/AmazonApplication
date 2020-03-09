@@ -45,8 +45,7 @@ export class AppUserBase {
 
 
 //#region roleId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
+        @prop()
         roleId : number;
 //#endregion roleId Prop
 
@@ -55,10 +54,6 @@ export class AppUserBase {
         @maxLength({value:140})
         salt : any;
 //#endregion salt Prop
-
-
-
-
 
 
 

@@ -20,7 +20,11 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<Payment> Payment { get; set; }
 		public DbSet<PromoCode> PromoCode { get; set; }
 		public DbSet<Transaction> Transaction { get; set; }
+            		
+            	
             #endregion DbSets
+
+
 
 
     }

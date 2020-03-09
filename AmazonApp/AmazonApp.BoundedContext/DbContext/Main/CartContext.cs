@@ -19,7 +19,9 @@ namespace AmazonApp.BoundedContext.Main
             		public DbSet<CartItem> CartItem { get; set; }
 		public DbSet<Cart> Cart { get; set; }
 		public DbSet<vCartItem> vCartItem { get; set; }
+            		public DbSet<CartItem> CartItem { get; set; }
             #endregion DbSets
+
 
 
     }

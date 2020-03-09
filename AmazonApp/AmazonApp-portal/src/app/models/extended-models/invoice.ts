@@ -9,8 +9,23 @@ export class Invoice extends InvoiceBase
 
 //#region Generated Reference Properties
 //#region payment Prop
-        payment : PaymentBase;
+payment : PaymentBase;
 //#endregion payment Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

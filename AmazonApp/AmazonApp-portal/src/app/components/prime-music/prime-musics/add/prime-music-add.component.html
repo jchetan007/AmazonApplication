@@ -1,1 +1,50 @@
-<h1>PrimeMusics ADD</h1>
+<h2 style="margin-left: 900px;">Enter Mobile Number</h2>
+<div class="container">
+  <div class="jumbotron">
+    <form  [formGroup]="userFormGroup1">
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobilenumber" class="form-control"  />
+       <small class="form-text text-danger" *ngIf="userFormGroup1.controls.mobilenumber?.errors">{{userFormGroup1.controls.mobilenumber.errors?.required?.message}}<br/></small>        
+      </div>    
+      <button type="button" [disabled]="!userFormGroup1.valid" class="btn btn-primary" >Submit</button>
+    </form>
+
+
+  </div>  
+</div>
+
+<h2 style="margin-left: 900px;">Enter Password</h2>
+
+    <div class="container">
+      <div class="jumbotron">    
+
+    <form  [formGroup]="userFormGroup2">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="text" formControlName="password" class="form-control"  />
+       <small class="form-text text-danger" *ngIf="userFormGroup2.controls.password?.errors">{{userFormGroup2.controls.password.errors?.required?.message}}<br/></small>  
+      </div>
+      <button [disabled]="!userFormGroup2.valid" class="btn btn-primary" (click)="getOTP()">Submit</button>
+    </form>
+
+  </div>  
+</div>
+
+
+<h2 style="margin-left: 950px;">Enter OTP</h2>
+
+    <div class="container">
+      <div class="jumbotron">    
+
+    <form  [formGroup]="userFormGroup3">
+      <div class="form-group">
+        <label>OTP</label>
+        <input type="text" formControlName="otp" class="form-control"  />
+       <small class="form-text text-danger" *ngIf="userFormGroup3.controls.otp?.errors">{{userFormGroup3.controls.otp.errors?.required?.message}}<br/></small>  
+      </div>
+      <button [disabled]="!userFormGroup3.valid" class="btn btn-primary" (click)="otpSubmit()">Submit</button>
+    </form>
+  </div>  
+</div>

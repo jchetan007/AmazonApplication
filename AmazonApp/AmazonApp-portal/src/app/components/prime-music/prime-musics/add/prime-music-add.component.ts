@@ -1,31 +1,111 @@
 import { Component, OnInit, OnDestroy } from "@angular/core"
 import { Subscription } from 'rxjs';
-
-import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
-
+import { RxFormBuilder, IFormGroup, RxFormGroup, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { PrimeMusic } from '@app/models';
 import { AbstractPrimeMusic } from '../domain/abstract-prime-music';
+import { FormGroup } from '@angular/forms';
+import { anonymous } from '@rxweb/angular-router';
 
+@anonymous()
 @Component({
     selector: "app-prime-music-add",
     templateUrl: './prime-music-add.component.html'
 })
 export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit, OnDestroy {
+    result: unknown;
+    ngOnDestroy(): void {
+        throw new Error("Method not implemented.");
+    }
     primeMusic: PrimeMusic;
     subscription: Subscription;
+    userFormGroup1: FormGroup;
+    userFormGroup2: FormGroup;
+    userFormGroup3: FormGroup;
+    otpStyle:any;
+    mobileStyle:any;
+    otpResponse:any;
+    verifyOtpResponse:any;
+    
+
 
     constructor(private formBuilder: RxFormBuilder) {
         super();
     }
 
     ngOnInit(): void {
-        this.primeMusic = new PrimeMusic();
-        this.primeMusicFormGroup = this.formBuilder.formGroup(this.primeMusic) as IFormGroup<PrimeMusic>;
-    }
+        this.userFormGroup1 = <RxFormGroup>this.formBuilder.group({
+            mobilenumber:['',RxwebValidators.digit()],
+        });
 
-    ngOnDestroy(): void {
-        if (this.subscription)
-            this.subscription.unsubscribe();
-    }
+            this.userFormGroup2 = <RxFormGroup>this.formBuilder.group({
+            password:['',RxwebValidators.required()],
+        });
 
+            this.userFormGroup3 = <RxFormGroup>this.formBuilder.group({
+            otp:['',RxwebValidators.required()]
+    });
+    // this.Post();
 }
+// Post() {
+//     this.post({body: {
+//         mobilenumber:this.userFormGroup1.controls.mobilenumber.value,
+//         password:this.userFormGroup2.controls.password.value,
+//         otp:this.userFormGroup3.controls.otp.value,}}).subscribe(t => {
+//             this.result=t;
+//         }
+//     )} 
+
+
+    getOTP()
+    {
+        this.get({path:'api/Otps',params:[1],queryParams:{MobileNumber : this.userFormGroup1.value.mobilenumber}}).subscribe(res=>{
+            this.otpResponse=res;
+            if(this.otpResponse==1)
+            {
+                this.otpStyle={
+                    'display':'none'
+                }
+            }
+            else
+            {
+                this.otpStyle={
+                    'display':''
+                }
+                this.mobileStyle={
+                    'display':"none"
+                }
+            }
+
+            console.log(res);
+            alert(res);
+        })
+    }
+
+    otpSubmit()
+    {
+        this.get({path:'api/VerifyOtps',params:[1],queryParams:{OtpId:this.otpResponse, OtpNumber:this.userFormGroup3.value.otpnumber, MobileNumber:this.userFormGroup1.value.mobilenumber}}).subscribe(res => {
+        this.verifyOtpResponse = res;
+        console.log(res);
+
+        if(res=="Successfully Verified")
+        {
+            // this.post({path:'api/AppUsers',body:{ appusername:this.userFormGroup.value.appusername,
+            //     mobilenumber:this.userFormGroup.value.mobilenumber,
+            //     emailid:this.userFormGroup.value.emailid,
+            //     userPassword:this.userFormGroup.value.password}}).subscribe(res=>{
+            //     this.result=res;
+            //     console.log(res);
+            // })
+            this.get().subscribe(res => {
+                this.result = res;
+                console.log(res);
+            })
+        
+        }
+    }
+        )}
+
+
+  
+    }
+

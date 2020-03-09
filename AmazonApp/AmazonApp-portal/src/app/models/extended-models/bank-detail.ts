@@ -10,12 +10,26 @@ export class BankDetail extends BankDetailBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
-
 //#region sellers Prop
-        sellers : SellerBase[];
+sellers : SellerBase[];
 //#endregion sellers Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

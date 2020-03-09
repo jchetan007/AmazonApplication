@@ -9,8 +9,23 @@ export class Card extends CardBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

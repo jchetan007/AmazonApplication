@@ -13,9 +13,15 @@ export class OtpListComponent extends AbstractOtp implements OnInit, OnDestroy {
     subscription: Subscription;
 
     ngOnInit(): void {
-        this.subscription = this.get().subscribe((t: List<Otp>) => {
-            this.otps = t;
-        })
+        this.get();
+        }
+
+        Get() {
+            this.subscription = this.get().subscribe((t: List<Otp>) => {
+                this.otps = t;
+        
+            })
+            console.log(this.otps)
     }
 
 

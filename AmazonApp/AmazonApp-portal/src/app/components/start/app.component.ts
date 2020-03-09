@@ -1,20 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientConfig, HttpResponse } from '@rxweb/http';
+import { HttpClientConfig, HttpResponse, http, RxHttp } from '@rxweb/http';
 import { BrowserStorage } from 'src/app/domain/services/browser-storage';
 import { Router } from '@angular/router';
 import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
+import { Product } from '@app/models';
+import { Subscription } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { anonymous } from '@rxweb/angular-router';
+import {showlist} from './Productlist';
+import { Seller } from "@app/models";
+import { List } from "@rxweb/generics"
+
+
+@anonymous()
+@http({
+    hostKey:"local",
+    path:"api/SearchSearchProducts"
+  })
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit{
-  
+export class AppComponent extends RxHttp implements OnInit{
+ 
+  sellers: List<Seller>;
   isShowDashboard:boolean = false;
+  subscription:Subscription;
+  productformgroup:FormGroup;
+    proresult:any;
+    result:any;
+    visible=showlist.isShowList;
 
-  constructor(private browserStorage: BrowserStorage, private router: Router) {}
+
+  constructor(private browserStorage: BrowserStorage, private router: Router,private fb:FormBuilder) {super();}
   
   ngOnInit(): void {
+    this.productformgroup=this.fb.group({
+      product:['']
+    })
+    
+    
     HttpClientConfig.register({
       hostURIs: [{
         name: 'server',
@@ -32,7 +58,7 @@ export class AppComponent implements OnInit{
         ) {
           this.browserStorage.local.clearAll();
           // this.baseToastr.error("Timeout")
-          this.router.navigate(["/login"])
+          // this.router.navigate(["/login"])
         }
         // else if (response.statusCode == HttpResponseCode.InternalServerError) {
         //   this.baseToastr.error("Error occur")
@@ -49,7 +75,7 @@ export class AppComponent implements OnInit{
     }
     else {
       this.browserStorage.local.clearAll();
-      this.router.navigate(["/login"])
+      //this.router.navigate(["/login"])
       this.isShowDashboard = false;
     }
 
@@ -74,6 +100,9 @@ export class AppComponent implements OnInit{
         "password": "Password length should be of 8 to 20 characters and should have atleast one uppercase, one lowercase letter, a number and a special character, without any whitespaces"
       }, "reactiveForm": { "errorMessageBindingStrategy": 1 }
     });
+    // this.productformgroup=this.fb.group({
+    //         product:['']
+    //       })
   }
 
   loginClicked(isClicked: boolean): void {
@@ -81,7 +110,22 @@ export class AppComponent implements OnInit{
       this.isShowDashboard = true;
       this.router.navigate(["/users"])
       setTimeout(() => { this.isShowDashboard = true; }, 50)
+
     }
   }
+  SearchProduct()
+  {
+    this.post({ body: {Product: this.productformgroup.controls.product.value} }).subscribe(res=>
+      {
+        this.result=res;
+        // console.log(this.result);
+        this.proresult=JSON.parse(this.result);
+        console.log(this.proresult);
+
+      })
+  }
+  
 
 }
+
+

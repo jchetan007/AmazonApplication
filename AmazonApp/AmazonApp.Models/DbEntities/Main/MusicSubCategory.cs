@@ -36,13 +36,13 @@ namespace AmazonApp.Models.Main
 
         public string CategoryName { get; set; }
 
-		#region ApplicationObjectId Annotations
+		#region MusicCategoryId Annotations
 
         [Range(1,int.MaxValue)]
         [Required]
-		#endregion ApplicationObjectId Annotations
+		#endregion MusicCategoryId Annotations
 
-        public ApplicationObject ApplicationObjectId { get; set; }
+        public int MusicCategoryId { get; set; }
 
 		#region PrimeMusic Annotations
 

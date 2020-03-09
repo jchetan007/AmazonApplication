@@ -1,10 +1,10 @@
 import { Routes, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { RouteProvider } from "@rxweb/angular-router"
 import { Injectable } from '@angular/core';
-var routings = [
-    {
-        path: '', redirectTo: 'login', pathMatch: 'full',
-    },
+ var routings = [
+//     {
+//        path: '', redirectTo: 'orders', pathMatch: 'full',
+//    },
     {
         path: "login",
         loadChildren: () => import("../login/login.module").then(m => m.LoginModule),
@@ -205,8 +205,124 @@ var routings = [
 		path: "otps",
 		loadChildren: () => import("../user/otps/otp.module").then(m => m.OtpModule)
 	},
+	{
+		path: "products",
+		loadChildren: () => import("../product/products/product.module").then(m => m.ProductModule)
+	},
+	{
+		path: "v-products",
+		loadChildren: () => import("../product/v-products/v-product.module").then(m => m.vProductModule)
+	},
+	{
+		path: "music-sub-categories",
+		loadChildren: () => import("../prime-music/music-sub-categories/music-sub-category.module").then(m => m.MusicSubCategoryModule)
+	},
+  
+	{
+		path: "product-categories",
+		loadChildren: () => import("../product/product-categories/product-category.module").then(m => m.ProductCategoryModule)
+	},
+	{
+		path: "cards",
+		loadChildren: () => import("../payment/cards/card.module").then(m => m.CardModule)
+	},
+	{
+		path: "verify-promo-codes",
+		loadChildren: () => import("../payment/verify-promo-codes/verify-promo-code.module").then(m => m.VerifyPromoCodeModule)
+	},
+	{
+		path: "verify-otps",
+		loadChildren: () => import("../user/verify-otps/verify-otp.module").then(m => m.VerifyOtpModule)
+	}
+	
+
 ]
       
+       
+      
+       
+       
+        
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "music-categories",
+			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "music-categories",
+			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
+		},
+        {
+			path: "product-main-categories",
+			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
+		},
+        {
+			path: "product-sub-categories",
+			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "music-categories",
+			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
+		},
+        {
+			path: "product-main-categories",
+			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
+		},
+        {
+			path: "product-sub-categories",
+			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
+		},
+        {
+			path: "seller-detail-forms",
+			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
+		},
+        {
+			path: "cart-items",
+			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+		},
+        {
+			path: "music-categories",
+			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
+		},
+        {
+			path: "product-main-categories",
+			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
+		},
+        {
+			path: "product-sub-categories",
+			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
+		},
+        {
+			path: "seller-detail-forms",
+			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
+		},
+        {
+			path: "user-addresses",
+			loadChildren: () => import("../user/user-addresses/user-address.module").then(m => m.UserAddressModule)
+		},
 //generated code
 //])
 

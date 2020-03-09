@@ -9,8 +9,11 @@ using RxWeb.Core.Data;
 //using RxWeb.Core.Common.Binder;
 using AmazonApp.Models.ViewModels;
 using AmazonApp.BoundedContext.SqlContext;
+using Microsoft.AspNetCore.Authorization;
+
 namespace AmazonApp.Api.Controllers.Module
 {
+    [AllowAnonymous]
     [ApiController]
 	[Route("api/[controller]")]
     public class SearchSearchProductsController : ControllerBase

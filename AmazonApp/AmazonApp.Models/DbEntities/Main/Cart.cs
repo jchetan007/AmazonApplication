@@ -34,7 +34,7 @@ namespace AmazonApp.Models.Main
 		#region AppUser Annotations
 
         [ForeignKey(nameof(AppUserId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.Carts))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.CartItems))]
 		#endregion AppUser Annotations
 
         public virtual AppUser AppUser { get; set; }

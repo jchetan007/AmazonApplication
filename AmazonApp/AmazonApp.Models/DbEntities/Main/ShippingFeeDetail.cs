@@ -51,13 +51,6 @@ namespace AmazonApp.Models.Main
 
         public ApplicationObject ApplicationObjectId { get; set; }
 
-		#region SellerDetails Annotations
-
-        [InverseProperty("ShippingFeeDetail")]
-		#endregion SellerDetails Annotations
-
-        public virtual ICollection<SellerDetail> SellerDetails { get; set; }
-
 		#region OrderDetails Annotations
 
         [InverseProperty("ShippingFeeDetail")]
@@ -68,7 +61,6 @@ namespace AmazonApp.Models.Main
 
         public ShippingFeeDetail()
         {
-			SellerDetails = new HashSet<SellerDetail>();
 			OrderDetails = new HashSet<OrderDetail>();
         }
 	}

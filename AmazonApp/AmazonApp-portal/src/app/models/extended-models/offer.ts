@@ -11,16 +11,29 @@ export class Offer extends OfferBase
 
 //#region Generated Reference Properties
 //#region discount Prop
-        discount : DiscountBase;
+discount : DiscountBase;
 //#endregion discount Prop
-
 //#region product Prop
-        product : ProductBase;
+product : ProductBase;
 //#endregion product Prop
-
 //#region advertisements Prop
-        advertisements : AdvertisementBase[];
+advertisements : AdvertisementBase[];
 //#endregion advertisements Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

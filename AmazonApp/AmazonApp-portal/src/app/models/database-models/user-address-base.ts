@@ -11,7 +11,6 @@ export class UserAddressBase {
 
 
 //#region houseNumber Prop
-        @required()
         @maxLength({value:50})
         houseNumber : string;
 //#endregion houseNumber Prop
@@ -43,11 +42,11 @@ export class UserAddressBase {
 //#endregion state Prop
 
 
-//#region applicationObjectId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
+//#region addressType Prop
         @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
+        @maxLength({value:50})
+        addressType : string;
+//#endregion addressType Prop
 
 
 //#region appUserId Prop

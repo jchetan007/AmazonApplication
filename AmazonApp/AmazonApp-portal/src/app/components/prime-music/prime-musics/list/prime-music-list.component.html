@@ -1,1 +1,19 @@
-<h1>PrimeMusics LIST</h1>
+<h2 style="margin-left: 950px;">Prime Musics</h2><br/>
+
+
+<div class="container">
+        <img src="https://i.pinimg.com/originals/d7/27/18/d72718b6e45c9e5c57a5c213069733cf.jpg" height="70" width="70" class="img-fluid" alt="Responsive image">
+        <span class=""><h3>Albums</h3></span> <br>
+ <div  class="col"  *ngFor="let album of albums">
+            {{album.albumname}}
+    </div>
+
+    <img src="https://i.pinimg.com/originals/0c/cd/6a/0ccd6a5e74067bab2d43b4c3e7501fd1.jpg" height="70" width="70" class="img-fluid" alt="Responsive image">
+                                    <span class=""><h3>Movies</h3></span> <br>
+    <div  class="col"  *ngFor="let movie of movies">
+        {{movie.moviename}}
+</div>
+</div>
+
+<br/>
+

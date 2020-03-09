@@ -20,7 +20,9 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<FeedBack> FeedBack { get; set; }
 		public DbSet<Otp> Otp { get; set; }
 		public DbSet<BankDetail> BankDetail { get; set; }
+            		public DbSet<UserAddress> UserAddress { get; set; }
             #endregion DbSets
+
 
 
     }

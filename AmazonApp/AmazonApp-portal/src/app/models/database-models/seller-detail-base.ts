@@ -32,8 +32,7 @@ export class SellerDetailBase {
 
 
 //#region shippingFeeDetailId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
+        @prop()
         shippingFeeDetailId : number;
 //#endregion shippingFeeDetailId Prop
 
@@ -43,10 +42,6 @@ export class SellerDetailBase {
         @required()
         appUserId : number;
 //#endregion appUserId Prop
-
-
-
-
 
 
 

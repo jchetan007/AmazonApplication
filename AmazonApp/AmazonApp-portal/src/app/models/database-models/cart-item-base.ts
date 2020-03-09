@@ -17,13 +17,6 @@ export class CartItemBase {
 //#endregion productId Prop
 
 
-//#region cartId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        cartId : number;
-//#endregion cartId Prop
-
-
 //#region productQuantity Prop
         @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
@@ -41,6 +34,20 @@ export class CartItemBase {
         @prop()
         cartQuantity : number;
 //#endregion cartQuantity Prop
+
+
+//#region cartValue Prop
+        @prop()
+        cartValue : number;
+//#endregion cartValue Prop
+
+
+//#region appUserId Prop
+        @prop()
+        appUserId : number;
+//#endregion appUserId Prop
+
+
 
 
 

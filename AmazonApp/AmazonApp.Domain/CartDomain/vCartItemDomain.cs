@@ -8,26 +8,30 @@ using RxWeb.Core.Data;
 using AmazonApp.BoundedContext.SqlContext;
 using Microsoft.Data.SqlClient;
 using AmazonApp.Models.ViewModels;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace AmazonApp.Domain.CartModule
 {
+    
     public class vCartItemDomain : IvCartItemDomain
+        
     {
         public vCartItemDomain(ICartUow uow, IDbContextManager<MainSqlDbContext> dbContextManager) {
             this.Uow = uow;
             DbContextManager = dbContextManager;
 
         }
+        
 
-        public Task<object> GetAsync(vCartItem parameters)
+        public async Task<object> GetAsync(vCartItem parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<vCartItem>().AllAsync();
+            //throw new NotImplementedException();
         }
 
         public async Task<object> GetBy(vCartItem parameters)
         {
-            return await Uow.Repository<vCartItem>().FindByAsync(t => t.CartId == parameters.CartId);
+            return await Uow.Repository<vCartItem>().FindByAsync(t => t.CartItemId == parameters.CartItemId);
             //throw new NotImplementedException();
         }
         
@@ -39,6 +43,7 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task AddAsync(vCartItem entity)
         {
+            
             await Uow.RegisterNewAsync(entity);
             await Uow.CommitAsync();
         }
@@ -53,7 +58,7 @@ namespace AmazonApp.Domain.CartModule
             var spParameters = new SqlParameter[3];
             spParameters[0] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
             spParameters[1] = new SqlParameter() { ParameterName = "CartItemId", Value = entity.CartItemId };
-            spParameters[2] = new SqlParameter() { ParameterName = "CartId", Value = entity.CartId };
+            spParameters[2] = new SqlParameter() { ParameterName = "AppUserId", Value = entity.AppUserId };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCarts ", spParameters);
             await DbContextManager.CommitAsync();

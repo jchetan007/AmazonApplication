@@ -7,5 +7,21 @@ export class vAdvertisement extends vAdvertisementBase
 
 
 //#region Generated Reference Properties
+
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

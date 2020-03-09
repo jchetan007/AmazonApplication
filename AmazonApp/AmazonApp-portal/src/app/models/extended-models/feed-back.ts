@@ -10,12 +10,26 @@ export class FeedBack extends FeedBackBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
-
 //#region product Prop
-        product : ProductBase;
+product : ProductBase;
 //#endregion product Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,6 +1,7 @@
 import {CartItemBase} from '../database-models/cart-item-base';
-import {CartBase} from '../database-models/cart-base';
+import {AppUserBase} from '../database-models/app-user-base';
 import {ProductBase} from '../database-models/product-base';
+import {OrderDetailBase} from '../database-models/order-detail-base';
 //Generated Imports
 export class CartItem extends CartItemBase 
 {
@@ -9,13 +10,30 @@ export class CartItem extends CartItemBase
 
 
 //#region Generated Reference Properties
-//#region cart Prop
-        cart : CartBase;
-//#endregion cart Prop
-
+//#region appUser Prop
+appUser : AppUserBase;
+//#endregion appUser Prop
 //#region product Prop
-        product : ProductBase;
+product : ProductBase;
 //#endregion product Prop
+//#region orderDetails Prop
+orderDetails : OrderDetailBase[];
+//#endregion orderDetails Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

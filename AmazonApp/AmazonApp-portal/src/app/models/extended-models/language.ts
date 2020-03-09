@@ -9,8 +9,23 @@ export class Language extends LanguageBase
 
 //#region Generated Reference Properties
 //#region sellers Prop
-        sellers : SellerBase[];
+sellers : SellerBase[];
 //#endregion sellers Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -13,24 +13,35 @@ export class Product extends ProductBase
 
 //#region Generated Reference Properties
 //#region productSubCategory Prop
-        productSubCategory : ProductSubCategoryBase;
+productSubCategory : ProductSubCategoryBase;
 //#endregion productSubCategory Prop
-
 //#region seller Prop
-        seller : SellerBase;
+seller : SellerBase;
 //#endregion seller Prop
-
 //#region offers Prop
-        offers : OfferBase[];
+offers : OfferBase[];
 //#endregion offers Prop
-
 //#region feedBacks Prop
-        feedBacks : FeedBackBase[];
+feedBacks : FeedBackBase[];
 //#endregion feedBacks Prop
-
 //#region cartItems Prop
-        cartItems : CartItemBase[];
+cartItems : CartItemBase[];
 //#endregion cartItems Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

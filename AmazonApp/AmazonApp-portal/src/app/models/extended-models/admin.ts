@@ -9,8 +9,23 @@ export class Admin extends AdminBase
 
 //#region Generated Reference Properties
 //#region role Prop
-        role : RoleBase;
+role : RoleBase;
 //#endregion role Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

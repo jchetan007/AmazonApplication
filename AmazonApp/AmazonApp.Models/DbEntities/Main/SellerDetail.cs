@@ -43,39 +43,16 @@ namespace AmazonApp.Models.Main
 
         public string PanNumber { get; set; }
 
-		#region ShippingFeeDetailId Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-        [RelationshipTableAttribue("ShippingFeeDetails","dbo","","ShippingFeeDetailId")]
-		#endregion ShippingFeeDetailId Annotations
-
-        public int ShippingFeeDetailId { get; set; }
+        public Nullable<int> ShippingFeeDetailId { get; set; }
 
 		#region AppUserId Annotations
 
         [Range(1,int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("AppUsers","dbo","","AppUserId")]
 		#endregion AppUserId Annotations
 
         public int AppUserId { get; set; }
-
-		#region AppUser Annotations
-
-        [ForeignKey(nameof(AppUserId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.SellerDetails))]
-		#endregion AppUser Annotations
-
-        public virtual AppUser AppUser { get; set; }
-
-		#region ShippingFeeDetail Annotations
-
-        [ForeignKey(nameof(ShippingFeeDetailId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.ShippingFeeDetail.SellerDetails))]
-		#endregion ShippingFeeDetail Annotations
-
-        public virtual ShippingFeeDetail ShippingFeeDetail { get; set; }
 
 		#region Sellers Annotations
 

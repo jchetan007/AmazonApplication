@@ -1,8 +1,287 @@
-<app-top-bar></app-top-bar>
-
-{{isShowDashboard}}
-<main class="main">
-<router-outlet></router-outlet>
-</main>
-<!-- *ngIf="isShowDashboard" -->
-<app-footer></app-footer>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ☰
+        </button>
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+           
+    
+     
+            <li class="dropdown-submenu">
+              <a  class="dropdown-item" tabindex="-1" href="#">Shop By Category</a>
+              <ul class="dropdown-menu">
+                
+    
+                <li class="dropdown-submenu">                
+                  <a class="dropdown-item" href="#">Men's Fashion</a>
+                  <ul class="dropdown-menu">
+                      <li class="dropdown-item"><a href="#">Clothing</a></li>
+                        
+                        <li class="dropdown-item"><a href="#">Accessories</a></li>
+                        <li class="dropdown-item"><a href="#">Watches</a></li>
+                  </ul>
+                </li>
+                  
+                  <li class="dropdown-submenu">
+                <a class="dropdown-item" href="#">Women's Fashion</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a href="#">Clothing</a></li>
+                      
+                      <li class="dropdown-item"><a href="#">Accessories</a></li>
+                      <li class="dropdown-item"><a href="#">Watches</a></li>
+                </ul>
+                  </li>
+                 
+                  <li class="dropdown-submenu">
+                <a class="dropdown-item" href="#">Electronics</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a href="#">Mobile</a></li>
+                      
+                      <li class="dropdown-item"><a href="#">Tablets</a></li>
+                      <li class="dropdown-item"><a href="#">Laptop</a></li>
+                </ul>
+                  </li>
+    
+                  <li class="dropdown-submenu">
+                <a class="dropdown-item" href="#">Home Accessories</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a href="#">Furniture</a></li>
+                      
+                      <li class="dropdown-item"><a href="#">Fine Arts</a></li>
+                      <li class="dropdown-item"><a href="#">Indoor Lighting</a></li>
+                </ul>
+                  </li>
+    
+                  <li class="dropdown-submenu">
+                <a class="dropdown-item" href="#">Cars and Motorbikes</a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a href="#">Motorbike Accessories</a></li>
+                      
+                      <li class="dropdown-item"><a href="#">Car Parts</a></li>
+                      <li class="dropdown-item"><a href="#">All car and motorbike products</a></li>
+                </ul>
+            </li>
+    
+                <li class="dropdown-submenu">
+                     <a class="dropdown-item" href="#">Books</a>
+                    <ul class="dropdown-menu">
+                     <li class="dropdown-item"><a href="#">Fiction</a></li>                  
+                     <li class="dropdown-item"><a href="#">Editor's Corner</a></li>
+                     <li class="dropdown-item"><a href="#">School Textbooks</a></li>
+                    </ul>
+                </li>
+    
+              </ul>
+    
+              <div class="dropdown-divider"></div>
+    
+             <li><a  class="dropdown-item" href="#">Help & Settings</a></li> 
+             <li><a  class="dropdown-item" [routerLink]="['/login']">LogIn</a></li> 
+             <li><a  class="dropdown-item" [routerLink]="['/app-users/add']">SignUp</a></li> 
+          
+          </ul>
+       &nbsp;
+          <a class="navbar-brand" href="#"><span style="color:black;font-weight:bold"><h1>Amazon</h1></span></a>
+    
+            <div class="navbar-inline"> 
+            <form [formGroup]="productformgroup" >
+                <div class="col">
+                    <input  type="text" formControlName="product">
+                    <button (click)="SearchProduct()">Search</button>
+                </div>
+                </form>
+            
+            
+          
+        </div>
+          
+           
+              
+               <button><img src="https://roughnecks.co/hosted/images/4c/730310c36111e88f34bbd09b571ab2/seller-central.png" height="50" width="50" class="img-fluid" alt="Responsive image" [routerLink]="['/sellers/add']"></button> 
+              
+             
+              <button> <img src="https://lh3.googleusercontent.com/c0uMGe9aLRQxGtAXB_9xnKnG83VOGRD7NtglvnzPj9SYS3_ZYA_EYhtP86nePn0vjI0" class="img-fluid" alt="Responsive image" height="50" width="50"[routerLink]="['/prime-musics']"></button>
+              
+           
+                <!-- <a class="nav-link " [routerLink]="['#']"  >Cart</a>         -->
+            
+          
+    </div>
+    </nav>
+    
+    
+       
+    <router-outlet></router-outlet>
+    <table>
+        <tr *ngFor="let data of proresult">
+            <td>
+                {{data.ProductName}}
+            </td>
+        </tr>
+    </table>
+    
+    
+    <footer>
+        <div class = "footer">
+        <div class = "navFooterVerticalRow">
+            <div class = "row">
+          <div class ="navFooterLinkCol">
+          <div class ="navFooterColHead" style="width: 200px;"> Get to Know Us</div>
+          <ul>
+          <a href ="#" class="nav_a">About Us</a> <br>
+            
+            <a href ="#" class="nav_a">Gift a Smile</a>
+          
+          </ul>
+        </div>
+       
+           
+         
+        <div class ="navFooterLinkRow">
+          <div class ="navFooterColHead" style="width: 450px;"> Connect With Us</div>
+          <ul>
+            <a href ="#" class="nav_a">Facebook</a> <br>
+           
+           <a href ="#" class="nav_a">Twitter</a>
+            
+          </ul>
+        </div>
+    
+    
+    
+        <div class ="navFooterLinkRow">
+          <div class ="navFooterColHead" style="width: 430px;"> Make Money With Us</div>
+          <ul>
+            <a href ="/sellers/add" class="nav_a">Sell On Amazon</a> <br>
+          
+           <a href ="#" class="nav_a">Advertise Your Product</a>
+           
+          </ul>
+        </div>
+    
+    
+    
+        <div class ="navFooterLinkRow">
+          <div class ="navFooterColHead" style="width: 450px;"> Let Us Help You</div>
+          <ul>
+            <a href ="#" class="nav_a">Your Account</a>   <br>   
+           <a href ="#" class="nav_a">Help</a>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+            
+      </footer>
+    
+    
+    
+      <!-- <div *ngIf="visible" class="navbar d-flex justify-content-between bd-highlight mb-2">
+        <div id="pageContent" class="" role="main">
+        <div id="advertisement" class="" >
+            <a href="#" img src="..." class="img-fluid" alt="Responsive image"></a>
+        </div>
+        <div id="desktop-grid-1" class="">
+            <div class="header">
+                <h2 class="">Triple camera smartphones</h2>
+            </div>
+            <div class="body">
+                <div class="a-section">
+                    <div class="a-section a-spacing grid-row-1">
+                        <div class="a-section a-spacing quadrant-container-0">
+                            <a aria-label="Vivo" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Vivo</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="a-section a-spacing quadrant-container-1">
+                            <a aria-label="Galaxy" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Galaxy</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="a-section a-spacing grid-row-2">
+                        <div class="a-section a-spacing quadrant-container-2">
+                            <a aria-label="OnePlus" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">OnePlus</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="a-section a-spacing quadrant-container-3">
+                            <a aria-label="Iphone" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Iphone</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="desktop-grid-2" class="">
+            <div class="header">
+                <h2 class="">Electronics</h2>
+            </div>
+            <div class="body">
+                <div class="a-section">
+                    <div class="a-section a-spacing grid-row-1">
+                        <div class="a-section a-spacing quadrant-container-0">
+                            <a aria-label="Televisions" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Televisions</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="a-section a-spacing quadrant-container-1">
+                            <a aria-label="AirConditioners" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Air Conditioners</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="a-section a-spacing grid-row-2">
+                        <div class="a-section a-spacing quadrant-container-2">
+                            <a aria-label="Refrigerators" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Refrigerators</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="a-section a-spacing quadrant-container-3">
+                            <a aria-label="PremiumTVs" class="" href="">
+                                <div clas="fluid-image-container">
+                                    <img src="..." class="img-fluid" alt="Responsive image">
+                                    <span class="">Premium TVs</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    </div> -->
+    
+    
+    
+    
+    
+    
+    
+    
+      

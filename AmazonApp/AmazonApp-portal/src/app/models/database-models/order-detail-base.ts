@@ -30,18 +30,17 @@ export class OrderDetailBase {
 //#endregion orderId Prop
 
 
-//#region cartId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        cartId : number;
-//#endregion cartId Prop
-
-
 //#region applicationObjectId Prop
         @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
         applicationObjectId : number;
 //#endregion applicationObjectId Prop
+
+
+//#region cartItemId Prop
+        @prop()
+        cartItemId : number;
+//#endregion cartItemId Prop
 
 
 

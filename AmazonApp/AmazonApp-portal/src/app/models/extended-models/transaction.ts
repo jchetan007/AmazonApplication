@@ -10,12 +10,26 @@ export class Transaction extends TransactionBase
 
 //#region Generated Reference Properties
 //#region appUser Prop
-        appUser : AppUserBase;
+appUser : AppUserBase;
 //#endregion appUser Prop
-
 //#region seller Prop
-        seller : SellerBase;
+seller : SellerBase;
 //#endregion seller Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -10,12 +10,26 @@ export class ProductSubCategory extends ProductSubCategoryBase
 
 //#region Generated Reference Properties
 //#region productCategory Prop
-        productCategory : ProductCategoryBase;
+productCategory : ProductCategoryBase;
 //#endregion productCategory Prop
-
 //#region products Prop
-        products : ProductBase[];
+products : ProductBase[];
 //#endregion products Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -68,8 +68,7 @@ export class SellerBase {
 
 
 //#region roleId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
+        @prop()
         roleId : number;
 //#endregion roleId Prop
 
@@ -81,7 +80,7 @@ export class SellerBase {
 
 
 //#region discountProductPrice Prop
-        @prop()
+        @required()
         discountProductPrice : any;
 //#endregion discountProductPrice Prop
 

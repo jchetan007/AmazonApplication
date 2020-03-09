@@ -10,12 +10,26 @@ export class Payment extends PaymentBase
 
 //#region Generated Reference Properties
 //#region order Prop
-        order : OrderBase;
+order : OrderBase;
 //#endregion order Prop
-
 //#region invoices Prop
-        invoices : InvoiceBase[];
+invoices : InvoiceBase[];
 //#endregion invoices Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

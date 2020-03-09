@@ -15,7 +15,13 @@ using AmazonApp.Domain.UserModule;
             using AmazonApp.Domain.CartModule;
             using AmazonApp.Domain.SellerModule;
             using AmazonApp.Domain.OrderModule;
+            //using AmazonApp.Domain.AppUserModule;
+            //using AmazonApp.Domain.VerifyOtpModule;
+            //using AmazonApp.Domain.VerifyPromocodeModule;
             #endregion Namespace
+
+
+
 
 
 
@@ -60,7 +66,19 @@ namespace AmazonApp.Api.Bootstrap
             serviceCollection.AddScoped<IOrderUow, OrderUow>();
                         serviceCollection.AddScoped<IPrimeMusicContext, PrimeMusicContext>();
             serviceCollection.AddScoped<IPrimeMusicUow, PrimeMusicUow>();
+                        serviceCollection.AddScoped<IAppUserContext, AppUserContext>();
+            serviceCollection.AddScoped<IAppUserUow, AppUserUow>();
+                        serviceCollection.AddScoped<IVerifyPromocodeContext, VerifyPromocodeContext>();
+            serviceCollection.AddScoped<IVerifyPromocodeUow, VerifyPromocodeUow>();
+                        serviceCollection.AddScoped<IVerifyOtpContext, VerifyOtpContext>();
+            serviceCollection.AddScoped<IVerifyOtpUow, VerifyOtpUow>();
+            //            serviceCollection.AddScoped<IProductMainCategoryContext, ProductMainCategoryContext>();
+            //serviceCollection.AddScoped<IProductMainCategoryUow, ProductMainCategoryUow>();
             #endregion ContextService
+
+
+
+
 
 
 
@@ -107,7 +125,64 @@ namespace AmazonApp.Api.Bootstrap
             serviceCollection.AddScoped<ISellerDomain, SellerDomain>();
             
             serviceCollection.AddScoped<IOrderDomain, OrderDomain>();
+            
+            serviceCollection.AddScoped<IProductDomain, ProductDomain>();
+            
+            serviceCollection.AddScoped<IvProductDomain, vProductDomain>();
+            
+            serviceCollection.AddScoped<IProductCategoryDomain, ProductCategoryDomain>();
+            
+            serviceCollection.AddScoped<IMusicSubCategoryDomain, MusicSubCategoryDomain>();
+            
+            serviceCollection.AddScoped<ICardDomain, CardDomain>();
+            
+            serviceCollection.AddScoped<IPromoCodeDomain, PromoCodeDomain>();
+            
+            serviceCollection.AddScoped<IVerifyOtpDomain, VerifyOtpDomain>();
+            
+            serviceCollection.AddScoped<IVerifyOtpDomain, VerifyOtpDomain>();
+            
+            serviceCollection.AddScoped<IPromoCodeDomain, PromoCodeDomain>();
+            
+            serviceCollection.AddScoped<IPromoCodeDomain, PromoCodeDomain>();
+            
+            serviceCollection.AddScoped<IVerifyOtpDomain, VerifyOtpDomain>();
+            
+            serviceCollection.AddScoped<IVerifyPromoCodeDomain, VerifyPromoCodeDomain>();
+            
+            serviceCollection.AddScoped<ISellerDetailFormDomain, SellerDetailFormDomain>();
+            
+            serviceCollection.AddScoped<IUserAddressDomain, UserAddressDomain>();
+            
+            serviceCollection.AddScoped<IMusicSubCategoryDomain, MusicSubCategoryDomain>();
+            
+            serviceCollection.AddScoped<IProductMainCategoryDomain, ProductMainCategoryDomain>();
+            
+            serviceCollection.AddScoped<IProductSubCategoryDomain, ProductSubCategoryDomain>();
+            
+            serviceCollection.AddScoped<IMusicCategoryDomain, MusicCategoryDomain>();
+            
+            serviceCollection.AddScoped<ICartItemDomain, CartItemDomain>();
             #endregion DomainService
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

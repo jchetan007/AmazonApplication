@@ -7,5 +7,21 @@ export class vPromoCode extends vPromoCodeBase
 
 
 //#region Generated Reference Properties
+
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

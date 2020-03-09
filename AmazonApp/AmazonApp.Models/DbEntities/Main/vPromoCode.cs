@@ -22,10 +22,7 @@ namespace AmazonApp.Models.Main
         public int Amount { get; set; }
 
 
-        public int CartValue { get; set; }
-
-
-        public int CartId { get; set; }
+        public int CartItemId { get; set; }
 
 
         public vPromoCode()

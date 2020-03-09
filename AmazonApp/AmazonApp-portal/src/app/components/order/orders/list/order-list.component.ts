@@ -13,9 +13,16 @@ export class OrderListComponent extends AbstractOrder implements OnInit, OnDestr
     subscription: Subscription;
 
     ngOnInit(): void {
-        this.subscription = this.get().subscribe((t: List<Order>) => {
-            this.orders = t;
-        })
+        //this.subscription = this.get().subscribe((t: List<Order>) => {
+         //   this.orders = t;
+            this.get();
+            
+        }
+        Get() {
+            this.subscription = this.get().subscribe((t:List<Order>)=> {
+                this.orders = t;
+            })
+                
     }
 
 

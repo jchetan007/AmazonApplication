@@ -7,5 +7,21 @@ export class vUser extends vUserBase
 
 
 //#region Generated Reference Properties
+
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

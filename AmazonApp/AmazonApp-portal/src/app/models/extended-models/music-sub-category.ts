@@ -10,12 +10,26 @@ export class MusicSubCategory extends MusicSubCategoryBase
 
 //#region Generated Reference Properties
 //#region primeMusic Prop
-        primeMusic : PrimeMusicBase;
+primeMusic : PrimeMusicBase;
 //#endregion primeMusic Prop
-
 //#region musics Prop
-        musics : MusicBase[];
+musics : MusicBase[];
 //#endregion musics Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

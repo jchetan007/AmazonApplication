@@ -9,8 +9,23 @@ export class PromoCode extends PromoCodeBase
 
 //#region Generated Reference Properties
 //#region orders Prop
-        orders : OrderBase[];
+orders : OrderBase[];
 //#endregion orders Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

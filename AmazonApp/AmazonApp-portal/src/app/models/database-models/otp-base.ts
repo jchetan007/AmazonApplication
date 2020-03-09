@@ -29,12 +29,10 @@ export class OtpBase {
 //#endregion validTill Prop
 
 
-//#region appUserId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
+//#region mobileNumber Prop
         @required()
-        appUserId : number;
-//#endregion appUserId Prop
-
-
+        @maxLength({value:20})
+        mobileNumber : string;
+//#endregion mobileNumber Prop
 
 }

@@ -88,13 +88,11 @@ namespace AmazonApp.Models.Main
 
 		#region RoleId Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
         [RelationshipTableAttribue("AppUsers","dbo","","RoleId")]
-        [RelationshipTableAttribue("Roles","dbo","","RoleId")]
+   
 		#endregion RoleId Annotations
 
-        public int RoleId { get; set; }
+        public Nullable<int> RoleId { get; set; }
 
 		#region BankDetailId Annotations
 
@@ -103,8 +101,12 @@ namespace AmazonApp.Models.Main
 
         public Nullable<int> BankDetailId { get; set; }
 
+		#region DiscountProductPrice Annotations
 
-        public Nullable<long> DiscountProductPrice { get; set; }
+        [Required]
+		#endregion DiscountProductPrice Annotations
+
+        public long DiscountProductPrice { get; set; }
 
 		#region AppUser Annotations
 
@@ -178,13 +180,6 @@ namespace AmazonApp.Models.Main
 
         public virtual Size Size { get; set; }
 
-		#region ShippingDetails Annotations
-
-        [InverseProperty("Seller")]
-		#endregion ShippingDetails Annotations
-
-        public virtual ICollection<ShippingDetail> ShippingDetails { get; set; }
-
 		#region Transactions Annotations
 
         [InverseProperty("Seller")]
@@ -206,13 +201,20 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Product> Products { get; set; }
 
+		#region ShippingDetails Annotations
+
+        [InverseProperty("Seller")]
+		#endregion ShippingDetails Annotations
+
+        public virtual ICollection<ShippingDetail> ShippingDetails { get; set; }
+
 
         public Seller()
         {
-			ShippingDetails = new HashSet<ShippingDetail>();
 			Transactions = new HashSet<Transaction>();
 			Discounts = new HashSet<Discount>();
 			Products = new HashSet<Product>();
+			ShippingDetails = new HashSet<ShippingDetail>();
         }
 	}
 }

@@ -1,0 +1,42 @@
+<h1>vProducts EDIT</h1>
+
+<button class="btn btn-primary" (click)="GetById(id=2)">Get Data</button><br />
+
+<div *ngFor="let product of vProducts">
+    <div class="card">
+        <div class="card-body">
+            
+            <h1>Product Name : {{product.productName}}</h1>
+            <h3>Product Price : {{product.originalProductPrice}}</h3>
+            <h3>Discount Price : {{product.discountProductPrice}}</h3>
+            <!-- <button [routerLink]=""></button> -->
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    
+        <form>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-primary" (click)="Post()" >Add To Cart</button>
+            </div><br/>
+            <div>    
+                <button type="button" class="btn btn-primary">Buy Now</button><br/>
+            </div>
+        </form>
+   
+</div>

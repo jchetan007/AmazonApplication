@@ -11,11 +11,16 @@ import { Subscription } from 'rxjs';
 export class AppUserListComponent extends AbstractAppUser implements OnInit, OnDestroy {
     appUsers: List<AppUser>;
     subscription: Subscription;
+      result:any;
 
     ngOnInit(): void {
-        this.subscription = this.get().subscribe((t: List<AppUser>) => {
-            this.appUsers = t;
-        })
+       this.Post();
+        }
+        Post() {
+            this.post({body:{mobilenumber:"",password:""}}).subscribe(res => {
+              this.result = res;
+            })
+        
     }
 
 

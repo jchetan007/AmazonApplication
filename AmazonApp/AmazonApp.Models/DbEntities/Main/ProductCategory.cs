@@ -36,13 +36,20 @@ namespace AmazonApp.Models.Main
 
         public int StoreId { get; set; }
 
-		#region ApplicationObjectId Annotations
+		#region ProductMainCategoryId Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion ApplicationObjectId Annotations
+        [RelationshipTableAttribue("ProductMainCategories","dbo","","ProductMainCategoryId")]
+		#endregion ProductMainCategoryId Annotations
 
-        public ApplicationObject ApplicationObjectId { get; set; }
+        public Nullable<int> ProductMainCategoryId { get; set; }
+
+		#region ProductMainCategory Annotations
+
+        [ForeignKey(nameof(ProductMainCategoryId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.ProductMainCategory.ProductCategories))]
+		#endregion ProductMainCategory Annotations
+
+        public virtual ProductMainCategory ProductMainCategory { get; set; }
 
 		#region Store Annotations
 

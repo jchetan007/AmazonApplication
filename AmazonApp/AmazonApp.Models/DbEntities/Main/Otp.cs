@@ -41,22 +41,13 @@ namespace AmazonApp.Models.Main
 
         public System.DateTimeOffset ValidTill { get; set; }
 
-		#region AppUserId Annotations
+		#region MobileNumber Annotations
 
-        [Range(1,int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("AppUsers","dbo","","AppUserId")]
-		#endregion AppUserId Annotations
+        [MaxLength(20)]
+		#endregion MobileNumber Annotations
 
-        public int AppUserId { get; set; }
-
-		#region AppUser Annotations
-
-        [ForeignKey(nameof(AppUserId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.Otps))]
-		#endregion AppUser Annotations
-
-        public virtual AppUser AppUser { get; set; }
+        public string MobileNumber { get; set; }
 
 
         public Otp()

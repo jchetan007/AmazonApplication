@@ -28,7 +28,7 @@ namespace AmazonApp.Models.Main
         public long OriginalProductPrice { get; set; }
 
 
-        public Nullable<long> DiscountProductPrice { get; set; }
+        public long DiscountProductPrice { get; set; }
 
 
         public int ProductQuantity { get; set; }
@@ -37,16 +37,16 @@ namespace AmazonApp.Models.Main
         public Nullable<int> TotalPrice { get; set; }
 
 
-        public int CartValue { get; set; }
-
-
         public Nullable<int> CartQuantity { get; set; }
 
 
         public int ProductId { get; set; }
 
 
-        public int CartId { get; set; }
+        public Nullable<int> CartValue { get; set; }
+
+
+        public Nullable<int> AppUserId { get; set; }
 
 
         public vCartItem()

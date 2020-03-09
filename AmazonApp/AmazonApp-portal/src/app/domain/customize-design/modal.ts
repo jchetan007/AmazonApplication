@@ -16,7 +16,7 @@ export class ModalView extends Modal {
     setResolver(componentFactoryResolver: ComponentFactoryResolver) {
         this.componentFactoryResolver = componentFactoryResolver;
     }
-    resolver = (component: ComponentType<any>, params?: {
+    Resolver = (component: ComponentType<any>, params?: {
         [key: string]: any;
     }): HTMLElement => {
         let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);

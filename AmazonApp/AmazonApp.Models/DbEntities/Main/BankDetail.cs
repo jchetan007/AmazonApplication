@@ -43,12 +43,8 @@ namespace AmazonApp.Models.Main
 
         public string AccountNumber { get; set; }
 
-		#region Balance Annotations
 
-        [Required]
-		#endregion Balance Annotations
-
-        public double Balance { get; set; }
+        public Nullable<double> Balance { get; set; }
 
 		#region AppUserId Annotations
 

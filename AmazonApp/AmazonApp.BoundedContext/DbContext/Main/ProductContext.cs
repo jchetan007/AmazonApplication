@@ -27,7 +27,15 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<Language> Language { get; set; }
 	
 		public DbSet<vProductCategoryLookup> vProductCategoryLookup { get; set; }
+            		public DbSet<vProduct> vProducts { get; set; }
+            		
+            		public DbSet<ProductMainCategory> ProductMainCategory { get; set; }
+            		public DbSet<ProductSubCategory> ProductSubCategory { get; set; }
             #endregion DbSets
+
+
+
+
 
 
     }

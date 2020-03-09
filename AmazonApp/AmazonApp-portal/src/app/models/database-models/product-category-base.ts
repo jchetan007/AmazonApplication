@@ -24,11 +24,12 @@ export class ProductCategoryBase {
 //#endregion storeId Prop
 
 
-//#region applicationObjectId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
+//#region productMainCategoryId Prop
+        @prop()
+        productMainCategoryId : number;
+//#endregion productMainCategoryId Prop
+
+
 
 
 

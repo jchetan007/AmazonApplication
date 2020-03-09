@@ -32,8 +32,15 @@ namespace AmazonApp.Domain.UserModule
         public async Task<object> GetBy(AppUser parameters)
         {
            
-            return await Uow.Repository<AppUser>().FindByAsync(t => t.MobileNumber == parameters.MobileNumber || t.EmailId == parameters.EmailId);
-            
+            var count =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber || t.EmailId == parameters.EmailId);
+            if(count != null)
+            {
+                return (count.AppUserId);
+            }
+            else
+            {
+                return await Task.FromResult("Try Again Please");
+            }
             //throw new NotImplementedException();
         }
 
@@ -52,6 +59,8 @@ namespace AmazonApp.Domain.UserModule
             await Uow.RegisterNewAsync<AppUser>(entity);
             await Uow.CommitAsync();
             //throw new NotImplementedException();
+
+            //return await Task.FromResult(entity.AppUserId);
         }
 
         public HashSet<string> UpdateValidation(AppUser entity)

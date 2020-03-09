@@ -1,1 +1,66 @@
-<h1>Transactions ADD</h1>
+<h2 style="margin-left: 900px;">Payment Methods</h2>
+<div class="container">
+    <div class="jumbotron">
+        <form [formGroup]="CardForm">
+            <div class="form-check">
+
+
+                <h2>Choose Payment Option</h2><br/>
+                
+                <input type="radio"  id="paymentoption" value="onlinepayment"  (click)="setradio('onlinepayment')">Online Payment<br/>
+                <input type="radio"  id="paymentoption" value="cod" (click)="setradio('cod')">COD<br/>
+                <input type="radio"  id="paymentoption" value="emi" (click)="setradio('emi')">EMI<br/>
+              
+            </div>
+    
+            <div *ngIf="isSelected('onlinepayment')">
+                <label>Name on Card</label><br/>
+                <input type="text" class="form-control" formControlName="nameoncard">
+                <label>Card Number </label><br/>
+                <input type="text" class="form-control" formControlName="cardnumber">
+                <label>Expiry Date</label><br/>
+                <input type="text" class="form-control" formControlName="expirydate">
+                <label>CVV</label><br/>
+                <input type="text" class="form-control" formControlName="cvv">
+              
+            </div>
+
+
+            <div *ngIf="isSelected('emi')">
+                <label>Name on Card</label><br/>
+                <input type="text" class="form-control" formControlName="nameoncard">
+                <label>Card Number </label><br/>
+                <input type="text" class="form-control" formControlName="cardnumber">
+                <label>Expiry Date</label><br/>
+                <input type="text" class="form-control" formControlName="expirydate">
+                <label>CVV</label><br/>
+                <input type="text" class="form-control" formControlName="cvv">
+            </div><br/>
+        
+    
+            <button type="submit" class="btn btn-primary" >Place Order</button>
+        </form>
+        <br>
+
+
+    </div>
+</div>
+
+<h2 style="margin-left: 900px;">Apply PromoCode</h2>
+
+<div class="container">
+    <div class="jumbotron">
+
+        <form [formGroup]="PromocodeForm">
+          
+                <label>Promo Code</label>
+                <input type="text" class="form-control" formControlName="promocode"><br>
+                
+                <button type="submit" class="btn btn-primary" >Apply Promo Code</button>
+
+        
+
+        </form>
+    </div>
+</div>    
+   
