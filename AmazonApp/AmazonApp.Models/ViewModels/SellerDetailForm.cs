@@ -22,6 +22,7 @@ namespace AmazonApp.Models.ViewModels
         public string City { get; set; }
 
         public string State { get; set; }
+        public string AddressType { get; set; }
 
         public string AccountHolderName { get; set; }
 

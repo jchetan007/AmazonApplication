@@ -7,5 +7,8 @@ export class MusicCategory extends MusicCategoryBase
 
 
 //#region Generated Reference Properties
+
 //#endregion Generated Reference Properties
+
+
 }

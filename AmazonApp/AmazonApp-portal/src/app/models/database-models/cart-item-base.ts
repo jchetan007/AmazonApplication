@@ -43,7 +43,8 @@ export class CartItemBase {
 
 
 //#region appUserId Prop
-        @prop()
+        @range({minimumNumber:1,maximumNumber:2147483647})
+        @required()
         appUserId : number;
 //#endregion appUserId Prop
 

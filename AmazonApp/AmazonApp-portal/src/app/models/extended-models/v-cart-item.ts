@@ -24,4 +24,6 @@ export class vCartItem extends vCartItemBase
 
 
 
+
+
 }

@@ -30,7 +30,7 @@ namespace AmazonApp.BoundedContext.Main
             		public DbSet<vProduct> vProducts { get; set; }
             		
             		public DbSet<ProductMainCategory> ProductMainCategory { get; set; }
-            		public DbSet<ProductSubCategory> ProductSubCategory { get; set; }
+            		//public DbSet<ProductSubCategory> ProductSubCategory { get; set; }
             #endregion DbSets
 
 

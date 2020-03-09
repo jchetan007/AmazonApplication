@@ -86,8 +86,8 @@
             <div class="navbar-inline"> 
             <form [formGroup]="productformgroup" >
                 <div class="col">
-                    <input  type="text" formControlName="product">
-                    <button (click)="SearchProduct()">Search</button>
+                    <input  type="text" formControlName="product"  style="width: 700px;">
+                    <button (click)="SearchProduct()"  style="width: 100px;">Search</button>
                 </div>
                 </form>
             
@@ -113,11 +113,17 @@
        
     <router-outlet></router-outlet>
     <table>
-        <tr *ngFor="let data of proresult">
-            <td>
-                {{data.ProductName}}
-            </td>
-        </tr>
+        <div *ngFor="let data of proresult">
+            <div>
+                Product Name : {{data.ProductName}}
+            </div>
+            <div>
+                Product Price : {{data.OriginalProductPrice}}
+            </div>
+            <div>
+                Discount Price : {{data.DiscountProductPrice}}
+            </div>
+        </div>
     </table>
     
     

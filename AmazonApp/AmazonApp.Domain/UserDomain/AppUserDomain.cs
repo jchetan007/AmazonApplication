@@ -32,7 +32,7 @@ namespace AmazonApp.Domain.UserModule
         public async Task<object> GetBy(AppUser parameters)
         {
            
-            var count =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber || t.EmailId == parameters.EmailId);
+            var count =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber);
             if(count != null)
             {
                 return (count.AppUserId);

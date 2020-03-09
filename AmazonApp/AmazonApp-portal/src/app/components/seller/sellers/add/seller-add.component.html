@@ -22,7 +22,7 @@
             <input type="checkbox" >I have read and agree to comply with and/or be bound by the terms and conditions of
             <a href="#">Amazon Services Business Solutions Agreement , Easy Ship Service & Runway Terms and Conditions and Amazon Business (B2B) Terms & Conditions</a>
         </div><br/>
-        <button type="submit" class="btn btn-primary" (click)="submit()">Continue</button><br/>
+        <button type="submit" class="btn btn-primary" >Continue</button><br/>
 
         <div>
             <label>Like to create new account?<a href="#">Click Here</a></label>
@@ -63,14 +63,12 @@
             <input type="text" class="form-control" formControlName="city"><br/>
             <label>State</label>
             <input type="text" class="form-control" formControlName="state"><br/>
-            <label>Country/Region</label>
-            <select>
-                <option>India</option>
-            </select><br/>
+            <label>Address Type</label>
+            <input type="text" class="form-control" formControlName="addresstype"><br/><br/>
         </div><br/>
 
 
-        <button type="submit" class="btn btn-primary" (click)="submit()">Continue</button>
+        <button type="submit" class="btn btn-primary" >Continue</button>
     </form>
 </div>
 </div>
@@ -103,7 +101,7 @@
         <div *ngIf="isSelected('gst3')"></div>
         <div *ngIf="isSelected('gst4')"></div>
 
-        <button type="submit" class="btn btn-primary" (click)="submit()">Next</button>
+        <button type="submit" class="btn btn-primary" >Next</button>
     </form>
 </div>
 </div>
@@ -130,7 +128,7 @@
             <h4>Shipping Fee Details</h4><br/>
             <div class="row">
                 <h4>To edit the shipping rates, visit the Shipping Settings page.</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-primary" (click)="submit()">Edit</button>
+                <button type="button" class="btn btn-primary" >Edit</button>
             </div><br/>
         </div>
         <div>
@@ -152,9 +150,9 @@
                 <input type="text" class="form-control" formControlName="Code">
             </div><br/>
             <div class="row">
-                <button type="button" class="btn btn-primary" (click)="submit()">Verify IFSC</button>
+                <button type="button" class="btn btn-primary" >Verify IFSC</button>
             
-                <button type="button" class="btn btn-primary" style="margin-left: 1000px;" (click)="submit()">Save</button>
+                <button type="button" class="btn btn-primary" style="margin-left: 1000px;">Save</button>
             </div><br/>
         </div>
         <div>

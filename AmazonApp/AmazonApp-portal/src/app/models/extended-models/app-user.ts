@@ -1,9 +1,9 @@
 import {AppUserBase} from '../database-models/app-user-base';
 import {RoleBase} from '../database-models/role-base';
 import {PrimeMusicBase} from '../database-models/prime-music-base';
+import {CartItemBase} from '../database-models/cart-item-base';
 import {SellerBase} from '../database-models/seller-base';
 import {TransactionBase} from '../database-models/transaction-base';
-import {CartItemBase} from '../database-models/cart-item-base';
 import {BankDetailBase} from '../database-models/bank-detail-base';
 import {OrderBase} from '../database-models/order-base';
 import {CardBase} from '../database-models/card-base';
@@ -25,15 +25,15 @@ userPassword : any;
 //#region primeMusics Prop
 primeMusics : PrimeMusicBase[];
 //#endregion primeMusics Prop
+//#region cartItems Prop
+cartItems : CartItemBase[];
+//#endregion cartItems Prop
 //#region sellers Prop
 sellers : SellerBase[];
 //#endregion sellers Prop
 //#region transactions Prop
 transactions : TransactionBase[];
 //#endregion transactions Prop
-//#region cartItems Prop
-cartItems : CartItemBase[];
-//#endregion cartItems Prop
 //#region bankDetails Prop
 bankDetails : BankDetailBase[];
 //#endregion bankDetails Prop
@@ -51,6 +51,8 @@ feedBacks : FeedBackBase[];
 //#endregion feedBacks Prop
 
 //#endregion Generated Reference Properties
+
+
 
 
 

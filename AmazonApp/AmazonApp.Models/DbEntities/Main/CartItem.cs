@@ -47,10 +47,12 @@ namespace AmazonApp.Models.Main
 
 		#region AppUserId Annotations
 
+        [Range(1,int.MaxValue)]
+        [Required]
         [RelationshipTableAttribue("AppUsers","dbo","","AppUserId")]
 		#endregion AppUserId Annotations
 
-        public Nullable<int> AppUserId { get; set; }
+        public int AppUserId { get; set; }
 
 		#region AppUser Annotations
 

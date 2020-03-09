@@ -6,6 +6,12 @@ import { LoggedInMiddleware } from '../../domain/security/middleware/logged-in.m
 import { RxwebValidators, RxFormGroup } from '@rxweb/reactive-form-validators';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RxHttp, http} from "@rxweb/http";
+
+@http({
+    hostKey: "local",
+    path: "api/AppUsers",
+})
 
 @middleware([LoggedInMiddleware])
 @multilingual("loginComponent")
@@ -94,6 +100,17 @@ getOTP()
     
             if(res=="Successfully Verified")
             {
+                this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber} }).subscribe(res => {
+                    this.result = res;
+                    console.log(this.result)
+                    sessionStorage.setItem('user', JSON.stringify(res));
+                    if (this.result != 0) {
+                        this.router.navigate([''], { queryParams: { 'AppUserId': JSON.parse(sessionStorage.getItem('user')).AppUserId } });
+                    }
+                    else {
+                        this.router.navigate(["login"]);
+                    }
+                })
                 // this.post({path:'api/AppUsers',body:{ appusername:this.userFormGroup.value.appusername,
                 //     mobilenumber:this.userFormGroup.value.mobilenumber,
                 //     emailid:this.userFormGroup.value.emailid,

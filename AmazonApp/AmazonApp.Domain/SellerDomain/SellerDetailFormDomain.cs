@@ -37,7 +37,10 @@ namespace AmazonApp.Domain.SellerModule
 
         public async Task AddAsync(SellerDetailForm entity)
         {
-            var spParameters = new SqlParameter[11];
+            var spParameters = new SqlParameter[12
+                
+                
+                ];
             spParameters[0] = new SqlParameter() { ParameterName = "AppUserId", Value = entity.AppUserId };
             spParameters[1] = new SqlParameter() { ParameterName = "CompanyName", Value = entity.CompanyName };
             spParameters[2] = new SqlParameter() { ParameterName = "Address", Value = entity.Address };
@@ -46,9 +49,10 @@ namespace AmazonApp.Domain.SellerModule
             spParameters[5] = new SqlParameter() { ParameterName = "Landmark", Value = entity.Landmark };
             spParameters[6] = new SqlParameter() { ParameterName = "City", Value = entity.City };
             spParameters[7] = new SqlParameter() { ParameterName = "State", Value = entity.State };
-            spParameters[8] = new SqlParameter() { ParameterName = "AccountHolder", Value = entity.AccountHolderName };
-            spParameters[9] = new SqlParameter() { ParameterName = "AccountType", Value = entity.AccountType };
-            spParameters[10] = new SqlParameter() { ParameterName = "AccountNumber", Value = entity.AccountNumber };
+            spParameters[8] = new SqlParameter() { ParameterName = "AddressType", Value = entity.AddressType };
+            spParameters[9] = new SqlParameter() { ParameterName = "AccountHolder", Value = entity.AccountHolderName };
+            spParameters[10] = new SqlParameter() { ParameterName = "AccountType", Value = entity.AccountType };
+            spParameters[11] = new SqlParameter() { ParameterName = "AccountNumber", Value = entity.AccountNumber };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spSellers", spParameters);
             await DbContextManager.CommitAsync();

@@ -11,9 +11,8 @@ export class ProductCategory extends ProductCategoryBase
 
 
 //#region Generated Reference Properties
-
 //#region productMainCategory Prop
-        productMainCategory : ProductMainCategoryBase;
+productMainCategory : ProductMainCategoryBase;
 //#endregion productMainCategory Prop
 //#region store Prop
 store : StoreBase;
@@ -26,6 +25,8 @@ discounts : DiscountBase[];
 //#endregion discounts Prop
 
 //#endregion Generated Reference Properties
+
+
 
 
 

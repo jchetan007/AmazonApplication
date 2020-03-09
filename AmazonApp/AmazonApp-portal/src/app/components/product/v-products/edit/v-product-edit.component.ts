@@ -1,12 +1,17 @@
 import { Component, OnInit, OnDestroy } from "@angular/core"
 import { AbstractvProduct } from '../domain/abstract-v-product';
 import { List } from "@rxweb/generics"
-
+import { RxHttp,http } from "@rxweb/http";
 import { Subscription } from 'rxjs';
 import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
 import { ActivatedRoute } from '@angular/router';
 import { vCartItem } from '@app/models';
 import { vProduct } from '@app/models';
+
+@http({
+    hostKey: "local",
+    path: "api/CartItems",
+})
 
 @Component({
     selector: "app-v-product-edit",
@@ -17,14 +22,14 @@ export class vProductEditComponent extends AbstractvProduct implements OnInit, O
     subscription: Subscription;
     id: number;
     result:any;
-    vCartItem:any;
+    CartItem:any;
     productName: any;
     discountProductPrice: any;
     originalProductPrice: any;
     productQuantity: any;
     productId: any;
     cartItemId: any;
-    cartId: any;
+   
 
     constructor(private formBuilder: RxFormBuilder, private activatedRoute: ActivatedRoute) {
         super();
@@ -73,9 +78,9 @@ export class vProductEditComponent extends AbstractvProduct implements OnInit, O
 // }
 
  Post() {
-     this.post({ body: {ProductId:this.productId, CartId:this.cartId,cartItemId:this.cartItemId} }).subscribe(res => {
-         this.vCartItem = res;
-     })
+    //  this.post({ body: {ProductId:this.productId, productQuantity:this.productQuantity,appUserId:this.appUserId} }).subscribe(res => {
+    //      this.CartItem = res;
+    //  })
   }
 
 

@@ -31,7 +31,7 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task<object> GetBy(vCartItem parameters)
         {
-            return await Uow.Repository<vCartItem>().FindByAsync(t => t.CartItemId == parameters.CartItemId);
+            return await Uow.Repository<vCartItem>().FindByAsync(t => t.ProductId == parameters.ProductId);
             //throw new NotImplementedException();
         }
         

@@ -8,15 +8,15 @@ import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
 import { Seller } from '@app/models';
 import { AbstractSeller } from '../domain/abstract-seller';
 import { HttpClientConfig, HttpResponse, http } from '@rxweb/http';
-
+import { ActivatedRoute, Router } from '@angular/router';
 import { anonymous } from '@rxweb/angular-router';
 
 
 @anonymous()
-// @http({
-//     hostKey:"local",
-//     path:"api/ProductCategoryLookups"
-//   })
+@http({
+    hostKey: "local",
+    path: "api/SellerDetailForms",
+})
 
 
 
@@ -35,11 +35,23 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
     // id:number;
 
 
-    constructor(private formBuilder: RxFormBuilder) {
+    constructor(private formBuilder: RxFormBuilder,private activatedRouter: ActivatedRoute,private router:Router) {
         super();
     }
 
     ngOnInit(): void {
+        if(!sessionStorage.getItem('user'))
+        {
+            this.router.navigate(['login'])
+        }
+
+        this.AppUserId=JSON.parse(sessionStorage.getItem('user')).AppUserId
+        console.log(this.AppUserId);
+        this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
+            this.result = res;
+            console.log(this.result);
+            // console.log(this.result.companyId[0])
+        })
         // sessionStorage.getItem("AppUserId");
         // this.get({params:[1], queryParams:{AppUserId:Number.parseInt(sessionStorage.getItem('AppUserId'))} }).subscribe(res => {
         //     this.result = res;
@@ -58,7 +70,7 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
             landmark:"",
             city:"",
             state:"",
-            country:""
+            addresstype:""
             
         });
         this.taxForm=this.formBuilder.group({
@@ -80,6 +92,9 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
         }) 
         // this.GetByQueryParams('ProductCategoryName');
 
+    }
+    AppUserId(AppUserId: any) {
+        throw new Error("Method not implemented.");
     }
 
     // GetByQueryParams(ProductCategoryName:string) {
@@ -120,11 +135,12 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
              area:this.infoForm.controls.area.value,
              landmark:this.infoForm.controls.landmark.value,
              city:this.infoForm.controls.city.value,
-             state:this.taxForm.controls.state.value,
+             state:this.infoForm.controls.state.value,
+             addresstype:this.infoForm.controls.addresstype.value,
              accountHolderName:this.launchForm.controls.accountHolderName.value,
              accountType:this.launchForm.controls.accountType.value,
              accountNumber:this.launchForm.controls.accountNumber.value,
-             appUserId:1
+             AppUserId: this.AppUserId 
         } }).subscribe(res => {
          this.result=res;
          console.log(this.result);

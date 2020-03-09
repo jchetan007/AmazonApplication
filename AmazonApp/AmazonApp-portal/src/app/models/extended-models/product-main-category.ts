@@ -9,8 +9,10 @@ export class ProductMainCategory extends ProductMainCategoryBase
 
 //#region Generated Reference Properties
 //#region productCategories Prop
-        productCategories : ProductCategoryBase[];
+productCategories : ProductCategoryBase[];
 //#endregion productCategories Prop
 
 //#endregion Generated Reference Properties
+
+
 }

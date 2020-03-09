@@ -28,4 +28,6 @@ productCategories : ProductCategoryBase[];
 
 
 
+
+
 }

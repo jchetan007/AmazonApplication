@@ -89,7 +89,7 @@ namespace AmazonApp.Models.Main
 		#region RoleId Annotations
 
         [RelationshipTableAttribue("AppUsers","dbo","","RoleId")]
-   
+        
 		#endregion RoleId Annotations
 
         public Nullable<int> RoleId { get; set; }

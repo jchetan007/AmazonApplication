@@ -233,96 +233,32 @@ import { Injectable } from '@angular/core';
 	{
 		path: "verify-otps",
 		loadChildren: () => import("../user/verify-otps/verify-otp.module").then(m => m.VerifyOtpModule)
-	}
+	},
+	{
+		path: "cart-items",
+		loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
+	},
+	{
+		path: "music-categories",
+		loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
+	},
+	{
+		path: "product-main-categories",
+		loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
+	},
+	{
+		path: "product-sub-categories",
+		loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
+	},
 	
+	{
+		path: "user-addresses",
+		loadChildren: () => import("../user/user-addresses/user-address.module").then(m => m.UserAddressModule)
+	},
 
-]
-      
-       
-      
+] 
        
        
-        
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "music-categories",
-			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "music-categories",
-			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
-		},
-        {
-			path: "product-main-categories",
-			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
-		},
-        {
-			path: "product-sub-categories",
-			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "music-categories",
-			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
-		},
-        {
-			path: "product-main-categories",
-			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
-		},
-        {
-			path: "product-sub-categories",
-			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
-		},
-        {
-			path: "seller-detail-forms",
-			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
-		},
-        {
-			path: "cart-items",
-			loadChildren: () => import("../cart/cart-items/cart-item.module").then(m => m.CartItemModule)
-		},
-        {
-			path: "music-categories",
-			loadChildren: () => import("../prime-music/music-categories/music-category.module").then(m => m.MusicCategoryModule)
-		},
-        {
-			path: "product-main-categories",
-			loadChildren: () => import("../product/product-main-categories/product-main-category.module").then(m => m.ProductMainCategoryModule)
-		},
-        {
-			path: "product-sub-categories",
-			loadChildren: () => import("../product/product-sub-categories/product-sub-category.module").then(m => m.ProductSubCategoryModule)
-		},
-        {
-			path: "seller-detail-forms",
-			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
-		},
-        {
-			path: "user-addresses",
-			loadChildren: () => import("../user/user-addresses/user-address.module").then(m => m.UserAddressModule)
-		},
 //generated code
 //])
 

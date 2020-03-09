@@ -45,7 +45,7 @@ namespace AmazonApp.Models.Main
 
 		#region Password Annotations
 
-        [Required]
+      
         [MaxLength(132)]
 		#endregion Password Annotations
 
@@ -87,6 +87,13 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<PrimeMusic> PrimeMusics { get; set; }
 
+		#region CartItems Annotations
+
+        [InverseProperty("AppUser")]
+		#endregion CartItems Annotations
+
+        public virtual ICollection<CartItem> CartItems { get; set; }
+
 		#region Sellers Annotations
 
         [InverseProperty("AppUser")]
@@ -100,13 +107,6 @@ namespace AmazonApp.Models.Main
 		#endregion Transactions Annotations
 
         public virtual ICollection<Transaction> Transactions { get; set; }
-
-		#region CartItems Annotations
-
-        [InverseProperty("AppUser")]
-		#endregion CartItems Annotations
-
-        public virtual ICollection<CartItem> CartItems { get; set; }
 
 		#region BankDetails Annotations
 
@@ -147,9 +147,9 @@ namespace AmazonApp.Models.Main
         public AppUser()
         {
 			PrimeMusics = new HashSet<PrimeMusic>();
+			CartItems = new HashSet<CartItem>();
 			Sellers = new HashSet<Seller>();
 			Transactions = new HashSet<Transaction>();
-			CartItems = new HashSet<CartItem>();
 			BankDetails = new HashSet<BankDetail>();
 			Orders = new HashSet<Order>();
 			Cards = new HashSet<Card>();
