@@ -27,6 +27,13 @@ namespace AmazonApp.Models.Main
 
         public string ProductMainCategoryName { get; set; }
 
+		#region Sellers Annotations
+
+        [InverseProperty("ProductMainCategory")]
+		#endregion Sellers Annotations
+
+        public virtual ICollection<Seller> Sellers { get; set; }
+
 		#region ProductCategories Annotations
 
         [InverseProperty("ProductMainCategory")]
@@ -37,6 +44,7 @@ namespace AmazonApp.Models.Main
 
         public ProductMainCategory()
         {
+			Sellers = new HashSet<Seller>();
 			ProductCategories = new HashSet<ProductCategory>();
         }
 	}

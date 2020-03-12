@@ -255,10 +255,12 @@ import { Injectable } from '@angular/core';
 		path: "user-addresses",
 		loadChildren: () => import("../user/user-addresses/user-address.module").then(m => m.UserAddressModule)
 	},
+	
 
 ] 
        
        
+    
 //generated code
 //])
 

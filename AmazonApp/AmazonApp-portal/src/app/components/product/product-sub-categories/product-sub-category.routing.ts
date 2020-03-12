@@ -7,7 +7,7 @@ import { ProductSubCategoryEditComponent } from './edit/product-sub-category-edi
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: 'list/:id',
         component: ProductSubCategoryListComponent
     },
     {

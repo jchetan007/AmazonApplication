@@ -28,6 +28,12 @@ namespace AmazonApp.Models.Main
         public long DiscountProductPrice { get; set; }
 
 
+        public int AppUserId { get; set; }
+
+
+        public int ProductSubCategoryId { get; set; }
+
+
         public vProduct()
         {
         }

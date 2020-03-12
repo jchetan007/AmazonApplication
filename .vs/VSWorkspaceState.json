@@ -2,7 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\AmazonApp",
-    "\\AmazonApp\\AmazonApp.Api"
+    "\\AmazonApp\\AmazonApp.Api",
+    "\\AmazonApp\\AmazonApp.Api\\Controllers",
+    "\\AmazonApp\\AmazonApp.Api\\Controllers\\Api",
+    "\\AmazonApp\\AmazonApp.Api\\Controllers\\Api\\UserModule",
+    "\\AmazonApp\\AmazonApp.Domain",
+    "\\AmazonApp\\AmazonApp.Domain\\PaymentDomain",
+    "\\AmazonApp\\AmazonApp.Domain\\ProductDomain"
   ],
+  "SelectedNode": "\\AmazonApp\\AmazonApp.sln",
   "PreviewInSolutionExplorer": false
 }

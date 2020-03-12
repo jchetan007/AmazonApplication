@@ -21,15 +21,10 @@
 
 <div class="container">
     
-        <form>
+        <form >
             <div class="form-group">
                 <label>Quantity:</label>
-                <select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
+                <input type="text" formControlName="productQuantity" class="form-control">
             </div>
             <div class="row">
                 <button type="button" class="btn btn-primary" (click)="Post()" >Add To Cart</button>

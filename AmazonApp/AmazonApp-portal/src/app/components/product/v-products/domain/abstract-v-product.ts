@@ -4,7 +4,7 @@ import { vProduct } from '@app/models';
 
 @http({
     hostKey: "local",
-    path: "api/vCartItems",
+    path: "api/Products",
 })
 
 

@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 import { vCartItem } from '@app/models';
 import { vProduct } from '@app/models';
 
-@http({
-    hostKey: "local",
-    path: "api/CartItems",
-})
+// @http({
+//     hostKey: "local",
+//     path: "api/CartItems",
+// })
 
 @Component({
     selector: "app-v-product-edit",
@@ -85,4 +85,3 @@ export class vProductEditComponent extends AbstractvProduct implements OnInit, O
 
 
 }
-

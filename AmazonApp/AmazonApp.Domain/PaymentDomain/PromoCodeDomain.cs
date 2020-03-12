@@ -51,8 +51,9 @@ namespace AmazonApp.Domain.PaymentModule
         public async Task UpdateAsync(PromoCode entity)
         {
             var spParameters = new SqlParameter[2];
-            spParameters[0] = new SqlParameter() { ParameterName = "Amount", Value = entity.Amount };
-            spParameters[1] = new SqlParameter() { ParameterName = "PromoCodeName", Value = entity.PromoCodeName };
+            spParameters[0] = new SqlParameter() { ParameterName = "PromoCodeName", Value = entity.PromoCodeName };
+            spParameters[1] = new SqlParameter() { ParameterName = "Amount", Value = entity.Amount };
+            //spParameters[2] = new SqlParameter() { ParameterName = "AppUserId", Value = entity.AppUserId };
 
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spPromoCodes ", spParameters);
             await DbContextManager.CommitAsync();

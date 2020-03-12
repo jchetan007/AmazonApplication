@@ -56,7 +56,7 @@ export class AppComponent extends RxHttp implements OnInit{
       onError: (response: HttpResponse) => {
         if (response.statusCode == 401
         ) {
-          this.browserStorage.local.clearAll();
+          // this.browserStorage.local.clearAll();
           // this.baseToastr.error("Timeout")
           // this.router.navigate(["/login"])
         }
@@ -74,7 +74,7 @@ export class AppComponent extends RxHttp implements OnInit{
       this.isShowDashboard = true;
     }
     else {
-      this.browserStorage.local.clearAll();
+      // this.browserStorage.local.clearAll();
       //this.router.navigate(["/login"])
       this.isShowDashboard = false;
     }

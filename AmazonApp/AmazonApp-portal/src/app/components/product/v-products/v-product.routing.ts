@@ -7,7 +7,7 @@ import { vProductEditComponent } from './edit/v-product-edit.component';
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: 'list/:id',
         component: vProductListComponent
     },
     {

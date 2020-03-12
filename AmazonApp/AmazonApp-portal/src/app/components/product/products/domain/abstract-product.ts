@@ -4,7 +4,7 @@ import { Product } from '@app/models';
 
 @http({
     hostKey: "local",
-    path: "api/products",
+    path: "api/ProductSubCategories",
 })
 
 

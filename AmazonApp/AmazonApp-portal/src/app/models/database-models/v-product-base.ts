@@ -27,4 +27,16 @@ export class vProductBase {
         discountProductPrice : any;
 //#endregion discountProductPrice Prop
 
+
+//#region appUserId Prop
+        @gridColumn({visible: true, columnIndex:4, allowSorting: true, headerKey: 'appUserId', keyColumn: false})
+        appUserId : number;
+//#endregion appUserId Prop
+
+
+//#region productSubCategoryId Prop
+        @gridColumn({visible: true, columnIndex:5, allowSorting: true, headerKey: 'productSubCategoryId', keyColumn: false})
+        productSubCategoryId : number;
+//#endregion productSubCategoryId Prop
+
 }

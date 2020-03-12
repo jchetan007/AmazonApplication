@@ -28,7 +28,7 @@ namespace AmazonApp.Domain.PaymentModule
             }
             else
             {
-                return await Task.FromResult("Enter Correct Otp");
+                return await Task.FromResult("Enter Correct Promocode");
             }
             //throw new NotImplementedException();
         }

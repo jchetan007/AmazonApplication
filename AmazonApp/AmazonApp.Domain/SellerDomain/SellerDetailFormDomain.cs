@@ -37,10 +37,7 @@ namespace AmazonApp.Domain.SellerModule
 
         public async Task AddAsync(SellerDetailForm entity)
         {
-            var spParameters = new SqlParameter[12
-                
-                
-                ];
+            var spParameters = new SqlParameter[12];
             spParameters[0] = new SqlParameter() { ParameterName = "AppUserId", Value = entity.AppUserId };
             spParameters[1] = new SqlParameter() { ParameterName = "CompanyName", Value = entity.CompanyName };
             spParameters[2] = new SqlParameter() { ParameterName = "Address", Value = entity.Address };

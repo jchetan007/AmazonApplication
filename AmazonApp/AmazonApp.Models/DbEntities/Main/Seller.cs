@@ -43,14 +43,6 @@ namespace AmazonApp.Models.Main
 
         public int SellerDetailId { get; set; }
 
-		#region ApplicationObjectId Annotations
-
-        [Range(1, int.MaxValue)]
-        [Required]
-		#endregion ApplicationObjectId Annotations
-
-        public ApplicationObject ApplicationObjectId { get; set; }
-
 		#region BrandId Annotations
 
         [RelationshipTableAttribue("Brands","dbo","","BrandId")]
@@ -89,7 +81,7 @@ namespace AmazonApp.Models.Main
 		#region RoleId Annotations
 
         [RelationshipTableAttribue("AppUsers","dbo","","RoleId")]
-        
+       
 		#endregion RoleId Annotations
 
         public Nullable<int> RoleId { get; set; }
@@ -107,6 +99,15 @@ namespace AmazonApp.Models.Main
 		#endregion DiscountProductPrice Annotations
 
         public long DiscountProductPrice { get; set; }
+
+		#region ProductMainCategoryId Annotations
+
+        [Range(1,int.MaxValue)]
+        [Required]
+        [RelationshipTableAttribue("ProductMainCategories","dbo","","ProductMainCategoryId")]
+		#endregion ProductMainCategoryId Annotations
+
+        public int ProductMainCategoryId { get; set; }
 
 		#region AppUser Annotations
 
@@ -156,6 +157,14 @@ namespace AmazonApp.Models.Main
 
         public virtual Material Material { get; set; }
 
+		#region ProductMainCategory Annotations
+
+        [ForeignKey(nameof(ProductMainCategoryId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.ProductMainCategory.Sellers))]
+		#endregion ProductMainCategory Annotations
+
+        public virtual ProductMainCategory ProductMainCategory { get; set; }
+
 		#region Role Annotations
 
         [ForeignKey(nameof(RoleId))]
@@ -180,6 +189,13 @@ namespace AmazonApp.Models.Main
 
         public virtual Size Size { get; set; }
 
+		#region ShippingDetails Annotations
+
+        [InverseProperty("Seller")]
+		#endregion ShippingDetails Annotations
+
+        public virtual ICollection<ShippingDetail> ShippingDetails { get; set; }
+
 		#region Transactions Annotations
 
         [InverseProperty("Seller")]
@@ -201,20 +217,13 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Product> Products { get; set; }
 
-		#region ShippingDetails Annotations
-
-        [InverseProperty("Seller")]
-		#endregion ShippingDetails Annotations
-
-        public virtual ICollection<ShippingDetail> ShippingDetails { get; set; }
-
 
         public Seller()
         {
+			ShippingDetails = new HashSet<ShippingDetail>();
 			Transactions = new HashSet<Transaction>();
 			Discounts = new HashSet<Discount>();
 			Products = new HashSet<Product>();
-			ShippingDetails = new HashSet<ShippingDetail>();
         }
 	}
 }

@@ -30,13 +30,6 @@ export class SellerBase {
 //#endregion sellerDetailId Prop
 
 
-//#region applicationObjectId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
-
-
 //#region brandId Prop
         @prop()
         brandId : number;
@@ -83,6 +76,15 @@ export class SellerBase {
         @required()
         discountProductPrice : any;
 //#endregion discountProductPrice Prop
+
+
+//#region productMainCategoryId Prop
+        @range({minimumNumber:1,maximumNumber:2147483647})
+        @required()
+        productMainCategoryId : number;
+//#endregion productMainCategoryId Prop
+
+
 
 
 

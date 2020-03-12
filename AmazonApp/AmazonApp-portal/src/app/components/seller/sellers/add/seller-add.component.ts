@@ -32,6 +32,7 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
     taxForm:FormGroup;
     launchForm:FormGroup; 
     result:any;  
+    AppUserId: any;
     // id:number;
 
 
@@ -40,13 +41,15 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
     }
 
     ngOnInit(): void {
-        if(!sessionStorage.getItem('user'))
-        {
-            this.router.navigate(['login'])
-        }
-
-        this.AppUserId=JSON.parse(sessionStorage.getItem('user')).AppUserId
+        // if(!sessionStorage.getItem('AppUserId'))
+        // {
+        //     this.router.navigate(['login'])
+        // }
+        this.AppUserId = localStorage.getItem("AppUserId");
         console.log(this.AppUserId);
+
+        //this.AppUserId=JSON.parse(sessionStorage.getItem('AppUserId')).AppUserId
+        //console.log(this.AppUserId);
         this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
             this.result = res;
             console.log(this.result);
@@ -93,9 +96,7 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
         // this.GetByQueryParams('ProductCategoryName');
 
     }
-    AppUserId(AppUserId: any) {
-        throw new Error("Method not implemented.");
-    }
+    
 
     // GetByQueryParams(ProductCategoryName:string) {
     //     this.get({queryParams:[ProductCategoryName]}).subscribe(res => {
@@ -131,7 +132,7 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
          this.post({ body: {
              companyName:this. registerForm.controls.companyName.value,
              address:this.infoForm.controls.address.value,
-             panNumber:this.taxForm.controls.panNumber.value,
+             panNumber:this.launchForm.controls.panNumber.value,
              area:this.infoForm.controls.area.value,
              landmark:this.infoForm.controls.landmark.value,
              city:this.infoForm.controls.city.value,

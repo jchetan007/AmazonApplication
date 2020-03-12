@@ -102,14 +102,28 @@ getOTP()
             {
                 this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber} }).subscribe(res => {
                     this.result = res;
-                    console.log(this.result)
-                    sessionStorage.setItem('user', JSON.stringify(res));
-                    if (this.result != 0) {
-                        this.router.navigate([''], { queryParams: { 'AppUserId': JSON.parse(sessionStorage.getItem('user')).AppUserId } });
+
+                    if(this.result=="Try Again Please")
+                    {
+                        console.log(this.result);
+                        alert("Invalid");
                     }
-                    else {
-                        this.router.navigate(["login"]);
+                    else
+                    {
+                        
+                        // sessionStorage.setItem("AppUserId",this.result);
+                        localStorage.setItem("AppUserId", JSON.stringify(this.result));
+                        // this.router.navigate(['']);
                     }
+                    alert("AppUserId"+res)
+                    // console.log(this.result)
+                    // sessionStorage.setItem('user', JSON.stringify(res));
+                    // if (this.result != 0) {
+                    //     this.router.navigate([''], { queryParams: { 'AppUserId': JSON.parse(sessionStorage.getItem('user')).AppUserId } });
+                    // }
+                    // else {
+                    //     this.router.navigate(["login"]);
+                    // }
                 })
                 // this.post({path:'api/AppUsers',body:{ appusername:this.userFormGroup.value.appusername,
                 //     mobilenumber:this.userFormGroup.value.mobilenumber,

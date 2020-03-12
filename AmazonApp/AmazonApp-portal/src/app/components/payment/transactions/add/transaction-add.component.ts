@@ -17,6 +17,9 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
     CardForm: any;
     EmiForm: any;
     PromocodeForm: any;
+    verifyPromocodeResponse: any;
+    promocodeId: any;
+    result: any;
     
 
     constructor(private formBuilder: RxFormBuilder) {
@@ -75,22 +78,32 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
           return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
       }
       
-    //   promocodeSubmit()
-    //   {
-    //       this.get({path:'api/VerifyPromoCodes',params:[1],queryParams:{PromoCodeId:this.promocodeId, PromoCodeName:this.userFormGroup.value.promocodename}}).subscribe(res => {
-    //       this.verifyPromocodeResponse = res;
-    //       console.log(res);
+      promocodeSubmit()
+      {
+          this.get({path:'api/VerifyPromoCodes',params:[1],queryParams:{PromoCodeId:this.promocodeId, PromoCodeName:this.PromocodeForm.value.promocodename}}).subscribe(res => {
+          this.verifyPromocodeResponse = res;
+          console.log(res);
   
-    //       if(res=="Successfully Verified")
-    //       {
-    //           this.post({path:'api/vCartItems',body:{ appusername:this.userFormGroup.value.appusername,
-    //               mobilenumber:this.userFormGroup.value.mobilenumber,
-    //               emailid:this.userFormGroup.value.emailid,
-    //               userPassword:this.userFormGroup.value.password}}).subscribe(res=>{
-    //               this.result=res;
-    //               console.log(res);
-    //           })
-    //       }
-    //   }
-    //       )}
+          if(res=="Successfully Verified")
+          {
+                 this.get({ params: [1], queryParams: {PromoCodeName:this.PromocodeForm.value.promocodename} }).subscribe(res => {
+                    this.result = res;
+                    if(this.result=="Enter Correct Promocode")
+                    {
+                        console.log(this.result);
+                        alert("Enter Correct Promocode");
+                    }
+                    else
+                    {
+                        
+                        // sessionStorage.setItem("AppUserId",this.result);
+                        //localStorage.setItem("AppUserId", JSON.stringify(this.result));
+                        // this.router.navigate(['']);
+                    }
+                    alert("Promocode Applied Successfully")
+    //           
+              })
+          }
+      }
+          )}
 }

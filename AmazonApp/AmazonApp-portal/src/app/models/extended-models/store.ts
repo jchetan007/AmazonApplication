@@ -30,4 +30,6 @@ productCategories : ProductCategoryBase[];
 
 
 
+
+
 }

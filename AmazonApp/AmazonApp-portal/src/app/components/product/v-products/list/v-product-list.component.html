@@ -1,4 +1,4 @@
-<h1>vProducts LIST</h1>
+<!-- <h1>vProducts LIST</h1>
 <div>
     <button class="btn btn-primary" (click)="Get()">Get Data</button><br />
         </div>
@@ -11,4 +11,61 @@
     </div>
     
 
+    <div class="card" *ngFor="let product of vProducts">
     
+        <div class="card-header">
+          <a  class="btn btn-primary"  > {{product.productName}}</a> 
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{product.originalProductPrice}}</h5>
+            <p class="card-text">{{product.discountProductPrice}}</p>
+            
+           
+          </div>
+      </div> -->
+
+      <h1>vProducts LIST</h1>
+<div>
+    <!-- <button class="btn btn-primary" (click)="Get()">Get Data</button><br /> -->
+        </div>
+    
+    <!-- <div *ngFor="let product of vProducts">
+        {{product.ProductId}}
+    
+        <img src="..." class="img-fluid" alt="Responsive image"><a href="#" [routerLink]="['/product-edit',product.ProductId]"></a>
+    
+    </div> -->
+
+    <div *ngFor="let product of vProducts">
+        <div class="card">
+            <div class="card-body">
+                
+                <h1>Product Name : {{product.productName}}</h1>
+                <h3>Product Price : {{product.originalProductPrice}}</h3>
+                <h3>Discount Price : {{product.discountProductPrice}}</h3>
+                <!-- <button [routerLink]=""></button> -->
+                <!-- <button  class="btn btn-primary" [routerLink]="['/v-products/list',product.productId]">Click to Buy</button> -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+    
+        <form>
+            <form>
+                <label>Quantity</label>&nbsp;
+                <button class="btn btn-primary"  (click)="decreaseValue()" value="Decrease Value">-</button>
+               {{value}}
+                <button class="btn btn-primary" (click)="increaseValue()" value="Increase Value">+</button>
+              </form><br/>
+            <div class="row">
+                <button type="button" class="btn btn-primary" (click)="AddtoCart()" >Add To Cart</button>
+            </div><br/>
+            <div>    
+                <button type="button" class="btn btn-primary" [routerLink]="">Buy Now</button><br/>
+            </div>
+        </form>
+   
+</div>

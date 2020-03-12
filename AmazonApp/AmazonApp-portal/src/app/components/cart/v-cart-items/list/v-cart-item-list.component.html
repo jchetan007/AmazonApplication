@@ -1,1 +1,26 @@
+<div class="container">
+    <div class="jumbotron" style="background-color: khaki;">
+<div *ngFor="let item of vCartItems">
+    <div class="card">
+        <div class="card-body">
+            
+            <h3>Product Name : {{item.productName}}</h3>
+            <h4>Product Price : {{item.discountProductPrice}}</h4>
+            <h4>Quantity : {{item.productQuantity}}</h4>
+            <h4>Total Price : {{item.totalPrice}}</h4>
+            <!-- <button [routerLink]=""></button> -->
+            <button  class="btn btn-primary" (click)="removeProduct(item.productId)">Remove</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <button type="submit" class="btn btn-primary" button [routerLink]="['/transactions/add']" >Proceed to Buy</button>
+
+
+</div>
+</div>

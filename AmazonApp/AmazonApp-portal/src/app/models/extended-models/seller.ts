@@ -5,13 +5,14 @@ import {BrandBase} from '../database-models/brand-base';
 import {ColorBase} from '../database-models/color-base';
 import {LanguageBase} from '../database-models/language-base';
 import {MaterialBase} from '../database-models/material-base';
+import {ProductMainCategoryBase} from '../database-models/product-main-category-base';
 import {RoleBase} from '../database-models/role-base';
 import {SellerDetailBase} from '../database-models/seller-detail-base';
 import {SizeBase} from '../database-models/size-base';
+import {ShippingDetailBase} from '../database-models/shipping-detail-base';
 import {TransactionBase} from '../database-models/transaction-base';
 import {DiscountBase} from '../database-models/discount-base';
 import {ProductBase} from '../database-models/product-base';
-import {ShippingDetailBase} from '../database-models/shipping-detail-base';
 //Generated Imports
 export class Seller extends SellerBase 
 {
@@ -38,6 +39,10 @@ language : LanguageBase;
 //#region material Prop
 material : MaterialBase;
 //#endregion material Prop
+
+//#region productMainCategory Prop
+        productMainCategory : ProductMainCategoryBase;
+//#endregion productMainCategory Prop
 //#region role Prop
 role : RoleBase;
 //#endregion role Prop
@@ -47,6 +52,9 @@ sellerDetail : SellerDetailBase;
 //#region size Prop
 size : SizeBase;
 //#endregion size Prop
+//#region shippingDetails Prop
+shippingDetails : ShippingDetailBase[];
+//#endregion shippingDetails Prop
 //#region transactions Prop
 transactions : TransactionBase[];
 //#endregion transactions Prop
@@ -56,11 +64,10 @@ discounts : DiscountBase[];
 //#region products Prop
 products : ProductBase[];
 //#endregion products Prop
-//#region shippingDetails Prop
-shippingDetails : ShippingDetailBase[];
-//#endregion shippingDetails Prop
 
 //#endregion Generated Reference Properties
+
+
 
 
 

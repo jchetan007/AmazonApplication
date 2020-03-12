@@ -20,7 +20,7 @@ namespace AmazonApp.Domain.ProductModule
 
         public async Task<object> GetBy(ProductSubCategory parameters)
         {
-            return await Uow.Repository<ProductSubCategory>().FindByAsync(t => t.ProductCategoryId == parameters.ProductCategoryId);
+            return await Uow.Repository<Product>().FindByAsync(t => t.ProductSubCategoryId == parameters.ProductSubCategoryId);
         }
         
 

@@ -1,1 +1,13 @@
 <h1>ProductSubCategories LIST</h1>
+<div class="card" *ngFor="let category of productSubCategories">
+    
+    <div class="card-header">
+        {{category.productSubCategoryName}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{category.productSubCategoryName}}</h5>
+        <p class="card-text">Click on the button for {{category.productSubCategoryName}}</p>
+      
+        <button  class="btn btn-primary" [routerLink]="['/products/list',category.productSubCategoryId]">{{category.productSubCategoryName}}</button>
+      </div>
+  </div>
