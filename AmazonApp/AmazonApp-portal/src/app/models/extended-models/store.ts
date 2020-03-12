@@ -32,4 +32,7 @@ productCategories : ProductCategoryBase[];
 
 
 
+
+
+
 }

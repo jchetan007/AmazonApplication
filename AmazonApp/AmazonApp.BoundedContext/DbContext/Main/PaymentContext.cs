@@ -22,7 +22,11 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<Transaction> Transaction { get; set; }
             		
             	
+            
+            		public DbSet<vPromoCode> vPromoCode { get; set; }
             #endregion DbSets
+
+
 
 
 

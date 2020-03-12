@@ -5,7 +5,7 @@ import {CartItemBase} from '../database-models/cart-item-base';
 import {SellerBase} from '../database-models/seller-base';
 import {TransactionBase} from '../database-models/transaction-base';
 import {BankDetailBase} from '../database-models/bank-detail-base';
-import {OrderBase} from '../database-models/order-base';
+import {PaymentBase} from '../database-models/payment-base';
 import {CardBase} from '../database-models/card-base';
 import {UserAddressBase} from '../database-models/user-address-base';
 import {FeedBackBase} from '../database-models/feed-back-base';
@@ -37,9 +37,9 @@ transactions : TransactionBase[];
 //#region bankDetails Prop
 bankDetails : BankDetailBase[];
 //#endregion bankDetails Prop
-//#region orders Prop
-orders : OrderBase[];
-//#endregion orders Prop
+//#region payments Prop
+payments : PaymentBase[];
+//#endregion payments Prop
 //#region cards Prop
 cards : CardBase[];
 //#endregion cards Prop
@@ -51,6 +51,9 @@ feedBacks : FeedBackBase[];
 //#endregion feedBacks Prop
 
 //#endregion Generated Reference Properties
+
+
+
 
 
 

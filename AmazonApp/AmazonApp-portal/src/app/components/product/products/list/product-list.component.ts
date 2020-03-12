@@ -53,9 +53,9 @@ export class ProductListComponent extends AbstractProduct implements OnInit, OnD
         //     console.log('flase')
         //     this.showData = true;
         // }
-        this.cartForm=this.formBuilder.group({
-            productQuantity:[""]
-        });
+        // this.cartForm=this.formBuilder.group({
+        //     productQuantity:[""]
+        // });
         console.log(this.id); 
       }
 
@@ -74,11 +74,11 @@ export class ProductListComponent extends AbstractProduct implements OnInit, OnD
     //     console.log(this.vProducts);
     // }
 
-    AddtoCart() {
-        this.post({ body: {path:'api/CartItems',ProductId:this.productId, productQuantity:this.productQuantity, AppUserId:this.AppUserId} }).subscribe(res => {
-            this.vCartItem = res;
-        })
-     }
+    // AddtoCart() {
+    //     this.post({ body: {path:'api/CartItems',ProductId:this.productId, productQuantity:this.productQuantity, AppUserId:this.AppUserId} }).subscribe(res => {
+    //         this.vCartItem = res;
+    //     })
+    //  }
    
 
 }

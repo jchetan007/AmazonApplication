@@ -9,15 +9,17 @@ export class ProductMainCategory extends ProductMainCategoryBase
 
 
 //#region Generated Reference Properties
-
 //#region sellers Prop
-        sellers : SellerBase[];
+sellers : SellerBase[];
 //#endregion sellers Prop
 //#region productCategories Prop
 productCategories : ProductCategoryBase[];
 //#endregion productCategories Prop
 
 //#endregion Generated Reference Properties
+
+
+
 
 
 

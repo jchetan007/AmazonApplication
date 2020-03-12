@@ -34,30 +34,35 @@ namespace AmazonApp.Models.Main
 
         public System.DateTimeOffset PaymentDate { get; set; }
 
-		#region OrderId Annotations
+		#region PromoCodeId Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-        [RelationshipTableAttribue("Orders","dbo","","OrderId")]
-		#endregion OrderId Annotations
+        [RelationshipTableAttribue("PromoCodes","dbo","","PromoCodeId")]
+		#endregion PromoCodeId Annotations
 
-        public int OrderId { get; set; }
+        public Nullable<int> PromoCodeId { get; set; }
 
-		#region ApplicationObjectId Annotations
+		#region AppUserId Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion ApplicationObjectId Annotations
+        [RelationshipTableAttribue("AppUsers","dbo","","AppUserId")]
+		#endregion AppUserId Annotations
 
-        public ApplicationObject ApplicationObjectId { get; set; }
+        public Nullable<int> AppUserId { get; set; }
 
-		#region Order Annotations
+		#region AppUser Annotations
 
-        [ForeignKey(nameof(OrderId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.Order.Payments))]
-		#endregion Order Annotations
+        [ForeignKey(nameof(AppUserId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.Payments))]
+		#endregion AppUser Annotations
 
-        public virtual Order Order { get; set; }
+        public virtual AppUser AppUser { get; set; }
+
+		#region PromoCode Annotations
+
+        [ForeignKey(nameof(PromoCodeId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.PromoCode.Payments))]
+		#endregion PromoCode Annotations
+
+        public virtual PromoCode PromoCode { get; set; }
 
 		#region Invoices Annotations
 
@@ -66,10 +71,18 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Invoice> Invoices { get; set; }
 
+		#region Orders Annotations
+
+        [InverseProperty("Payment")]
+		#endregion Orders Annotations
+
+        public virtual ICollection<Order> Orders { get; set; }
+
 
         public Payment()
         {
 			Invoices = new HashSet<Invoice>();
+			Orders = new HashSet<Order>();
         }
 	}
 }

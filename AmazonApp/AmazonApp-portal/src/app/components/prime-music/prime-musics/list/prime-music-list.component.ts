@@ -14,19 +14,18 @@ import { anonymous } from '@rxweb/angular-router';
 export class PrimeMusicListComponent extends AbstractPrimeMusic implements OnInit, OnDestroy {
     primeMusics: List<PrimeMusic>;
     subscription: Subscription;
+    id:any;
 
     ngOnInit(): void {
-        this.GetById(1);
+        //this.GetById(1);
+        this.subscription =this.get({params:[this.id],queryParams:{MusicSubCategoryId:this.id}}).subscribe((t:List<PrimeMusic>) => {
+            this.primeMusics = t});      
+       console.log(this.primeMusics)
         }
 
-        GetById(id:number) 
-        {
-            this.get({params:[id]}).subscribe((t:List<PrimeMusic>) => {
-                this.primeMusics = t});      
-           console.log(this.primeMusics)
-
-
-        }
+        // GetById(id:number) 
+        // {
+        // }
 
 
     ngOnDestroy(): void {
@@ -34,17 +33,5 @@ export class PrimeMusicListComponent extends AbstractPrimeMusic implements OnIni
             this.subscription.unsubscribe();
 
     }
-    albums =[
-        {albumname:"one"},
-        {albumname:"V"},
-        {albumname:"Aap ka Suroor"}
-
-    ];
-    movies =[
-        {moviename:"Suicide Squad"},
-        {moviename:"Venom"},
-        {moviename:"Deadpool"}
-
-    ]
-
+   
 }

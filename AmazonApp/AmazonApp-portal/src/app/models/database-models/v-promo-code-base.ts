@@ -16,9 +16,9 @@ export class vPromoCodeBase {
 //#endregion amount Prop
 
 
-//#region cartItemId Prop
-        @gridColumn({visible: true, columnIndex:2, allowSorting: true, headerKey: 'cartItemId', keyColumn: false})
-        cartItemId : number;
-//#endregion cartItemId Prop
+//#region appUserId Prop
+        @gridColumn({visible: true, columnIndex:0, allowSorting: true, headerKey: 'appUserId', keyColumn: false})
+        appUserId : any;
+//#endregion appUserId Prop
 
 }

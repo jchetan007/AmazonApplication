@@ -1,5 +1,5 @@
 import {PromoCodeBase} from '../database-models/promo-code-base';
-import {OrderBase} from '../database-models/order-base';
+import {PaymentBase} from '../database-models/payment-base';
 //Generated Imports
 export class PromoCode extends PromoCodeBase 
 {
@@ -8,11 +8,14 @@ export class PromoCode extends PromoCodeBase
 
 
 //#region Generated Reference Properties
-//#region orders Prop
-orders : OrderBase[];
-//#endregion orders Prop
+//#region payments Prop
+payments : PaymentBase[];
+//#endregion payments Prop
 
 //#endregion Generated Reference Properties
+
+
+
 
 
 

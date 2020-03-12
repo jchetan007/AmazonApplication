@@ -28,4 +28,7 @@ export class vAdvertisement extends vAdvertisementBase
 
 
 
+
+
+
 }

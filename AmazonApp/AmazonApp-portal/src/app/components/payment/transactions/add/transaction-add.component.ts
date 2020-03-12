@@ -20,13 +20,19 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
     verifyPromocodeResponse: any;
     promocodeId: any;
     result: any;
-    
+    AppUserId: any;
 
     constructor(private formBuilder: RxFormBuilder) {
         super();
     }
 
     ngOnInit(): void {
+        this.AppUserId = localStorage.getItem("AppUserId");
+
+        this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
+            this.result = res;
+            console.log(this.result);
+        })
         this.transaction = new Transaction();
         this.transactionFormGroup = this.formBuilder.formGroup(this.transaction) as IFormGroup<Transaction>;
 
@@ -80,14 +86,15 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
       
       promocodeSubmit()
       {
-          this.get({path:'api/VerifyPromoCodes',params:[1],queryParams:{PromoCodeId:this.promocodeId, PromoCodeName:this.PromocodeForm.value.promocodename}}).subscribe(res => {
+          this.get({path:'api/VerifyPromoCodes',params:[1],queryParams:{PromoCodeName:this.PromocodeForm.value.promocode}}).subscribe(res => {
           this.verifyPromocodeResponse = res;
           console.log(res);
   
           if(res=="Successfully Verified")
           {
-                 this.get({ params: [1], queryParams: {PromoCodeName:this.PromocodeForm.value.promocodename} }).subscribe(res => {
-                    this.result = res;
+            this.post({path:'api/vPromoCodes',body:{PromoCodeName:this.PromocodeForm.value.promocode,AppUserId: this.AppUserId}}).subscribe(res=>{
+                this.result=res;
+                 console.log(res);
                     if(this.result=="Enter Correct Promocode")
                     {
                         console.log(this.result);
@@ -95,7 +102,10 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
                     }
                     else
                     {
-                        
+                        // this.post({path:'api/vPromoCodes',body:{PromoCodeName:this.PromocodeForm.value.promocode,AppUserId: this.AppUserId}}).subscribe(res=>{
+                        //         this.result=res;
+                        //          console.log(res);
+                            // })   
                         // sessionStorage.setItem("AppUserId",this.result);
                         //localStorage.setItem("AppUserId", JSON.stringify(this.result));
                         // this.router.navigate(['']);
@@ -103,6 +113,12 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
                     alert("Promocode Applied Successfully")
     //           
               })
+          }
+
+          else
+          {
+            console.log(this.result);
+            alert("Enter Correct Promocode");
           }
       }
           )}

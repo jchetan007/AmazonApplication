@@ -26,39 +26,22 @@ namespace AmazonApp.Models.Main
 
         public System.DateTimeOffset CreatedDate { get; set; }
 
-		#region AppUserId Annotations
+		#region PaymentId Annotations
 
         [Range(1,int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("AppUsers","dbo","","AppUserId")]
-		#endregion AppUserId Annotations
+        [RelationshipTableAttribue("Payments","dbo","","PaymentId")]
+		#endregion PaymentId Annotations
 
-        public int AppUserId { get; set; }
+        public int PaymentId { get; set; }
 
-		#region PromoCodeId Annotations
+		#region Payment Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
-        [RelationshipTableAttribue("PromoCodes","dbo","","PromoCodeId")]
-		#endregion PromoCodeId Annotations
+        [ForeignKey(nameof(PaymentId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.Payment.Orders))]
+		#endregion Payment Annotations
 
-        public int PromoCodeId { get; set; }
-
-		#region AppUser Annotations
-
-        [ForeignKey(nameof(AppUserId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.AppUser.Orders))]
-		#endregion AppUser Annotations
-
-        public virtual AppUser AppUser { get; set; }
-
-		#region PromoCode Annotations
-
-        [ForeignKey(nameof(PromoCodeId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.PromoCode.Orders))]
-		#endregion PromoCode Annotations
-
-        public virtual PromoCode PromoCode { get; set; }
+        public virtual Payment Payment { get; set; }
 
 		#region OrderDetails Annotations
 
@@ -67,18 +50,10 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
-		#region Payments Annotations
-
-        [InverseProperty("Order")]
-		#endregion Payments Annotations
-
-        public virtual ICollection<Payment> Payments { get; set; }
-
 
         public Order()
         {
 			OrderDetails = new HashSet<OrderDetail>();
-			Payments = new HashSet<Payment>();
         }
 	}
 }

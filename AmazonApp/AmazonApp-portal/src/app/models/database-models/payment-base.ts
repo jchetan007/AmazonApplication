@@ -23,18 +23,20 @@ export class PaymentBase {
 //#endregion paymentDate Prop
 
 
-//#region orderId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        orderId : number;
-//#endregion orderId Prop
+//#region promoCodeId Prop
+        @prop()
+        promoCodeId : number;
+//#endregion promoCodeId Prop
 
 
-//#region applicationObjectId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
+//#region appUserId Prop
+        @prop()
+        appUserId : number;
+//#endregion appUserId Prop
+
+
+
+
 
 
 

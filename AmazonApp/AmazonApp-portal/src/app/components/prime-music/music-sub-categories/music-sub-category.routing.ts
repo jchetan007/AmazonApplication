@@ -7,7 +7,7 @@ import { MusicSubCategoryEditComponent } from './edit/music-sub-category-edit.co
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: 'list/:id',
         component: MusicSubCategoryListComponent
     },
     {

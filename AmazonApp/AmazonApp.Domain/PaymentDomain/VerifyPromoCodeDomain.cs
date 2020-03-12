@@ -21,7 +21,7 @@ namespace AmazonApp.Domain.PaymentModule
         public async Task<object> GetBy(PromoCode parameters)
         {
             var temp = 0;
-            temp = Uow.Repository<PromoCode>().Count(t => t.PromoCodeId == parameters.PromoCodeId && t.PromoCodeName == parameters.PromoCodeName);
+            temp = Uow.Repository<PromoCode>().Count(t => t.PromoCodeName == parameters.PromoCodeName);
             if (temp != 0)
             {
                 return await Task.FromResult("Successfully Verified");

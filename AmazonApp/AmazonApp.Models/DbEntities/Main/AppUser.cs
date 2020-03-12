@@ -45,7 +45,7 @@ namespace AmazonApp.Models.Main
 
 		#region Password Annotations
 
-      
+       
         [MaxLength(132)]
 		#endregion Password Annotations
 
@@ -115,12 +115,12 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<BankDetail> BankDetails { get; set; }
 
-		#region Orders Annotations
+		#region Payments Annotations
 
         [InverseProperty("AppUser")]
-		#endregion Orders Annotations
+		#endregion Payments Annotations
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
 
 		#region Cards Annotations
 
@@ -151,7 +151,7 @@ namespace AmazonApp.Models.Main
 			Sellers = new HashSet<Seller>();
 			Transactions = new HashSet<Transaction>();
 			BankDetails = new HashSet<BankDetail>();
-			Orders = new HashSet<Order>();
+			Payments = new HashSet<Payment>();
 			Cards = new HashSet<Card>();
 			UserAddresses = new HashSet<UserAddress>();
 			FeedBacks = new HashSet<FeedBack>();

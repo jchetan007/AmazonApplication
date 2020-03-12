@@ -20,7 +20,7 @@ namespace AmazonApp.Domain.PrimeMusicModule
 
         public async Task<object> GetBy(MusicCategory parameters)
         {
-            return await Uow.Repository<MusicCategory>().FindByAsync(t => t.MusicCategoryId == parameters.MusicCategoryId);
+            return await Uow.Repository<MusicSubCategory>().FindByAsync(t => t.MusicCategoryId == parameters.MusicCategoryId);
         }
         
 

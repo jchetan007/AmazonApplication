@@ -49,17 +49,17 @@ namespace AmazonApp.Models.Main
 
         public System.DateTimeOffset ValidTill { get; set; }
 
-		#region Orders Annotations
+		#region Payments Annotations
 
         [InverseProperty("PromoCode")]
-		#endregion Orders Annotations
+		#endregion Payments Annotations
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Payment> Payments { get; set; }
 
 
         public PromoCode()
         {
-			Orders = new HashSet<Order>();
+			Payments = new HashSet<Payment>();
         }
 	}
 }

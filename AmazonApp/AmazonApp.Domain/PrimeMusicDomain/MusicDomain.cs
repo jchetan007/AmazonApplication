@@ -7,52 +7,53 @@ using AmazonApp.Models.Main;
 
 namespace AmazonApp.Domain.PrimeMusicModule
 {
-    public class PrimeMusicDomain : IPrimeMusicDomain
+    public class MusicDomain : IMusicDomain
     {
-        public PrimeMusicDomain(IPrimeMusicUow uow) {
+        public MusicDomain(IPrimeMusicUow uow) {
             this.Uow = uow;
         }
 
-        public async Task<object> GetAsync(PrimeMusic parameters)
+        public async Task<object> GetAsync(Music parameters)
         {
-            return await Uow.Repository<PrimeMusic>().AllAsync();
-            //throw new NotImplementedException();
+            return await Uow.Repository<Music>().AllAsync();
+            //  throw new NotImplementedException();
         }
 
-        public async Task<object> GetBy(PrimeMusic parameters)
+        public async Task<object> GetBy(Music parameters)
         {
-            return await Uow.Repository<PrimeMusic>().FindByAsync(t => t.AppUserId == parameters.AppUserId);
+            return await Uow.Repository<Music>().FindByAsync(t => t.MusicId == parameters.MusicId);
+            // throw new NotImplementedException();
         }
         
 
-        public HashSet<string> AddValidation(PrimeMusic entity)
+        public HashSet<string> AddValidation(Music entity)
         {
             return ValidationMessages;
         }
 
-        public async Task AddAsync(PrimeMusic entity)
+        public async Task AddAsync(Music entity)
         {
             await Uow.RegisterNewAsync(entity);
             await Uow.CommitAsync();
         }
 
-        public HashSet<string> UpdateValidation(PrimeMusic entity)
+        public HashSet<string> UpdateValidation(Music entity)
         {
             return ValidationMessages;
         }
 
-        public async Task UpdateAsync(PrimeMusic entity)
+        public async Task UpdateAsync(Music entity)
         {
             await Uow.RegisterDirtyAsync(entity);
             await Uow.CommitAsync();
         }
 
-        public HashSet<string> DeleteValidation(PrimeMusic parameters)
+        public HashSet<string> DeleteValidation(Music parameters)
         {
             return ValidationMessages;
         }
 
-        public Task DeleteAsync(PrimeMusic parameters)
+        public Task DeleteAsync(Music parameters)
         {
             throw new NotImplementedException();
         }
@@ -62,5 +63,5 @@ namespace AmazonApp.Domain.PrimeMusicModule
         private HashSet<string> ValidationMessages { get; set; } = new HashSet<string>();
     }
 
-    public interface IPrimeMusicDomain : ICoreDomain<PrimeMusic, PrimeMusic> { }
+    public interface IMusicDomain : ICoreDomain<Music, Music> { }
 }

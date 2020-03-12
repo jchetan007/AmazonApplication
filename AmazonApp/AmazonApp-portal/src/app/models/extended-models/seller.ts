@@ -39,9 +39,8 @@ language : LanguageBase;
 //#region material Prop
 material : MaterialBase;
 //#endregion material Prop
-
 //#region productMainCategory Prop
-        productMainCategory : ProductMainCategoryBase;
+productMainCategory : ProductMainCategoryBase;
 //#endregion productMainCategory Prop
 //#region role Prop
 role : RoleBase;
@@ -66,6 +65,9 @@ products : ProductBase[];
 //#endregion products Prop
 
 //#endregion Generated Reference Properties
+
+
+
 
 
 

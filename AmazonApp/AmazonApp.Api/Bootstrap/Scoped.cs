@@ -163,7 +163,16 @@ namespace AmazonApp.Api.Bootstrap
             serviceCollection.AddScoped<IMusicCategoryDomain, MusicCategoryDomain>();
             
             serviceCollection.AddScoped<ICartItemDomain, CartItemDomain>();
+            
+          
+            
+            serviceCollection.AddScoped<IvPromoCodeDomain, vPromoCodeDomain>();
+            
+            serviceCollection.AddScoped<IMusicDomain, MusicDomain>();
             #endregion DomainService
+
+
+
 
 
 
