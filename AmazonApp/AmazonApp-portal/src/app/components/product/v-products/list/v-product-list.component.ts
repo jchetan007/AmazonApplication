@@ -18,6 +18,8 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
     value=0;
     AppUserId: any;
     vCartItem: any;
+    result: any;
+    Password: any;
 
     constructor(private formBuilder: RxFormBuilder, private activatedRoute: ActivatedRoute, private router:Router) {
         super();
@@ -29,6 +31,7 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
 
     ngOnInit(): void {
         this.AppUserId = localStorage.getItem("AppUserId");
+        this.Password = localStorage.getItem("Password");
         this.get({params:[this.id],queryParams:{ProductId:this.id}}).subscribe((t: List<vProduct>) => {
             console.log(t);    
               this.vProducts = t;
@@ -77,13 +80,49 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
 
     AddtoCart() {
         this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
-            this.vCartItem = res;
-
-            console.log(this.vCartItem);
-            alert("Added to Cart");
-        });
+                        this.vCartItem = res;
+            
+                        console.log(this.vCartItem);
+                         alert("Added to Cart");
+                     });
+        // this.get({path:'api/AppUsers', params:[1],queryParams:{AppUserId:this.AppUserId, Password:this.Password}}).subscribe(res=>{
+        //     this.result=res;
+        //     console.log(res);
+        //     if(res=="Successfully Verified")
+        //     {
+        //         this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
+        //             this.vCartItem = res;
+        
+        //             console.log(this.vCartItem);
+        //             alert("Added to Cart");
+        //         });
+        //     }
+        //     // else
+        //     // {
+        //     //     this.router.navigateByUrl('/login');
+        //     // }
+        // })
+        
         //this.router.navigate(['/v-cart-items'])
      }
+
+     BuyNow()
+     {
+        this.get({path:'api/AppUsers', params:[1],queryParams:{AppUserId:this.AppUserId}}).subscribe(res=>{
+            this.result=res;
+            console.log(res);
+       
+            if(res=="Successfully Verified")
+            {
+                this.router.navigateByUrl('/transaction/add');
+          
+            }
+            else
+            {
+                this.router.navigateByUrl('/login');
+            }
+        })
+    }
    
 
 }

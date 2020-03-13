@@ -10,7 +10,6 @@ import {RoleBase} from '../database-models/role-base';
 import {SellerDetailBase} from '../database-models/seller-detail-base';
 import {SizeBase} from '../database-models/size-base';
 import {ShippingDetailBase} from '../database-models/shipping-detail-base';
-import {TransactionBase} from '../database-models/transaction-base';
 import {DiscountBase} from '../database-models/discount-base';
 import {ProductBase} from '../database-models/product-base';
 //Generated Imports
@@ -54,9 +53,6 @@ size : SizeBase;
 //#region shippingDetails Prop
 shippingDetails : ShippingDetailBase[];
 //#endregion shippingDetails Prop
-//#region transactions Prop
-transactions : TransactionBase[];
-//#endregion transactions Prop
 //#region discounts Prop
 discounts : DiscountBase[];
 //#endregion discounts Prop
@@ -65,6 +61,8 @@ products : ProductBase[];
 //#endregion products Prop
 
 //#endregion Generated Reference Properties
+
+
 
 
 

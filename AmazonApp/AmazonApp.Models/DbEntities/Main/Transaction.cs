@@ -28,14 +28,14 @@ namespace AmazonApp.Models.Main
 
         public int AppUserId { get; set; }
 
-		#region SellerId Annotations
+		#region SellerDetailId Annotations
 
         [Range(1,int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("Sellers","dbo","","SellerId")]
-		#endregion SellerId Annotations
+        [RelationshipTableAttribue("SellerDetails","dbo","","SellerDetailId")]
+		#endregion SellerDetailId Annotations
 
-        public int SellerId { get; set; }
+        public int SellerDetailId { get; set; }
 
 		#region Amount Annotations
 
@@ -43,14 +43,6 @@ namespace AmazonApp.Models.Main
 		#endregion Amount Annotations
 
         public double Amount { get; set; }
-
-		#region ApplicationObjectId Annotations
-
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion ApplicationObjectId Annotations
-
-        public ApplicationObject ApplicationObjectId { get; set; }
 
 		#region TransactionDate Annotations
 
@@ -67,17 +59,25 @@ namespace AmazonApp.Models.Main
 
         public virtual AppUser AppUser { get; set; }
 
-		#region Seller Annotations
+		#region SellerDetail Annotations
 
-        [ForeignKey(nameof(SellerId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.Seller.Transactions))]
-		#endregion Seller Annotations
+        [ForeignKey(nameof(SellerDetailId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.SellerDetail.Transactions))]
+		#endregion SellerDetail Annotations
 
-        public virtual Seller Seller { get; set; }
+        public virtual SellerDetail SellerDetail { get; set; }
+
+		#region Orders Annotations
+
+        [InverseProperty("Transaction")]
+		#endregion Orders Annotations
+
+        public virtual ICollection<Order> Orders { get; set; }
 
 
         public Transaction()
         {
+			Orders = new HashSet<Order>();
         }
 	}
 }

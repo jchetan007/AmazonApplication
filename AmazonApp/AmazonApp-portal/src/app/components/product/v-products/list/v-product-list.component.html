@@ -24,7 +24,7 @@
           </div>
       </div> -->
 
-      <h1>vProducts LIST</h1>
+      <h2 style="margin-left: 900px;">Add to Cart</h2>
 <div>
     <!-- <button class="btn btn-primary" (click)="Get()">Get Data</button><br /> -->
         </div>
@@ -35,37 +35,42 @@
         <img src="..." class="img-fluid" alt="Responsive image"><a href="#" [routerLink]="['/product-edit',product.ProductId]"></a>
     
     </div> -->
-
+    <div class="container" style="margin-left: 800px;width: 500px;margin-top: 40px;"  ><br/>
     <div *ngFor="let product of vProducts">
-        <div class="card">
-            <div class="card-body">
+        <div >
+            <div >
                 
-                <h1>Product Name : {{product.productName}}</h1>
-                <h3>Product Price : {{product.originalProductPrice}}</h3>
-                <h3>Discount Price : {{product.discountProductPrice}}</h3>
+                <h3>Product Name : {{product.productName}}</h3><br/>
+                <h5>Product Price : {{product.originalProductPrice}}</h5><br/>
+                <h5>Discount Price : {{product.discountProductPrice}}</h5><br/>
                 <!-- <button [routerLink]=""></button> -->
                 <!-- <button  class="btn btn-primary" [routerLink]="['/v-products/list',product.productId]">Click to Buy</button> -->
             </div>
         </div>
     </div>
+   <br/>
+
+
+    </div>   
 
 
 
-    <div class="container">
+    <div class="container" style="margin-left: 800px;width: 500px;" class="border border-secondary" ><br/>
     
         <form>
-            <form>
-                <label>Quantity</label>&nbsp;
-                <button class="btn btn-primary"  (click)="decreaseValue()" value="Decrease Value">-</button>
+            
+                <label style="margin-left: 20px;">Quantity</label>&nbsp;&nbsp;
+                <button class="btn btn-warning"  (click)="decreaseValue()" value="Decrease Value" style="border-color: black;">-</button>&nbsp;
                {{value}}
-                <button class="btn btn-primary" (click)="increaseValue()" value="Increase Value">+</button>
-              </form><br/>
+                <button class="btn btn-warning" (click)="increaseValue()" value="Increase Value" style="border-color: black;">+</button>&nbsp;
+            <br/><br/>
+            
             <div class="row">
-                <button type="button" class="btn btn-primary" (click)="AddtoCart()" >Add To Cart</button>
+                <button type="button" class="btn btn-warning" (click)="AddtoCart()" style="margin-left: 135px;width: 250px;border-color: black;" >Add To Cart</button>
             </div><br/>
             <div>    
-                <button type="button" class="btn btn-primary" [routerLink]="">Buy Now</button><br/>
+                <button type="button" class="btn btn-warning" (click)="BuyNow()" style="margin-left: 120px;width: 250px;border-color: black;">Buy Now</button><br/>
             </div>
-        </form>
+        </form><br/>
    
 </div>

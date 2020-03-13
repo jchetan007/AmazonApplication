@@ -1,25 +1,25 @@
-<h1>Products LIST</h1>
+<h2 style="margin-left: 900px;">Products LIST</h2>
 
-
-
+<div class="container" style="margin-left: 800px;width: 500px;" ><br/>
 <!-- <button class="btn btn-primary" (click)="GetById(id=this.id)">Get Data</button><br /> -->
 
-<div *ngFor="let product of vProducts">
-    <div class="card">
-        <div class="card-body">
+<div *ngFor="let product of vProducts"><br/>
+   
+        <div >
             
-            <h1>Product Name : {{product.productName}}</h1>
-            <h3>Product Price : {{product.originalProductPrice}}</h3>
-            <h3>Discount Price : {{product.discountProductPrice}}</h3>
+            <h3>{{product.productName}}</h3><br/>
+            <h5>Product Price : {{product.originalProductPrice}}</h5><br/>
+            <h5>Discount Price : {{product.discountProductPrice}}</h5><br/>
             <!-- <button [routerLink]=""></button> -->
-            <button  class="btn btn-primary" [routerLink]="['/v-products/list',product.productId]">Click to Buy</button>
+            <button  class="btn btn-warning" [routerLink]="['/v-products/list',product.productId]" style="border-color: black;">Click to Buy</button><br/>
         </div>
-    </div>
+  
+</div><br/>
+
+
+
+
 </div>
-
-
-
-
 
 
 

@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+&nbsp;
+<a class="navbar-brand"><img src="https://www.paredro.com/wp-content/uploads/2018/08/Amazon-Logo.jpg"width="150px" height="60px"[routerLink]="['#']"></a>
+
+  <div class="navbar-inline"> 
+    <form [formGroup]="productformgroup" >
+        <div class="col">
+          <input  type="text" formControlName="product">
+          <button (click)="SearchProduct()">Search</button>
+        </div>
+      </form>             
+  </div>
+
+ 
+  <div class="topcorner">
+      <style type="text/css">
+          .topcorner{
+            position:absolute;
+            top:10px;
+            right:40px;
+           }
+         </style>
+         <!-- <a [routerLink]="['/login']">Login</a> -->
+          <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showLoginButton" (click) = "Login()" type="submit">Login</button>&nbsp;&nbsp;
+          <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showSignUpButton" (click) = "SignUp()" type="submit">Sign Up</button>&nbsp;&nbsp;
+          <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showLogoutButton" (click) = "Logout()" type="submit">Logout</button>&nbsp;&nbsp;
+<a style="padding-right:20px;"> <i class="fas fa-store fa-2x" [routerLink]="['/sellers/add']"></i> </a>
+    
+   &nbsp;&nbsp;
+   <a style="padding-right:20px;"><i class="fas fa-music fa-2x" [routerLink]="['/music-categories/list/1']"></i></a>
+     &nbsp;&nbsp;
+ 
+     <a style="padding-right:20px;"> <i class="fas fa-shopping-cart fa-2x" [routerLink]="['/v-cart-items']"></i></a>
+  
+  </div>
+    </div>
+    </nav>
+
+
+
+
+
+
+<table>
+<tr *ngFor="let data of proresult">
+  <td>
+      {{data.ProductName}}
+  </td>
+</tr>
+</table>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+<div class = "footer">
+<div class = "navFooterVerticalRow">
+  <div class = "row">
+<div class ="navFooterLinkCol">
+<div class ="navFooterColHead" style="width: 200px;"> Get to Know Us</div>
+<ul>
+<a href ="#" class="nav_a">About Us</a> <br>
+  
+  <a href ="#" class="nav_a">Gift a Smile</a>
+
+</ul>
+</div>
+
+ 
+
+<div class ="navFooterLinkRow">
+<div class ="navFooterColHead" style="width: 450px;"> Connect With Us</div>
+<ul>
+  <a href ="#" class="nav_a">Facebook</a> <br>
+ 
+ <a href ="#" class="nav_a">Twitter</a>
+  
+</ul>
+</div>
+
+
+
+<div class ="navFooterLinkRow">
+<div class ="navFooterColHead" style="width: 430px;"> Make Money With Us</div>
+<ul>
+  <a href ="/sellers/add" class="nav_a">Sell On Amazon</a> <br>
+
+ <a href ="#" class="nav_a">Advertise Your Product</a>
+ 
+</ul>
+</div>
+
+
+
+<div class ="navFooterLinkRow">
+<div class ="navFooterColHead" style="width: 450px;"> Let Us Help You</div>
+<ul>
+  <a href ="#" class="nav_a">Your Account</a>   <br>   
+ <a href ="#" class="nav_a">Help</a>
+ 
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+  
+</footer>

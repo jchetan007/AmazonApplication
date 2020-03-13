@@ -196,13 +196,6 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<ShippingDetail> ShippingDetails { get; set; }
 
-		#region Transactions Annotations
-
-        [InverseProperty("Seller")]
-		#endregion Transactions Annotations
-
-        public virtual ICollection<Transaction> Transactions { get; set; }
-
 		#region Discounts Annotations
 
         [InverseProperty("Seller")]
@@ -221,7 +214,6 @@ namespace AmazonApp.Models.Main
         public Seller()
         {
 			ShippingDetails = new HashSet<ShippingDetail>();
-			Transactions = new HashSet<Transaction>();
 			Discounts = new HashSet<Discount>();
 			Products = new HashSet<Product>();
         }

@@ -61,10 +61,18 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Seller> Sellers { get; set; }
 
+		#region Transactions Annotations
+
+        [InverseProperty("SellerDetail")]
+		#endregion Transactions Annotations
+
+        public virtual ICollection<Transaction> Transactions { get; set; }
+
 
         public SellerDetail()
         {
 			Sellers = new HashSet<Seller>();
+			Transactions = new HashSet<Transaction>();
         }
 	}
 }

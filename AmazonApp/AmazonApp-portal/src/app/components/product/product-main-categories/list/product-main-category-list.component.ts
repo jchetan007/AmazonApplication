@@ -24,7 +24,7 @@ export class ProductMainCategoryListComponent extends AbstractProductMainCategor
     ngOnInit(): void {
         console.log("ngoninit ");
         
-        //  console.log(temp[0].fashionCId);
+        
             // this.GetById(this.id);
             console.log("ngoninit called");
         

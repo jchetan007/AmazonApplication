@@ -27,6 +27,7 @@ export class LoginComponent extends CoreComponent implements OnInit {
     otpResponse:any;
     verifyOtpResponse:any;
     result:any;
+    showHeader:false;
 
 
 
@@ -39,12 +40,12 @@ export class LoginComponent extends CoreComponent implements OnInit {
 
     ngOnInit(): void {
         this.userFormGroup1 =this.formBuilder.group({
-            mobilenumber:[''],
-            password:['']
+            mobilenumber:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.digit()] })],
+            password:['',RxwebValidators.required()]
         });
 
             this.userFormGroup2 =this.formBuilder.group({
-                otpnumber:['']
+                otpnumber:['',RxwebValidators.required()]
         });
 
           
@@ -100,7 +101,8 @@ getOTP()
     
             if(res=="Successfully Verified")
             {
-                this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber} }).subscribe(res => {
+                console.log('success')
+                this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber, password:this.userFormGroup1.value.password} }).subscribe(res => {
                     this.result = res;
 
                     if(this.result=="Try Again Please")
@@ -110,12 +112,15 @@ getOTP()
                     }
                     else
                     {
-                        
+                        console.log('else success')   
                         // sessionStorage.setItem("AppUserId",this.result);
                         localStorage.setItem("AppUserId", JSON.stringify(this.result));
+                        localStorage.setItem("Password", JSON.stringify(this.result));
+                        this.router.navigateByUrl('/product-main-categories')
+                        location.replace('/product-main-categories')
                         // this.router.navigate(['']);
                     }
-                    alert("AppUserId"+res)
+                    alert("AppUserId" +res)
                     // console.log(this.result)
                     // sessionStorage.setItem('user', JSON.stringify(res));
                     // if (this.result != 0) {

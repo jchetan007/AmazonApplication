@@ -17,11 +17,11 @@ export class TransactionBase {
 //#endregion appUserId Prop
 
 
-//#region sellerId Prop
+//#region sellerDetailId Prop
         @range({minimumNumber:1,maximumNumber:2147483647})
         @required()
-        sellerId : number;
-//#endregion sellerId Prop
+        sellerDetailId : number;
+//#endregion sellerDetailId Prop
 
 
 //#region amount Prop
@@ -30,17 +30,12 @@ export class TransactionBase {
 //#endregion amount Prop
 
 
-//#region applicationObjectId Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
-        applicationObjectId : number;
-//#endregion applicationObjectId Prop
-
-
 //#region transactionDate Prop
         @required()
         transactionDate : Date;
 //#endregion transactionDate Prop
+
+
 
 
 

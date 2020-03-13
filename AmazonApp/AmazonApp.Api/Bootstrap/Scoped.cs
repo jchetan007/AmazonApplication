@@ -169,7 +169,11 @@ namespace AmazonApp.Api.Bootstrap
             serviceCollection.AddScoped<IvPromoCodeDomain, vPromoCodeDomain>();
             
             serviceCollection.AddScoped<IMusicDomain, MusicDomain>();
+            
+           
             #endregion DomainService
+
+
 
 
 

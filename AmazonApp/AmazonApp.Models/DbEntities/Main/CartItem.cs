@@ -70,17 +70,9 @@ namespace AmazonApp.Models.Main
 
         public virtual Product Product { get; set; }
 
-		#region OrderDetails Annotations
-
-        [InverseProperty("CartItem")]
-		#endregion OrderDetails Annotations
-
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
 
         public CartItem()
         {
-			OrderDetails = new HashSet<OrderDetail>();
         }
 	}
 }

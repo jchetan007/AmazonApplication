@@ -18,14 +18,15 @@ namespace AmazonApp.Domain.PaymentModule
             DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(Transaction parameters)
+        public async Task<object> GetAsync(Transaction parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<Transaction>().AllAsync();
+            //throw new NotImplementedException();
         }
 
         public async Task<object> GetBy(Transaction parameters)
         {
-            return await Uow.Repository<Transaction>().FindByAsync(t => t.TransactionId == parameters.TransactionId);
+            return await Uow.Repository<Order>().FindByAsync(t => t.TransactionId == parameters.TransactionId);
             //throw new NotImplementedException();
         }
         
@@ -37,24 +38,17 @@ namespace AmazonApp.Domain.PaymentModule
 
         public async Task AddAsync(Transaction parameters)
         {
-            await DbContextManager.BeginTransactionAsync();
+            
 
-            var spParameters = new SqlParameter[5];
-            spParameters[0] = new SqlParameter() { ParameterName = "amount", Value = parameters.Amount };
-            spParameters[1] = new SqlParameter() { ParameterName = "appUserId", Value = parameters.AppUserId };
-            spParameters[2] = new SqlParameter() { ParameterName = "sellerId", Value = parameters.SellerId };
-            spParameters[3] = new SqlParameter() { ParameterName = "transactionDate", Value = parameters.TransactionDate };
-            spParameters[4] = new SqlParameter() { ParameterName = "applicationObjectId", Value = parameters.ApplicationObjectId };
-          
+            var spParameters = new SqlParameter[3];
+           
+            spParameters[0] = new SqlParameter() { ParameterName = "AppUserId", Value = parameters.AppUserId };
+            spParameters[1] = new SqlParameter() { ParameterName = "SellerDetailId", Value = parameters.SellerDetailId };
+            spParameters[2] = new SqlParameter() { ParameterName = "TransactionDate", Value = parameters.TransactionDate };
+            
             await DbContextManager.StoreProc<StoreProcResult>("[dbo].spTransactions ", spParameters);
-            try
-            {
-                await DbContextManager.CommitAsync();
-            }
-            catch (Exception e)
-            {
-                DbContextManager.RollbackTransaction();
-            }
+            await DbContextManager.CommitAsync();
+            
         }
 
         public HashSet<string> UpdateValidation(Transaction entity)

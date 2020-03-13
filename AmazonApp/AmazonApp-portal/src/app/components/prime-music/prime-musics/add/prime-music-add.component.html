@@ -1,6 +1,8 @@
-<h2 style="margin-left: 900px;">Enter Mobile Number</h2>
-<div class="container">
-  <div class="jumbotron">
+<h1 style="margin-left: 900px;">Prime Login</h1>
+<div class="border border-secondary"  style="margin-left: 700px;width: 700px;margin-top: 40px;"  ><br/>
+<h3 style="margin-left: 200px;" >Enter Mobile Number</h3>
+<div class="container" ><br/>
+
     <form  [formGroup]="userFormGroup1">
 
       <div class="form-group">
@@ -8,17 +10,20 @@
         <input type="text" formControlName="mobilenumber" class="form-control"  />
        <small class="form-text text-danger" *ngIf="userFormGroup1.controls.mobilenumber?.errors">{{userFormGroup1.controls.mobilenumber.errors?.required?.message}}<br/></small>        
       </div>    
-      <button type="button" [disabled]="!userFormGroup1.valid" class="btn btn-primary" >Submit</button>
-    </form>
+      <button type="button" [disabled]="!userFormGroup1.valid" class="btn btn-warning" style="border-color: black;">Submit</button><br/>
+    </form><br/>
+
+  </div>
+ 
+</div><br/>
 
 
-  </div>  
-</div>
+<div class="border border-secondary" style="margin-left: 700px;width: 700px;"><br/>
 
-<h2 style="margin-left: 900px;">Enter Password</h2>
+<h3 style="margin-left: 220px;">Enter Password</h3>
 
-    <div class="container">
-      <div class="jumbotron">    
+<div class="container"  ><br/>
+       
 
     <form  [formGroup]="userFormGroup2">
       <div class="form-group">
@@ -26,17 +31,18 @@
         <input type="text" formControlName="password" class="form-control"  />
        <small class="form-text text-danger" *ngIf="userFormGroup2.controls.password?.errors">{{userFormGroup2.controls.password.errors?.required?.message}}<br/></small>  
       </div>
-      <button [disabled]="!userFormGroup2.valid" class="btn btn-primary" (click)="getOTP()">Submit</button>
-    </form>
+      <button [disabled]="!userFormGroup2.valid" class="btn btn-warning" (click)="getOTP()" style="border-color: black;">Submit</button><br/>
+    </form><br/>
 
-  </div>  
+ 
 </div>
 
+</div><br/>
 
-<h2 style="margin-left: 950px;">Enter OTP</h2>
-
-    <div class="container">
-      <div class="jumbotron">    
+<div class="border border-secondary" style="margin-left: 700px;width: 700px;"><br/>
+<h3 style="margin-left: 250px;">Enter OTP</h3>
+<div class="container" ><br/>
+        
 
     <form  [formGroup]="userFormGroup3">
       <div class="form-group">
@@ -44,7 +50,8 @@
         <input type="text" formControlName="otp" class="form-control"  />
        <small class="form-text text-danger" *ngIf="userFormGroup3.controls.otp?.errors">{{userFormGroup3.controls.otp.errors?.required?.message}}<br/></small>  
       </div>
-      <button [disabled]="!userFormGroup3.valid" class="btn btn-primary" (click)="otpSubmit()">Submit</button>
-    </form>
-  </div>  
+      <button [disabled]="!userFormGroup3.valid" class="btn btn-warning" (click)="otpSubmit()" style="border-color: black;">Submit</button><br/>
+    </form><br/>
+
 </div>
+</div><br/>

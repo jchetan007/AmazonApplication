@@ -12,7 +12,7 @@ namespace AmazonApp.Api.Controllers.UserModule
     [ApiController]
     [Route("api/[controller]")]
 	
-	public class AppUsersController : BaseDomainController<AppUser, AppUser>
+	public class AppUsersController : BaseDomainController<AppUser1, AppUser1>
 
     {
         public AppUsersController(IAppUserDomain domain):base(domain) {}

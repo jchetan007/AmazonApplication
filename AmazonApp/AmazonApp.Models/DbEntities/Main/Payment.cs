@@ -71,18 +71,10 @@ namespace AmazonApp.Models.Main
 
         public virtual ICollection<Invoice> Invoices { get; set; }
 
-		#region Orders Annotations
-
-        [InverseProperty("Payment")]
-		#endregion Orders Annotations
-
-        public virtual ICollection<Order> Orders { get; set; }
-
 
         public Payment()
         {
 			Invoices = new HashSet<Invoice>();
-			Orders = new HashSet<Order>();
         }
 	}
 }

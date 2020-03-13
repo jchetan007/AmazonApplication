@@ -26,22 +26,22 @@ namespace AmazonApp.Models.Main
 
         public System.DateTimeOffset CreatedDate { get; set; }
 
-		#region PaymentId Annotations
+		#region TransactionId Annotations
 
         [Range(1,int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("Payments","dbo","","PaymentId")]
-		#endregion PaymentId Annotations
+        [RelationshipTableAttribue("Transactions","dbo","","TransactionId")]
+		#endregion TransactionId Annotations
 
-        public int PaymentId { get; set; }
+        public int TransactionId { get; set; }
 
-		#region Payment Annotations
+		#region Transaction Annotations
 
-        [ForeignKey(nameof(PaymentId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.Payment.Orders))]
-		#endregion Payment Annotations
+        [ForeignKey(nameof(TransactionId))]
+        [InverseProperty(nameof(AmazonApp.Models.Main.Transaction.Orders))]
+		#endregion Transaction Annotations
 
-        public virtual Payment Payment { get; set; }
+        public virtual Transaction Transaction { get; set; }
 
 		#region OrderDetails Annotations
 

@@ -21,7 +21,10 @@ namespace AmazonApp.BoundedContext.Main
 		public DbSet<Otp> Otp { get; set; }
 		public DbSet<BankDetail> BankDetail { get; set; }
             		public DbSet<UserAddress> UserAddress { get; set; }
+            		
             #endregion DbSets
+
+
 
 
 

@@ -1,11 +1,13 @@
-<h2 style="margin-left: 900px;">Payment Methods</h2>
-<div class="container">
-    <div class="jumbotron">
+<h3 style="margin-left: 850px;margin-top: 40px;">Payment Methods</h3>
+<div class="border border-secondary" style="width: 550px;margin-left: 700px;margin-top: 20px;border-style: ridge;border-color: silver;">
+
+<div class="container"><br/>
+ 
         <form [formGroup]="CardForm">
             <div class="form-check">
 
 
-                <h2>Choose Payment Option</h2><br/>
+                <h4>Choose Payment Option</h4><br/>
                 
                 <input type="radio"  id="paymentoption" value="onlinepayment"  (click)="setradio('onlinepayment')">Online Payment<br/>
                 <input type="radio"  id="paymentoption" value="cod" (click)="setradio('cod')">COD<br/>
@@ -38,29 +40,34 @@
             </div><br/>
         
     
-            <button type="submit" class="btn btn-primary" >Place Order</button>
+            <button type="submit" class="btn btn-warning" style="margin-left: 200px;border-color: black;" (click)="placeOrder()">Place Order</button>
         </form>
         <br>
 
 
+
+
+
     </div>
-</div>
+</div><br/>
 
-<h2 style="margin-left: 900px;">Apply PromoCode</h2>
+<h3 style="margin-left: 840px;">Apply PromoCode</h3>
+<div class="border border-secondary" style="width: 550px;margin-left: 700px;border-style: ridge;margin-top: 20px;border-color: silver;">
 
-<div class="container">
-    <div class="jumbotron">
+
+<div class="container"><br/>
+   
 
         <form [formGroup]="PromocodeForm">
           
                 <label>Promo Code</label>
                 <input type="text" class="form-control" formControlName="promocode"><br>
                 
-                <button type="submit" class="btn btn-primary" (click)="promocodeSubmit()" >Apply Promo Code</button>
+                <button type="submit" class="btn btn-warning" style="margin-left: 180px;border-color: black;" >Apply Promo Code</button>
 
         
 
         </form>
-    </div>
-</div>    
    
+</div> <br/>   
+</div>

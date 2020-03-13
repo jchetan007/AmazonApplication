@@ -19,14 +19,14 @@ namespace AmazonApp.Domain.SellerModule
             DbContextManager = dbContextManager;
         }
 
-        public Task<object> GetAsync(SellerDetailForm parameters)
+        public async Task<object> GetAsync(SellerDetailForm parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<SellerDetailForm>().AllAsync();
         }
 
-        public Task<object> GetBy(SellerDetailForm parameters)
+        public async Task<object> GetBy(SellerDetailForm parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<SellerDetailForm>().FindByAsync(t => t.AppUserId == parameters.AppUserId);
         }
         
 

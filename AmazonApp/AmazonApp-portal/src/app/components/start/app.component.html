@@ -1,9 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             ☰
-        </button>
-        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+        </button> -->
+        <!-- <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
            
     
      
@@ -79,33 +86,40 @@
              <li><a  class="dropdown-item" [routerLink]="['/login']">LogIn</a></li> 
              <li><a  class="dropdown-item" [routerLink]="['/app-users/add']">SignUp</a></li> 
           
-          </ul>
-       &nbsp;
-          <a class="navbar-brand" href="#"><span style="color:black;font-weight:bold"><h1>Amazon</h1></span></a>
+          </ul> -->
+       <!-- &nbsp;
+          <a class="navbar-brand"><img src="https://www.paredro.com/wp-content/uploads/2018/08/Amazon-Logo.jpg"width="150px" height="60px"[routerLink]="['#']"></a>
     
             <div class="navbar-inline"> 
-            <form [formGroup]="productformgroup" >
-                <div class="col">
-                    <input  type="text" formControlName="product"  style="width: 700px;">
-                    <button (click)="SearchProduct()"  style="width: 100px;">Search</button>
-                </div>
-                </form>
-            
-            
-          
-        </div>
+              <form [formGroup]="productformgroup" >
+                  <div class="col">
+                    <input  type="text" formControlName="product">
+                    <button (click)="SearchProduct()">Search</button>
+                  </div>
+                </form>             
+            </div>
           
            
+            <div class="topcorner">
+                <style type="text/css">
+                    .topcorner{
+                      position:absolute;
+                      top:10px;
+                      right:40px;
+                     }
+                   </style>
+                    <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showLoginButton" (click) = "Login()" type="submit">Login</button>&nbsp;&nbsp;
+                    <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showSignUpButton" (click) = "SignUp()" type="submit">Sign Up</button>&nbsp;&nbsp;
+                    <button class="btn btn-outline-warning my-2 my-sm-0" *ngIf = "showLogoutButton" (click) = "Logout()" type="submit">Logout</button>&nbsp;&nbsp;
+       <a style="padding-right:20px;"> <i class="fas fa-store fa-2x" [routerLink]="['/sellers/add']"></i> </a>
               
-               <button><img src="https://roughnecks.co/hosted/images/4c/730310c36111e88f34bbd09b571ab2/seller-central.png" height="50" width="50" class="img-fluid" alt="Responsive image" [routerLink]="['/sellers/add']"></button> 
-              
-             
-              <button> <img src="https://lh3.googleusercontent.com/c0uMGe9aLRQxGtAXB_9xnKnG83VOGRD7NtglvnzPj9SYS3_ZYA_EYhtP86nePn0vjI0" class="img-fluid" alt="Responsive image" height="50" width="50"[routerLink]="['/prime-musics']"></button>
-              
+             &nbsp;&nbsp;
+             <a style="padding-right:20px;"><i class="fas fa-music fa-2x" [routerLink]="['/music-categories/list/1']"></i></a>
+               &nbsp;&nbsp;
            
-                <!-- <a class="nav-link " [routerLink]="['#']"  >Cart</a>         -->
+               <a style="padding-right:20px;"> <i class="fas fa-shopping-cart fa-2x" [routerLink]="['/v-cart-items']"></i></a>
             
-          
+            </div>
     </div>
     </nav>
     
@@ -113,20 +127,30 @@
        
     <router-outlet></router-outlet>
     <table>
-        <div *ngFor="let data of proresult">
-            <div>
-                Product Name : {{data.ProductName}}
-            </div>
-            <div>
-                Product Price : {{data.OriginalProductPrice}}
-            </div>
-            <div>
-                Discount Price : {{data.DiscountProductPrice}}
-            </div>
-        </div>
+        <tr *ngFor="let data of proresult">
+            <td>
+                {{data.ProductName}}
+            </td>
+        </tr>
     </table>
     
-    
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
     <footer>
         <div class = "footer">
         <div class = "navFooterVerticalRow">
@@ -181,7 +205,7 @@
     </div>
             
       </footer>
-    
+     -->
     
     
       <!-- <div *ngIf="visible" class="navbar d-flex justify-content-between bd-highlight mb-2">
@@ -288,6 +312,6 @@
     
     
     
-    
-    
-      
+    <app-header></app-header>
+
+    <router-outlet></router-outlet>

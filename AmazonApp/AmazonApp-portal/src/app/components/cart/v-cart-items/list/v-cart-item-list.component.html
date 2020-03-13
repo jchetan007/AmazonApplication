@@ -1,26 +1,28 @@
-<div class="container">
-    <div class="jumbotron" style="background-color: khaki;">
+<h2 style="margin-left: 900px;">Buy Product</h2>
+<div class="container" style="margin-left: 800px;width: 500px;margin-top: 40px;">
+
+        <h4>Cart Quantity : {{CartQuantity}}</h4><br/>
 <div *ngFor="let item of vCartItems">
     <div class="card">
         <div class="card-body">
             
-            <h3>Product Name : {{item.productName}}</h3>
-            <h4>Product Price : {{item.discountProductPrice}}</h4>
-            <h4>Quantity : {{item.productQuantity}}</h4>
-            <h4>Total Price : {{item.totalPrice}}</h4>
+            <h3>Product Name : {{item.productName}}</h3><br/>
+            <h4>Product Price : {{item.discountProductPrice}}</h4><br/>
+            <h4>Quantity : {{item.productQuantity}}</h4><br/>
+            <h4>Total Price : {{item.totalPrice}}</h4><br/>
+            
             <!-- <button [routerLink]=""></button> -->
-            <button  class="btn btn-primary" (click)="removeProduct(item.productId)">Remove</button>
+            <button  class="btn btn-warning" (click)="removeProduct(item.productId)" style="border-color: black;">Remove</button><br/>
         </div>
     </div>
 </div>
+<h4>Cart Value : {{CartValue}}</h4><br/>
 
 
 
 
 
+<button type="submit" class="btn btn-warning" button [routerLink]="['/transactions/add']" style="border-color: black;" >Proceed to Buy</button><br/>
 
-<button type="submit" class="btn btn-primary" button [routerLink]="['/transactions/add']" >Proceed to Buy</button>
 
-
-</div>
 </div>

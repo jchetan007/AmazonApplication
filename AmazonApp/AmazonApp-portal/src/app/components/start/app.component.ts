@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientConfig, HttpResponse, http, RxHttp } from '@rxweb/http';
 import { BrowserStorage } from 'src/app/domain/services/browser-storage';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { Product } from '@app/models';
 import { Subscription } from 'rxjs';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { anonymous } from '@rxweb/angular-router';
-import {showlist} from './Productlist';
+
 import { Seller } from "@app/models";
 import { List } from "@rxweb/generics"
 
@@ -30,16 +30,48 @@ export class AppComponent extends RxHttp implements OnInit{
   productformgroup:FormGroup;
     proresult:any;
     result:any;
-    visible=showlist.isShowList;
-
+    appUserId:any;
+    showLoginButton = false;
+    showSignUpButton = false;
+    showLogoutButton = false;
+    isShowNavbar: boolean = false
 
   constructor(private browserStorage: BrowserStorage, private router: Router,private fb:FormBuilder) {super();}
   
   ngOnInit(): void {
+
+
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationEnd) {
+        if ((event['url'] == '/login') ) {
+          this.isShowNavbar = false;
+        }
+        else {
+          // console.log("NU")
+          this.isShowNavbar = true;
+        }
+      }
+    });
+
+
     this.productformgroup=this.fb.group({
       product:['']
     })
+    this.appUserId = localStorage.getItem("AppUserId");
+    if(this.appUserId === null){
+      this.showLoginButton = true;
+      this.showSignUpButton = true;
+      this.showLogoutButton = false
+      console.log('not login')
+    }else{
+      console.log('login')
+      this.showLoginButton = false;
+      this.showSignUpButton = false;
+      this.showLogoutButton = true;
+    }
+    console.log(this.appUserId)
     
+
     
     HttpClientConfig.register({
       hostURIs: [{
@@ -125,7 +157,19 @@ export class AppComponent extends RxHttp implements OnInit{
       })
   }
   
+  Login() {
+    this.router.navigateByUrl('login')
+  }
+  SignUp() {
+    this.router.navigateByUrl('app-users/add')
+  }
 
+  Logout() {
+    localStorage.clear();
+    this.showLoginButton = true;
+    this.showSignUpButton = true;
+    this.showLogoutButton = false
+  }
 }
 
 

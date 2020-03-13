@@ -23,7 +23,8 @@ export class AppUserAddComponent extends AbstractAppUser implements OnInit,OnDes
     mobileStyle:any;
     otpResponse:any;
     verifyOtpResponse:any;
-    userFormGroup: any;
+    userFormGroup: FormGroup;
+    otpFormGroup: FormGroup;
 
     constructor(private formBuilder: FormBuilder) {
         super();
@@ -35,17 +36,23 @@ export class AppUserAddComponent extends AbstractAppUser implements OnInit,OnDes
         this.appUser = new AppUser();
         this.userFormGroup = this.formBuilder.group({
 
-           appusername:[''] ,
+           appusername:['',RxwebValidators.required()] ,
 
-           mobilenumber:[''] ,
+           mobilenumber:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.digit()] })] ,
 
            emailid:[''] ,
 
-           password:[''] ,
-
-           otpnumber:['']
+           password:['',RxwebValidators.required()] ,
 
 
+
+     
+
+
+        });
+
+        this.otpFormGroup = this.formBuilder.group({
+            otpnumber:['']
         });
        // this.userFormGroup.patchModelValue({["createdDate"]:this.currentdate,["roleId"]:1});
         }
@@ -91,7 +98,7 @@ export class AppUserAddComponent extends AbstractAppUser implements OnInit,OnDes
     
         otpSubmit()
         {
-            this.get({path:'api/VerifyOtps',params:[1],queryParams:{OtpId:this.otpResponse, OtpNumber:this.userFormGroup.value.otpnumber, MobileNumber:this.userFormGroup.value.mobilenumber}}).subscribe(res => {
+            this.get({path:'api/VerifyOtps',params:[1],queryParams:{OtpId:this.otpResponse, OtpNumber:this.otpFormGroup.value.otpnumber, MobileNumber:this.userFormGroup.value.mobilenumber}}).subscribe(res => {
             this.verifyOtpResponse = res;
             console.log(res);
     

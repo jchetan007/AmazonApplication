@@ -2,9 +2,9 @@ import { Routes, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { RouteProvider } from "@rxweb/angular-router"
 import { Injectable } from '@angular/core';
  var routings = [
-//     {
-//        path: '', redirectTo: 'orders', pathMatch: 'full',
-//    },
+    {
+       path: '', redirectTo: 'product-main-categories', pathMatch: 'full',
+   },
     {
         path: "login",
         loadChildren: () => import("../login/login.module").then(m => m.LoginModule),
@@ -255,12 +255,50 @@ import { Injectable } from '@angular/core';
 		path: "user-addresses",
 		loadChildren: () => import("../user/user-addresses/user-address.module").then(m => m.UserAddressModule)
 	},
+	{
+		path: "v-promo-codes",
+		loadChildren: () => import("../payment/v-promo-codes/v-promo-code.module").then(m => m.vPromoCodeModule)
+	},
+	{
+		path: "v-promo-codes",
+		loadChildren: () => import("../payment/v-promo-codes/v-promo-code.module").then(m => m.vPromoCodeModule)
+	},
+	{
+		path: "musics",
+		loadChildren: () => import("../prime-music/musics/music.module").then(m => m.MusicModule)
+	},
+	{
+		path: "v-promo-codes",
+		loadChildren: () => import("../payment/v-promo-codes/v-promo-code.module").then(m => m.vPromoCodeModule)
+	},
+	{
+		path: "musics",
+		loadChildren: () => import("../prime-music/musics/music.module").then(m => m.MusicModule)
+	},
+	{
+		path: "v-promo-codes",
+		loadChildren: () => import("../payment/v-promo-codes/v-promo-code.module").then(m => m.vPromoCodeModule)
+	},
+	{
+		path: "musics",
+		loadChildren: () => import("../prime-music/musics/music.module").then(m => m.MusicModule)
+	},
+	{
+		path: "v-promo-codes",
+		loadChildren: () => import("../payment/v-promo-codes/v-promo-code.module").then(m => m.vPromoCodeModule)
+	},
+	{
+		path: "musics",
+		loadChildren: () => import("../prime-music/musics/music.module").then(m => m.MusicModule)
+	},
 	
 
 ] 
        
        
     
+       
+       
 //generated code
 //])
 

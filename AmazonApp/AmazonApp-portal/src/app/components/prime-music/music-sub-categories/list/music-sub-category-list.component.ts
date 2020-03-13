@@ -18,7 +18,6 @@ export class MusicSubCategoryListComponent extends AbstractMusicSubCategory impl
         this.get({params:[this.id],queryParams:{MusicCategoryId:this.id}}).subscribe((t: List<MusicSubCategory>) => {
             console.log(t);  
             this.musicSubCategories = t;
-            console.log("prince");
             console.log(this.musicSubCategories)
         })
     }

@@ -21,21 +21,21 @@ namespace AmazonApp.Domain.UserModule
             PasswordHash = passwordHash;
         }
 
-        public async Task<object> GetAsync(AppUser parameters)
+        public async Task<object> GetAsync(AppUser1 parameters)
         {
             
-             return await Uow.Repository<AppUser>().AllAsync();
+             return await Uow.Repository<AppUser1>().AllAsync();
            
             //throw new NotImplementedException();
         }
 
-        public async Task<object> GetBy(AppUser parameters)
+        public async Task<object> GetBy(AppUser1 parameters)
         {
            
-            var count =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber);
-            if(count != null)
+            var result =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber);
+            if(result != null && PasswordHash.VerifySignature(parameters.Password, result.Password, result.Salt))
             {
-                return (count.AppUserId);
+                return (result.AppUserId);
             }
             else
             {
@@ -45,30 +45,35 @@ namespace AmazonApp.Domain.UserModule
         }
 
 
-        public HashSet<string> AddValidation(AppUser entity)
+        public HashSet<string> AddValidation(AppUser1 entity)
         {
             return ValidationMessages;
         }
 
-        public async Task AddAsync(AppUser entity)
+        public async Task AddAsync(AppUser1 entity)
         {
-
-            PasswordResult passwordResult = PasswordHash.Encrypt(entity.UserPassword);
-            entity.Password = passwordResult.Signature;
-            entity.Salt = passwordResult.Salt;
-            await Uow.RegisterNewAsync<AppUser>(entity);
+            AppUser appuser = new AppUser();
+            PasswordResult passwordResult = PasswordHash.Encrypt(entity.Password);
+            appuser.AppUserName = entity.AppUserName;
+            appuser.MobileNumber = entity.MobileNumber;
+            appuser.EmailId = entity.EmailId;
+            appuser.CreatedDate = entity.CreatedDate;
+            appuser.RoleId = entity.RoleId;
+            appuser.Password = passwordResult.Signature;
+            appuser.Salt = passwordResult.Salt;
+            await Uow.RegisterNewAsync(appuser);
             await Uow.CommitAsync();
             //throw new NotImplementedException();
 
             //return await Task.FromResult(entity.AppUserId);
         }
 
-        public HashSet<string> UpdateValidation(AppUser entity)
+        public HashSet<string> UpdateValidation(AppUser1 entity)
         {
             return ValidationMessages;
         }
 
-        public async Task UpdateAsync(AppUser parameters)
+        public async Task UpdateAsync(AppUser1 parameters)
         {
            
 
@@ -81,12 +86,12 @@ namespace AmazonApp.Domain.UserModule
 
         }
 
-        public HashSet<string> DeleteValidation(AppUser parameters)
+        public HashSet<string> DeleteValidation(AppUser1 parameters)
         {
             return ValidationMessages;
         }
 
-        public Task DeleteAsync(AppUser parameters)
+        public Task DeleteAsync(AppUser1 parameters)
         {
             throw new NotImplementedException();
         }
@@ -98,5 +103,5 @@ namespace AmazonApp.Domain.UserModule
         private IDbContextManager<MainSqlDbContext> DbContextManager { get; set; }
     }
 
-    public interface IAppUserDomain : ICoreDomain<AppUser, AppUser> { }
+    public interface IAppUserDomain : ICoreDomain<AppUser1, AppUser1> { }
 }

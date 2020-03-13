@@ -21,7 +21,17 @@ namespace AmazonApp.Domain.PrimeMusicModule
 
         public async Task<object> GetBy(PrimeMusic parameters)
         {
-            return await Uow.Repository<PrimeMusic>().FindByAsync(t => t.AppUserId == parameters.AppUserId);
+           // return await Uow.Repository<PrimeMusic>().FindByAsync(t => t.PrimeMusicId == parameters.PrimeMusicId);
+            var temp = 0;
+            temp = Uow.Repository<PrimeMusic>().Count(t => t.PrimeMusicId == parameters.PrimeMusicId && t.AppUserId == parameters.AppUserId);
+            if (temp != 0)
+            {
+                return await Task.FromResult("Successfully Verified");
+            }
+            else
+            {
+                return await Task.FromResult("Enter Correct Detail");
+            }
         }
         
 

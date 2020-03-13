@@ -1,10 +1,11 @@
-<h2 style="margin-left: 950px;">Start Selling</h2>
+<h2 style="margin-left: 850px;">Start Selling</h2>
+<div class="border border-secondary" style="width: 800px;margin-left: 550px;border-style: ridge;margin-top: 40px;">
 <div class="container">
-<div class="jumbotron">
-    <h2>Phone Verification</h2><br/>
+
+    <h3>1.) Phone Verification</h3><br/>
     <form [formGroup]="registerForm">
         <div class="form-group">
-            <h3>Register and Start Selling</h3>
+            <h4>Register and Start Selling</h4>
             <p>Please have the following ready before you begin:</p><br/>
             <ul>
                 <li>Your bank account details for receiving payments from Amazon</li>
@@ -15,6 +16,7 @@
         <div class="form-group">
             <label>Company/Business name</label>
             <input type="text" formControlName="companyName" class="form-control">
+            <small class="form-text text-danger" *ngIf="registerForm.controls.companyName.errors">{{registerForm.controls.companyName.errors.required.message}}<br/></small> 
             <p class="form-text text-muted">Enter the company/business name as registered in GST/PAN</p>
         </div><br/>
         <h3>Seller Agreement</h3>
@@ -22,10 +24,10 @@
             <input type="checkbox" >I have read and agree to comply with and/or be bound by the terms and conditions of
             <a href="#">Amazon Services Business Solutions Agreement , Easy Ship Service & Runway Terms and Conditions and Amazon Business (B2B) Terms & Conditions</a>
         </div><br/>
-        <button type="submit" class="btn btn-primary" >Continue</button><br/>
+        <button type="submit" class="btn btn-warning" style="margin-left: 300px;border-color: black;">Continue</button><br/>
 
         <div>
-            <label>Like to create new account?<a href="#">Click Here</a></label>
+            <label style="margin-left: 220px;">Like to create new account?<a href="#">Click Here</a></label>
             
         </div>
 
@@ -33,15 +35,17 @@
 </div>
 </div>
 
-
+<div class="border border-secondary"  style="width: 800px;margin-left: 550px;border-style: ridge;margin-top: 40px;">
 
 <div class="container">
-<div class="jumbotron">
+
     <form [formGroup]="infoForm">
         <div class="form-group">
-            <h2>Tell us about your business</h2><br/>
+            <h3>2.) Tell us about your business</h3><br/>
             <label>Store Name</label>
             <input type="text" class="form-control" formControlName="StoreName">
+            <small class="form-text text-danger" *ngIf="infoForm.controls.StoreName.errors">{{infoForm.controls.StoreName.errors.required.message}}<br/></small> 
+            
         </div><br/>
         <!-- <div>
             <label>Select Product Category</label><br/>
@@ -50,35 +54,41 @@
         </div><br/> -->
 
 
-        <h2 class="form-text text-muted">Enter your address</h2><br/>
-        <div class="row">
+        <h4 class="form-text text-muted">Enter your address</h4><br/>
+        <div>
             
             <label>Pincode</label>
             <input type="text" class="form-control" formControlName="area"><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.area.errors">{{infoForm.controls.area.errors.required.message}}<br/></small> 
             <label>Address Line</label>
             <input type="text" class="form-control" formControlName="address"><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.address.errors">{{infoForm.controls.address.errors.required.message}}<br/></small> 
             <label>LandMark</label>
             <input type="text" class="form-control" formControlName="landmark"><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.landmark.errors">{{infoForm.controls.landmark.errors.required.message}}<br/></small> 
             <label>City</label>
             <input type="text" class="form-control" formControlName="city"><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.city.errors">{{infoForm.controls.city.errors.required.message}}<br/></small> 
             <label>State</label>
             <input type="text" class="form-control" formControlName="state"><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.state.errors">{{infoForm.controls.state.errors.required.message}}<br/></small> 
             <label>Address Type</label>
             <input type="text" class="form-control" formControlName="addresstype"><br/><br/>
+            <small class="form-text text-danger" *ngIf="infoForm.controls.addresstype.errors">{{infoForm.controls.addresstype.errors.required.message}}<br/></small> 
         </div><br/>
 
 
-        <button type="submit" class="btn btn-primary" >Continue</button>
+        <button type="submit" class="btn btn-warning" style="margin-left: 300px;border-color: black;" >Continue</button>
     </form>
 </div>
 </div>
 
-
+<div class="border border-secondary"  style="width: 800px;margin-left: 550px;border-style: ridge;margin-top: 40px;">
 <div class="container">
-<div class="jumbotron">
+
     <form [formGroup]="taxForm">
         <div class="form-check">
-            <h2>Update your Tax details</h2><br/>
+            <h3>3.) Update your Tax details</h3><br/>
             <input type="radio"  id="gst1" value="gst1"  (click)="setradio('gst1')" checked >I have GST number<br/>
             <input type="radio"  id="gst2" value="gst2" (click)="setradio('gst2')">I sell in GST Exempted Category.<br/>
             <input type="radio"  id="gst3" value="gst3" (click)="setradio('gst3')">I don't have it handy and will update later.<br/>
@@ -88,71 +98,80 @@
         <div *ngIf="isSelected('gst1')">
             <label>Enter Your Tax Details</label><br/>
             <input type="text" class="form-control" formControlName="state">
+            <small class="form-text text-danger" *ngIf="taxForm.controls.state.errors">{{infoForm.controls.state.errors.required.message}}<br/></small> 
             <label>Provisional GSTIN</label><br/>
             <input type="text" class="form-control" formControlName="gstin">
+            <small class="form-text text-danger" *ngIf="taxForm.controls.gstin.errors">{{infoForm.controls.gstin.errors.required.message}}<br/></small> 
             <label>PAN number</label><br/>
             <input type="text" class="form-control" formControlName="panNumber">
+            <small class="form-text text-danger" *ngIf="taxForm.controls.panNumber.errors">{{infoForm.controls.panNumber.errors.required.message}}<br/></small> 
             <input type="checkbox"> I will Update Later
         </div>
         <div *ngIf="isSelected('gst2')">
             <label>PAN number</label><br/>
             <input type="text" class="form-control" formControlName="panNumber">
+            <small class="form-text text-danger" *ngIf="taxForm.controls.panNumber.errors">{{infoForm.controls.panNumber.errors.required.message}}<br/></small> 
         </div><br/>
         <div *ngIf="isSelected('gst3')"></div>
         <div *ngIf="isSelected('gst4')"></div>
 
-        <button type="submit" class="btn btn-primary" >Next</button>
+        <button type="submit" class="btn btn-warning" style="margin-left: 350px;border-color: black;" >Next</button>
     </form>
 </div>
 </div>
 
 
+<div class="border border-secondary"  style="width: 800px;margin-left: 550px;border-style: ridge;margin-top: 40px;">
 <div class="container">
-<div class="jumbotron">
+
     <form [formGroup]="launchForm">
         <div class="form-group">
-            <h1>Hi BOOKstore, You are almost there</h1>
+            <h3>Hi BOOKstore, You are almost there</h3>
             <small class="form-text text-muted">Please complete the below steps and start selling to millions of customer</small><br/>
         </div>
         <div class="cotainer">
-            <h4>Product to sell</h4><br/>
+            <h4>4.) Product to sell</h4><br/>
             <P>List the products you wish to sell on Amazon.in</P><br/>
-            <h4>Start selling in these categories:</h4>
-            <h4 class="form-text text-muted">Books</h4><br/>
+            <h4>Start selling in these categories:</h4><br/>
+            <h5 class="form-text text-muted">Books</h5><br/>
 
             <a href="#">Add/Remove Categories</a>
 
             <input type="text" class="form-control" formControlName="barcode">I have products without product ID (GTIN / barcode)
         </div><br/>
         <div>
-            <h4>Shipping Fee Details</h4><br/>
+            <h5>Shipping Fee Details</h5><br/>
             <div class="row">
-                <h4>To edit the shipping rates, visit the Shipping Settings page.</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-primary" >Edit</button>
+                <h6>To edit the shipping rates, visit the Shipping Settings page.</h6>
+                <button type="button" class="btn btn-warning" style="margin-left: 300px;border-color: black;">Edit</button>
             </div><br/>
         </div>
         <div>
             <div>
-                <h4>Bank Account Details</h4><br/>
+                <h5>Bank Account Details</h5><br/>
                 <label>Account holder name</label>
                 <input type="text" class="form-control" formControlName="accountHolderName">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.accountHolderName.errors">{{infoForm.controls.accountHolderName.errors.required.message}}<br/></small> 
                 <label>Account Type</label><br/>
                 <input type="text" class="form-control" formControlName="accountType">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.accountType.errors">{{infoForm.controls.accountType.errors.required.message}}<br/></small> 
             </div>
             <div>
                 <label>Account number</label><br/>
                 <input type="text" class="form-control" formControlName="accountNumber">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.accountNumber.errors">{{infoForm.controls.accountNumber.errors.required.message}}<br/></small> 
                 <label>Re-enter Account number</label><br/>
                 <input type="text" class="form-control" formControlName="ReEnter">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.ReEnter.errors">{{infoForm.controls.ReEnter.errors.required.message}}<br/></small> 
             </div>
             <div>
                 <label>IFSC code </label><br/>
                 <input type="text" class="form-control" formControlName="Code">
             </div><br/>
             <div class="row">
-                <button type="button" class="btn btn-primary" >Verify IFSC</button>
+                <button type="button" class="btn btn-warning" style="border-color: black;margin-left: 20px;" >Verify IFSC</button>
             
-                <button type="button" class="btn btn-primary" style="margin-left: 1000px;">Save</button>
+                <button type="button" class="btn btn-warning" style="margin-left: 530px;border-color: black;">Save</button>
             </div><br/>
         </div>
         <div>
@@ -161,10 +180,12 @@
             <div>
                 <label>PAN number</label><br/>
                 <input type="text" class="form-control" formControlName="panNumber">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.panNumber.errors">{{infoForm.controls.panNumber.errors.required.message}}<br/></small> 
                 <label>Provisional GSTIN</label><br/>
                 <input type="text" class="form-control" formControlName="Provisional">
+                <small class="form-text text-danger" *ngIf="launchForm.controls.Provisional.errors">{{infoForm.controls.Provisional.errors.required.message}}<br/></small> 
             </div><br/>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-warning" style="margin-left: 300px;border-color: black;">Save</button>
         </div><br/>
         <div>
             <h4>Default Product Tax Code</h4>
@@ -175,7 +196,7 @@
                 This is the Tax amount which sellers will later have to remit to the GST authorities on the product or services sold/provided by them
             </p>
             <div>
-                <h3>Default Product Tax Code </h3><br/>
+                <h4>Default Product Tax Code </h4><br/>
                 <select>
                     <option>Select Product Tax Code</option>
                 </select><br/>
@@ -186,7 +207,7 @@
                 
             </div><br/>
 
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-warning" style="margin-left: 300px;border-color: black;">Save</button>
 
             <div>    
                 <a href="#">View all Product Tax Codes</a>
@@ -198,14 +219,13 @@
             <small class="form-text text-muted">Upload an image of your signature which will be used on the invoices sent to customers</small><br/>
          <div class="form-group">
     
-        	    <label>Upload Your Signature</label><br/>
-        	    <input type="file" [writeFile]="true" formControlName="signature" class="form-control" multiple>
+                <label>Upload Your Signature</label><br/>
+                <input type="file" [writeFile]="true" formControlName="signature" class="form-control" multiple>
     
-      	    </div>
+            </div>
       
         </div>
-        <button type="button" class="btn btn-primary"  (click)="submit()" style="margin-left: 400px;">Launch your business</button>
+        <button type="button" class="btn btn-warning"  (click)="submit()" style="margin-left: 300px;border-color: black;">Launch your business</button>
     </form>
 </div>
 </div>
-

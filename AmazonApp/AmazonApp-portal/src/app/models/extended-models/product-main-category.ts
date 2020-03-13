@@ -24,4 +24,6 @@ productCategories : ProductCategoryBase[];
 
 
 
+
+
 }

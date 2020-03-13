@@ -44,21 +44,6 @@ namespace AmazonApp.Models.Main
 
         public int OrderId { get; set; }
 
-		#region ApplicationObjectId Annotations
-
-        [Range(1,int.MaxValue)]
-        [Required]
-		#endregion ApplicationObjectId Annotations
-
-        public ApplicationObject ApplicationObjectId { get; set; }
-
-		#region CartItemId Annotations
-
-        [RelationshipTableAttribue("CartItems","dbo","","CartItemId")]
-		#endregion CartItemId Annotations
-
-        public Nullable<int> CartItemId { get; set; }
-
 		#region Order Annotations
 
         [ForeignKey(nameof(OrderId))]
@@ -74,14 +59,6 @@ namespace AmazonApp.Models.Main
 		#endregion ShippingFeeDetail Annotations
 
         public virtual ShippingFeeDetail ShippingFeeDetail { get; set; }
-
-		#region CartItem Annotations
-
-        [ForeignKey(nameof(CartItemId))]
-        [InverseProperty(nameof(AmazonApp.Models.Main.CartItem.OrderDetails))]
-		#endregion CartItem Annotations
-
-        public virtual CartItem CartItem { get; set; }
 
 
         public OrderDetail()

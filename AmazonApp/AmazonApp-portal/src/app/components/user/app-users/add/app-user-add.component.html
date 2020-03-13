@@ -1,68 +1,74 @@
-<h2 style="margin-left: 900px;">Create Your Account</h2>
-<div class="container">
-
-  <div class="jumbotron">
-
-  <form  [formGroup]="userFormGroup">
-    <div class="form-group">
-      <div>
-        <label>Your Name </label>
-        <input type="text" formControlName="appusername" class="form-control">
+<div class="border border-secondary" style="width: 550px;margin-left: 750px;border-style: ridge;margin-top: 40px;border-color: silver;">
+  <h2 style="margin-left: 150px;">Create Account</h2>
+  <div class="container">
+  
     
-      </div>
-      <div>
-        <label>Mobile Number </label>
-        <input type="text" formControlName="mobilenumber" class="form-control"> 
-        
-      </div>
-     
-      <div>
-        <label>Email Id </label>
-        <input type="text" formControlName="emailid" class="form-control">
-      </div>
-
-      <div>
-        <label>Password</label>
-        <input type="text" formControlName="password" class="form-control"  />  
-      </div><br/>
-
-      <button type="button" class="btn btn-primary"  style="margin-left: 450px;">Submit</button>
-      <div>{{result| json}}</div><br/>
-
+  
+    <form  [formGroup]="userFormGroup">
+      <div class="form-group">
+        <div>
+          <label>Your Name </label>
+          <input type="text" formControlName="appusername" class="form-control">
+          <small class="form-text text-danger" *ngIf="userFormGroup.controls.appusername.errors">{{userFormGroup.controls.appusername.errors.required.message}}<br/></small> 
       
-
-    </div>  
-  </form>
-</div>
-</div>
-
-<div class="container">
-  <div class="jumbotron">
-<form>
-      <div>
+        </div>
+        <div>
+          <label>Mobile Number </label>
+          <input type="text" formControlName="mobilenumber" class="form-control"> 
+          <small class="form-text text-danger" *ngIf="userFormGroup.controls.mobilenumber.errors">{{userFormGroup.controls.mobilenumber.errors.required.message}}<br/></small> 
+          
+        </div>
+       
+        <div>
+          <label>Email Id </label>
+          <input type="text" formControlName="emailid" class="form-control">
+         
+        </div>
+  
+        <div>
+          <label>Password</label>
+          <input type="text" formControlName="password" class="form-control"  />  
+          <small class="form-text text-danger" *ngIf="userFormGroup.controls.password.errors">{{userFormGroup.controls.password.errors.required.message}}<br/></small> 
+        </div><br/>
+  
+        <button  [disabled]="!userFormGroup.valid" type="button" class="btn btn-warning"  style="margin-left: 200px;border-color: black;">Continue</button>
+        <div>{{result| json}}</div><br/>
+  
         
-        <button type="button" class="btn btn-primary" (click)="getOTP()" style="margin-left: 450px;"> Get OTP</button>
-
-      </div>
-    
-
-   
-          <div [ngStyle]="otpStyle" style="display:none;">
-          <label>Enter OTP</label>
-          <input type="text" formControlName="otpnumber" class="form-control"  /> 
-      </div><br/>
-
-      <div>
-          <button type="button" class="btn btn-primary" (click)="otpSubmit()" style="margin-left: 450px;">
-            Submit
-          </button>
-      </div>
-      
+  
+      </div>  
     </form>
-
-
+  
   </div>
-</div>
-
   
   
+  
+  <div class="container">
+   
+  <form>
+        <div>
+          
+          <button type="button" class="btn btn-warning" (click)="getOTP()" style="margin-left: 200px;border-color: black;"> Get OTP</button>
+  
+        </div>
+      
+  
+     
+            <div [ngStyle]="otpStyle" style="display:none;">
+            <label>Enter OTP</label>
+            <input type="text" formControlName="otpnumber" class="form-control"  /> 
+        </div><br/>
+  
+        <div>
+            <button type="button" class="btn btn-warning" (click)="otpSubmit()" style="margin-left: 200px;border-color: black;">
+              Submit
+            </button>
+        </div>
+        
+      </form>
+  
+  
+  
+  </div>
+  
+  </div>

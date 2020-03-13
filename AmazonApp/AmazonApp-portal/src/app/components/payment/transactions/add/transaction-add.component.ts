@@ -6,6 +6,7 @@ import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
 import { Transaction } from '@app/models';
 import { AbstractTransaction } from '../domain/abstract-transaction';
 import { Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: "app-transaction-add",
@@ -21,24 +22,34 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
     promocodeId: any;
     result: any;
     AppUserId: any;
+    CartValue: any;
+    tDate: string;
+    
 
-    constructor(private formBuilder: RxFormBuilder) {
+    constructor(private formBuilder: RxFormBuilder, private activatedRoute: ActivatedRoute, private router:Router) {
         super();
     }
 
     ngOnInit(): void {
+       
         this.AppUserId = localStorage.getItem("AppUserId");
+        console.log(this.AppUserId);
+        
+        // this.CartValue = localStorage.getItem("CartValue");
+        // console.log(this.CartValue);
 
-        this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
-            this.result = res;
-            console.log(this.result);
-        })
+        // this.get({params: [1], queryParams: { AppUserId: this.AppUserId, CartValue:this.CartValue  } }).subscribe(res => {
+        //     this.result = res;
+        //     console.log(this.result);
+        // })
         this.transaction = new Transaction();
         this.transactionFormGroup = this.formBuilder.formGroup(this.transaction) as IFormGroup<Transaction>;
 
+        this.tDate = new Date().toLocaleString();
        
         this.CardForm=this.formBuilder.group({
             NameonCard:"",
+            CardType:"",
             CardNumber:"",
             ExpDate:"",            
             CVV:""
@@ -48,6 +59,7 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
 
         this.EmiForm=this.formBuilder.group({
             NameonCard:"",
+            CardType:"",
             CardNumber:"",            
             ExpDate:"",
             CVV:""
@@ -82,6 +94,14 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
     }  
     
           return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
+      }
+
+      proceedToPay()
+      {
+          this.post({path:'api/Cards', body:{CardNumber:this.CardForm.value.CardNumber,CardType:this.CardForm.value.CardType, ExpiryDate:this.CardForm.value.ExpDate, Cvv:this.CardForm.value.CVV, AppUserId:this.AppUserId}}).subscribe(res => {
+            this.result=res;
+            console.log(this.result);
+        })
       }
       
       promocodeSubmit()
@@ -122,4 +142,14 @@ export class TransactionAddComponent extends AbstractTransaction implements OnIn
           }
       }
           )}
+
+          placeOrder()
+          {
+            this.post({path:'api/Transactions', body:{appUserId:this.AppUserId,sellerDetailId:1,transactionDate:this.tDate}}).subscribe(res => {
+                this.result=res;
+                console.log(this.result);
+                this.router.navigateByUrl('/orders'); 
+            })  
+           
+          }
 }

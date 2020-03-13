@@ -16,12 +16,20 @@ export class vCartItemListComponent extends AbstractvCartItem implements OnInit 
     AppUserId:any;
     result: any;
     id: any;
+    CartValue: string;
+    CartQuantity: string;
 
     ngOnInit(): void {
+       // localStorage.setItem("CartValue", JSON.stringify(this.vCartItems));
         this.AppUserId = localStorage.getItem("AppUserId");
         this.get({path:'api/vCartItems',params:[1],queryParams:{AppUserId:this.AppUserId}}).subscribe((t: List<vCartItem>) => {
             console.log(t);    
               this.vCartItems = t;
+              localStorage.setItem("CartValue",this.vCartItems[0].cartValue);
+              localStorage.setItem("CartQuantity",this.vCartItems[0].cartQuantity);
+              //console.log(localStorage.getItem("CartValue"));
+              this.CartValue=localStorage.getItem("CartValue");
+              this.CartQuantity=localStorage.getItem("CartQuantity");
       })
     }
   

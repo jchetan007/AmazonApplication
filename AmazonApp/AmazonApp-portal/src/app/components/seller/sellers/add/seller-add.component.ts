@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { FormGroup,Validators,FormBuilder } from "@angular/forms"
 
-import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, IFormGroup, RxwebValidators } from '@rxweb/reactive-form-validators';
 
 import { Seller } from '@app/models';
 import { AbstractSeller } from '../domain/abstract-seller';
@@ -50,11 +50,11 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
 
         //this.AppUserId=JSON.parse(sessionStorage.getItem('AppUserId')).AppUserId
         //console.log(this.AppUserId);
-        this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
-            this.result = res;
-            console.log(this.result);
+        // this.get({ params: [1], queryParams: { AppUserId: this.AppUserId } }).subscribe(res => {
+        //     this.result = res;
+        //     console.log(this.result);
             // console.log(this.result.companyId[0])
-        })
+        // })
         // sessionStorage.getItem("AppUserId");
         // this.get({params:[1], queryParams:{AppUserId:Number.parseInt(sessionStorage.getItem('AppUserId'))} }).subscribe(res => {
         //     this.result = res;
@@ -64,32 +64,32 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
         this.sellerFormGroup = this.formBuilder.formGroup(this.seller) as IFormGroup<Seller>;
 
         this.registerForm=this.formBuilder.group({
-            companyName:[""]
+            companyName:['',RxwebValidators.required()]
         });
         this.infoForm=this.formBuilder.group({
             StoreName:"",
-            area:"",
-            address:"",
-            landmark:"",
-            city:"",
-            state:"",
-            addresstype:""
+            area:['',RxwebValidators.required()],
+            address:['',RxwebValidators.required()],
+            landmark:['',RxwebValidators.required()],
+            city:['',RxwebValidators.required()],
+            state:['',RxwebValidators.required()],
+            addresstype:['',RxwebValidators.required()]
             
         });
         this.taxForm=this.formBuilder.group({
-            state:"",
+            state:['',RxwebValidators.required()],
             gstin:"",
-            panNumber:""
+            panNumber:['',RxwebValidators.required()]
 
         });      
         this.launchForm=this.formBuilder.group({
             barcode:"",
-            accountHolderName:"",
-            accountType:"",
-            accountNumber:"",
-            ReEnter:"",
+            accountHolderName:['',RxwebValidators.required()],
+            accountType:['',RxwebValidators.required()],
+            accountNumber:['',RxwebValidators.required()],
+            ReEnter:['',RxwebValidators.required()],
             Code:"",
-            panNumber:"",
+            panNumber:['',RxwebValidators.required()],
             Provisional:"",
             signature:""
         }) 

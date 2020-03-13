@@ -45,7 +45,7 @@ namespace AmazonApp.Models.Main
 
 		#region Password Annotations
 
-       
+        [Required]
         [MaxLength(132)]
 		#endregion Password Annotations
 
