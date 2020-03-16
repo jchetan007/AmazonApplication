@@ -37,4 +37,5 @@ productCategories : ProductCategoryBase[];
 
 
 
+
 }

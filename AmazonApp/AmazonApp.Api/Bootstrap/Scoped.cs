@@ -171,7 +171,16 @@ namespace AmazonApp.Api.Bootstrap
             serviceCollection.AddScoped<IMusicDomain, MusicDomain>();
             
            
+            
+            serviceCollection.AddScoped<IvMusicDomain, vMusicDomain>();
+            
+            serviceCollection.AddScoped<IVerifyLoginDomain, VerifyLoginDomain>();
+            
+            serviceCollection.AddScoped<IBuyNowTransactionDomain, BuyNowTransactionDomain>();
             #endregion DomainService
+
+
+
 
 
 

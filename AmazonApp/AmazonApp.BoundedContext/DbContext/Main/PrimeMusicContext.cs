@@ -22,7 +22,11 @@ namespace AmazonApp.BoundedContext.Main
             		
             		
             		public DbSet<MusicCategory> MusicCategory { get; set; }
+            		
+            		public DbSet<vMusic> vMusic { get; set; }
             #endregion DbSets
+
+
 
 
 

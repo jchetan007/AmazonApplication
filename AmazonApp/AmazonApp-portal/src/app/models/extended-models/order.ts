@@ -9,15 +9,15 @@ export class Order extends OrderBase
 
 
 //#region Generated Reference Properties
-
 //#region transaction Prop
-        transaction : TransactionBase;
+transaction : TransactionBase;
 //#endregion transaction Prop
 //#region orderDetails Prop
 orderDetails : OrderDetailBase[];
 //#endregion orderDetails Prop
 
 //#endregion Generated Reference Properties
+
 
 
 

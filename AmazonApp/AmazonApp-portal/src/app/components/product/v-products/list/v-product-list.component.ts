@@ -54,13 +54,13 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
 
       increaseValue()
       {
-          this.value = isNaN(this.value) ? 0 : this.value;
+          this.value = isNaN(this.value) ? 1 : this.value;
           this.value++;
       }
 
       decreaseValue()
       {
-          this.value = isNaN(this.value) ? 0 : this.value;
+          this.value = isNaN(this.value) ? 1 : this.value;
           this.value < 1 ? this.value = 1 : '';
           this.value--;
       }

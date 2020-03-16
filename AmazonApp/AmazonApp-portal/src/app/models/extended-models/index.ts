@@ -50,6 +50,7 @@ export {Brand} from './brand';;
 export {vAdvertisement} from './v-advertisement';;
 export {vCartItem} from './v-cart-item';;
 export {vInvoice} from './v-invoice';;
+export {vMusic} from './v-music';;
 export {vProductCategoryLookup} from './v-product-category-lookup';;
 export {vProduct} from './v-product';;
 export {vPromoCode} from './v-promo-code';;

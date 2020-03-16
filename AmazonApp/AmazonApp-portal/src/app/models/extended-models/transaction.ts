@@ -16,12 +16,12 @@ appUser : AppUserBase;
 //#region sellerDetail Prop
 sellerDetail : SellerDetailBase;
 //#endregion sellerDetail Prop
-
 //#region orders Prop
-        orders : OrderBase[];
+orders : OrderBase[];
 //#endregion orders Prop
 
 //#endregion Generated Reference Properties
+
 
 
 

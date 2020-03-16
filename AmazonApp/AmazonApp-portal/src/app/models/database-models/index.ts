@@ -50,6 +50,7 @@ export {BrandBase} from './brand-base';;
 export {vAdvertisementBase} from './v-advertisement-base';;
 export {vCartItemBase} from './v-cart-item-base';;
 export {vInvoiceBase} from './v-invoice-base';;
+export {vMusicBase} from './v-music-base';;
 export {vProductCategoryLookupBase} from './v-product-category-lookup-base';;
 export {vProductBase} from './v-product-base';;
 export {vPromoCodeBase} from './v-promo-code-base';;

@@ -76,12 +76,12 @@ export class AppComponent extends RxHttp implements OnInit{
     HttpClientConfig.register({
       hostURIs: [{
         name: 'server',
-        default: false,
-        uri: "https://localhost:44352"
+        default: true,
+        uri: "http://dotnettraining2020-api.live1.dev.radixweb.net/amazon"
       },
       {
         name: 'local',
-        default: true,
+        default: false,
         uri: "https://localhost:44352"// 'https://localhost:44376' 
       }],
       filters: [],

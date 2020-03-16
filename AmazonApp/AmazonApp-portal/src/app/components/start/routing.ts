@@ -299,6 +299,54 @@ import { Injectable } from '@angular/core';
     
        
        
+        {
+			path: "buy-now-transaction",
+			loadChildren: () => import("../payment/buy-now-transaction/buy-now-transaction.module").then(m => m.BuyNowTransactionModule)
+		},
+        {
+			path: "buy-now-transaction",
+			loadChildren: () => import("../payment/buy-now-transaction/buy-now-transaction.module").then(m => m.BuyNowTransactionModule)
+		},
+        {
+			path: "v-musics",
+			loadChildren: () => import("../prime-music/v-musics/v-music.module").then(m => m.vMusicModule)
+		},
+        {
+			path: "buy-now-transaction",
+			loadChildren: () => import("../payment/buy-now-transaction/buy-now-transaction.module").then(m => m.BuyNowTransactionModule)
+		},
+        {
+			path: "v-musics",
+			loadChildren: () => import("../prime-music/v-musics/v-music.module").then(m => m.vMusicModule)
+		},
+        {
+			path: "buy-now-transaction",
+			loadChildren: () => import("../payment/buy-now-transaction/buy-now-transaction.module").then(m => m.BuyNowTransactionModule)
+		},
+        {
+			path: "v-musics",
+			loadChildren: () => import("../prime-music/v-musics/v-music.module").then(m => m.vMusicModule)
+		},
+        {
+			path: "seller-detail-forms",
+			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
+		},
+        {
+			path: "buy-now-transaction",
+			loadChildren: () => import("../payment/buy-now-transaction/buy-now-transaction.module").then(m => m.BuyNowTransactionModule)
+		},
+        {
+			path: "v-musics",
+			loadChildren: () => import("../prime-music/v-musics/v-music.module").then(m => m.vMusicModule)
+		},
+        {
+			path: "seller-detail-forms",
+			loadChildren: () => import("../seller/seller-detail-forms/seller-detail-form.module").then(m => m.SellerDetailFormModule)
+		},
+        {
+			path: "verify-login",
+			loadChildren: () => import("../user/verify-login/verify-login.module").then(m => m.VerifyLoginModule)
+		},
 //generated code
 //])
 
