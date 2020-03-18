@@ -1,3 +1,18 @@
-<h1>Orders List</h1>
-<button class="btn btn-primary" (click)="Get()">Get Data</button><br />
-<div>{{orders | json}}</div>
+<div class="container" style="margin-left: 800px;width: 550px;margin-top: 40px;">
+<h1 style="margin-left: 100px;">Your Orders List</h1>
+<div *ngFor="let item of vCartItems">
+    <div class="card">
+        <div class="card-body">
+            
+            <h3>Product Name : {{item.productName}}</h3><br/>
+            <h4>Product Price : {{item.discountProductPrice}}</h4><br/>
+            <h4>Quantity : {{item.productQuantity}}</h4><br/>
+            <h4>Total Price : {{item.totalPrice}}</h4><br/>
+            
+           
+           
+        </div>
+    </div>
+</div>
+</div>
+<!-- <div>{{orders | json}}</div> -->

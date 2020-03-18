@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientConfig, HttpResponse, http, RxHttp } from '@rxweb/http';
 import { BrowserStorage } from 'src/app/domain/services/browser-storage';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationStart  } from '@angular/router';
 import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { Product } from '@app/models';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,7 @@ import { anonymous } from '@rxweb/angular-router';
 
 import { Seller } from "@app/models";
 import { List } from "@rxweb/generics"
+import { AuthFilter } from 'src/app/temp-service/AuthFilter';
 
 
 @anonymous()
@@ -34,24 +35,30 @@ export class AppComponent extends RxHttp implements OnInit{
     showLoginButton = false;
     showSignUpButton = false;
     showLogoutButton = false;
-    isShowNavbar: boolean = false
+    isShowNavbar: boolean = false;
+    isShowAmazon: boolean = false;
 
-  constructor(private browserStorage: BrowserStorage, private router: Router,private fb:FormBuilder) {super();}
-  
-  ngOnInit(): void {
-
-
+  constructor(private browserStorage: BrowserStorage, private router: Router,private fb:FormBuilder) {super();
     this.router.events.forEach((event) => {
-      if (event instanceof NavigationEnd) {
-        if ((event['url'] == '/login') ) {
+      if (event instanceof NavigationStart) {
+        if ((event['url'] == '/login')|| (event['url'] == '/app-users/add')||(event['url'] == '/sellers/add')||(event['url']=='/prime-musics/add')) {
           this.isShowNavbar = false;
+          this.isShowAmazon = true;
+          
         }
         else {
           // console.log("NU")
           this.isShowNavbar = true;
+          this.isShowAmazon = false;
         }
       }
     });
+  }
+  
+  ngOnInit(): void {
+
+
+   
 
 
     this.productformgroup=this.fb.group({
@@ -76,15 +83,15 @@ export class AppComponent extends RxHttp implements OnInit{
     HttpClientConfig.register({
       hostURIs: [{
         name: 'server',
-        default: true,
-        uri: "http://dotnettraining2020-api.live1.dev.radixweb.net/amazon"
+        default: false,
+        uri: "https://localhost:44352"
       },
       {
         name: 'local',
-        default: false,
+        default: true,
         uri: "https://localhost:44352"// 'https://localhost:44376' 
       }],
-      filters: [],
+      filters: [{ model: AuthFilter }],
       onError: (response: HttpResponse) => {
         if (response.statusCode == 401
         ) {
@@ -100,9 +107,10 @@ export class AppComponent extends RxHttp implements OnInit{
         }
       }
     })
-    var auth = this.browserStorage.local.get("auth");
+    var auth = localStorage.getItem("auth");
     if (auth) {
-      this.router.navigate(["/users"])
+      
+      //this.router.navigate(["/product-main-categories"])
       this.isShowDashboard = true;
     }
     else {
@@ -145,31 +153,9 @@ export class AppComponent extends RxHttp implements OnInit{
 
     }
   }
-  SearchProduct()
-  {
-    this.post({ body: {Product: this.productformgroup.controls.product.value} }).subscribe(res=>
-      {
-        this.result=res;
-        // console.log(this.result);
-        this.proresult=JSON.parse(this.result);
-        console.log(this.proresult);
-
-      })
-  }
   
-  Login() {
-    this.router.navigateByUrl('login')
-  }
-  SignUp() {
-    this.router.navigateByUrl('app-users/add')
-  }
-
-  Logout() {
-    localStorage.clear();
-    this.showLoginButton = true;
-    this.showSignUpButton = true;
-    this.showLogoutButton = false
-  }
+ 
+ 
 }
 
 

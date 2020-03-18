@@ -1,0 +1,11 @@
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\bin\Release\netcoreapp3.1\AmazonApp.BoundedContext.deps.json
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\bin\Release\netcoreapp3.1\AmazonApp.BoundedContext.dll
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\bin\Release\netcoreapp3.1\AmazonApp.BoundedContext.pdb
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\bin\Release\netcoreapp3.1\AmazonApp.Models.dll
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\bin\Release\netcoreapp3.1\AmazonApp.Models.pdb
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.csprojAssemblyReference.cache
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.AssemblyInfoInputs.cache
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.AssemblyInfo.cs
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.csproj.CopyComplete
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.dll
+C:\Users\radix\Source\Repos\AmazonApplication2\AmazonApp\AmazonApp.BoundedContext\obj\Release\netcoreapp3.1\AmazonApp.BoundedContext.pdb

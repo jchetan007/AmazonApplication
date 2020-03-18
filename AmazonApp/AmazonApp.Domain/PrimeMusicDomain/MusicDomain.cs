@@ -21,7 +21,7 @@ namespace AmazonApp.Domain.PrimeMusicModule
 
         public async Task<object> GetBy(Music parameters)
         {
-            return await Uow.Repository<Music>().FindByAsync(t => t.MusicId == parameters.MusicId);
+            return await Uow.Repository<vMusic>().FindByAsync(t => t.MusicId == parameters.MusicId);
             // throw new NotImplementedException();
         }
         
@@ -30,7 +30,7 @@ namespace AmazonApp.Domain.PrimeMusicModule
         {
             return ValidationMessages;
         }
-
+                                                                                            
         public async Task AddAsync(Music entity)
         {
             await Uow.RegisterNewAsync(entity);

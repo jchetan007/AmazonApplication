@@ -14,12 +14,12 @@ import { RxHttp, http} from "@rxweb/http";
 })
 
 @middleware([LoggedInMiddleware])
-@multilingual("loginComponent")
 @anonymous()
 @Component({
     templateUrl: './login.component.html',
 })
 export class LoginComponent extends CoreComponent implements OnInit {
+    showComponent : boolean = false;
     userFormGroup1: FormGroup;
     userFormGroup2: FormGroup;
     otpStyle:any;
@@ -28,6 +28,7 @@ export class LoginComponent extends CoreComponent implements OnInit {
     verifyOtpResponse:any;
     result:any;
     showHeader:false;
+    url:any;
 
 
 
@@ -39,6 +40,9 @@ export class LoginComponent extends CoreComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        
+
+          this.showComponent = true;
         this.userFormGroup1 =this.formBuilder.group({
             mobilenumber:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.digit()] })],
             password:['',RxwebValidators.required()]
@@ -50,23 +54,11 @@ export class LoginComponent extends CoreComponent implements OnInit {
 
           
             
-       // throw new Error("Method not implemented.");
+      
   
 }
 
-// Post()
-// {
-//         this.post({ body: {
-            
-//             mobilenumber:this.userFormGroup1.controls.mobilenumber.value,
-//             password:this.userFormGroup1.controls.password.value,
-//             otp:this.userFormGroup2.controls.otp.value,
-//         } }).subscribe(res => {
-//         this.result=res;
-//         console.log(this.result);
-//     })
-   
-// }
+
 
 getOTP()
         {
@@ -101,8 +93,8 @@ getOTP()
     
             if(res=="Successfully Verified")
             {
-                console.log('success')
-                this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber, password:this.userFormGroup1.value.password} }).subscribe(res => {
+                //console.log('success')
+                this.get({ params: [1], queryParams: {mobilenumber:this.userFormGroup1.value.mobilenumber, userPassword:this.userFormGroup1.value.password} }).subscribe(res => {
                     this.result = res;
 
                     if(this.result=="Try Again Please")
@@ -112,31 +104,27 @@ getOTP()
                     }
                     else
                     {
-                        console.log('else success')   
-                        // sessionStorage.setItem("AppUserId",this.result);
-                        localStorage.setItem("AppUserId", JSON.stringify(this.result));
-                        localStorage.setItem("Password", JSON.stringify(this.result));
-                        this.router.navigateByUrl('/product-main-categories')
-                        location.replace('/product-main-categories')
+                        console.log('success')
+                        console.log(this.result)   
+                        
+                        localStorage.setItem("auth",this.result.token);
+                        localStorage.setItem("AppUserId", JSON.stringify(this.result.appUserId));
+                        //localStorage.setItem("Password", JSON.stringify(this.result));
+                        //this.router.navigateByUrl('/product-main-categories')
+                        //location.replace('/product-main-categories')
                         // this.router.navigate(['']);
+                        this.url=sessionStorage.getItem("Url");
+                        if(!this.url)
+                        this.router.navigateByUrl("/product-main-categories")
+                        else
+                        this.router.navigateByUrl(this.url)
+                        //window.location.reload();
+                        // location.replace(this.url);
                     }
-                    alert("AppUserId" +res)
-                    // console.log(this.result)
-                    // sessionStorage.setItem('user', JSON.stringify(res));
-                    // if (this.result != 0) {
-                    //     this.router.navigate([''], { queryParams: { 'AppUserId': JSON.parse(sessionStorage.getItem('user')).AppUserId } });
-                    // }
-                    // else {
-                    //     this.router.navigate(["login"]);
-                    // }
+                    alert("Login Successfull")
+                    
                 })
-                // this.post({path:'api/AppUsers',body:{ appusername:this.userFormGroup.value.appusername,
-                //     mobilenumber:this.userFormGroup.value.mobilenumber,
-                //     emailid:this.userFormGroup.value.emailid,
-                //     userPassword:this.userFormGroup.value.password}}).subscribe(res=>{
-                //     this.result=res;
-                //     console.log(res);
-                // })
+                
                 this.get().subscribe(res => {
                     this.result = res;
                     console.log(res);

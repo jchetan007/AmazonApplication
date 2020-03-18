@@ -12,7 +12,7 @@ import { AuthResolver } from './domain/security/authentication-resolver';
 @routerModule({
     authentication: AuthResolver,
     authorization: AuthorizationResolver,
-    middlewares: [GlobalMultilingualContentResolver, ComponentMultilingualContentResolver],
+    // middlewares: [GlobalMultilingualContentResolver, ComponentMultilingualContentResolver],
     //childMultilingualResolver: ComponentMultilingualContentResolver,
     urlEncryption:true
 })

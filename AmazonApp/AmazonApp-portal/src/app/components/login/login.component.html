@@ -1,3 +1,7 @@
+
+
+<a class="navbar-brand"><img src="https://www.paredro.com/wp-content/uploads/2018/08/Amazon-Logo.jpg"width="150px" style="margin-left: 900px;" height="60px"[routerLink]="['/product-main-categories']"></a>
+
 <div class="border border-secondary"  style="width: 600px;margin-left: 700px;border-style: ridge;margin-top: 90px;border-color: silver;">
 
   <h2 style="margin-left: 250px;">Login</h2>
@@ -17,7 +21,7 @@
       <form  [formGroup]="userFormGroup1">
         <div class="form-group">
           <label >Password</label>
-          <input type="text" formControlName="password" class="form-control" style="border-color: black;" />
+          <input type="password" formControlName="password" class="form-control" style="border-color: black;" />
           <small class="form-text text-danger" *ngIf="userFormGroup1.controls.password?.errors">{{userFormGroup1.controls.password.errors.required.message}}<br/></small>  
         </div>
         <button [disabled]="!userFormGroup1.valid" class="btn btn-warning" (click)="getOTP()" style="margin-left: 230px;border-color: black;">Submit</button>
@@ -55,4 +59,3 @@
   
      
   </div>
-  

@@ -43,12 +43,10 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task AddAsync(vCartItem entity)
         {
-            var spParameters = new SqlParameter[3];
+            var spParameters = new SqlParameter[1];
             spParameters[0] = new SqlParameter() { ParameterName = "ProductId", Value = entity.ProductId };
-            spParameters[1] = new SqlParameter() { ParameterName = "CartItemId", Value = entity.CartItemId };
-            spParameters[2] = new SqlParameter() { ParameterName = "AppUserId", Value = entity.AppUserId };
-
-            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCarts ", spParameters);
+           
+            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCartRemove ", spParameters);
             await DbContextManager.CommitAsync();
 
             //await Uow.RegisterNewAsync(entity);

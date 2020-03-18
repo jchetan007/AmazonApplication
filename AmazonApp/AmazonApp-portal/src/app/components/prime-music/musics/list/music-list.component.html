@@ -1,1 +1,21 @@
-<h1>Musics LIST</h1>
+<h2 style="margin-left: 900px;">Musics LIST</h2>
+
+<div class="container" style="margin-left: 800px;width: 500px;" ><br/>
+
+
+    <div *ngFor="let music of vMusics"><br/>   
+       
+        <div >            
+            <h3>{{music.musicName}}</h3><br/>
+            <!-- <h5>Music Name : {{music.musicName}}</h5><br/>
+            <h5>Album Name : {{music.albumName}}</h5><br/>
+            <h5>Category Name : {{music.categoryName}}</h5><br/>
+            <h5>Music Category Name : {{music.musicCategoryName}}</h5><br/> -->
+          
+            <button  class="btn btn-warning" [routerLink]="['/v-musics/list',music.musicId]" style="border-color: black;">Click to Play</button><br/>
+        </div>
+  
+    </div><br/>
+
+</div>
+

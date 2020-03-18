@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AmazonApp.Api.Controllers.UserModule
 {
-    [AllowAnonymous]
+   [AllowAnonymous]
     [ApiController]
     [Route("api/[controller]")]
 	
-	public class AppUsersController : BaseDomainController<AppUser1, AppUser1>
+	public class AppUsersController : BaseDomainController<AppUser, AppUser>
 
     {
         public AppUsersController(IAppUserDomain domain):base(domain) {}

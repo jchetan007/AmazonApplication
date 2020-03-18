@@ -4,6 +4,7 @@ import { RxFormBuilder, IFormGroup, RxFormGroup, RxwebValidators } from '@rxweb/
 import { PrimeMusic } from '@app/models';
 import { AbstractPrimeMusic } from '../domain/abstract-prime-music';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { anonymous } from '@rxweb/angular-router';
 
 @anonymous()
@@ -11,11 +12,10 @@ import { anonymous } from '@rxweb/angular-router';
     selector: "app-prime-music-add",
     templateUrl: './prime-music-add.component.html'
 })
-export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit, OnDestroy {
+export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit {
     result: unknown;
-    ngOnDestroy(): void {
-        throw new Error("Method not implemented.");
-    }
+    
+    
     primeMusic: PrimeMusic;
     subscription: Subscription;
     userFormGroup1: FormGroup;
@@ -28,11 +28,12 @@ export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit
     
 
 
-    constructor(private formBuilder: RxFormBuilder) {
+    constructor(private formBuilder: RxFormBuilder, private router: Router) {
         super();
     }
 
     ngOnInit(): void {
+        console.log("Prime Music")
         this.userFormGroup1 = <RxFormGroup>this.formBuilder.group({
             mobilenumber:['',RxwebValidators.digit()],
         });
@@ -83,7 +84,7 @@ export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit
 
     otpSubmit()
     {
-        this.get({path:'api/VerifyOtps',params:[1],queryParams:{OtpId:this.otpResponse, OtpNumber:this.userFormGroup3.value.otpnumber, MobileNumber:this.userFormGroup1.value.mobilenumber}}).subscribe(res => {
+        this.get({path:'api/VerifyOtps',params:[1],queryParams:{OtpId:this.otpResponse, OtpNumber:this.userFormGroup3.value.otp, MobileNumber:this.userFormGroup1.value.mobilenumber}}).subscribe(res => {
         this.verifyOtpResponse = res;
         console.log(res);
 
@@ -99,9 +100,12 @@ export class PrimeMusicAddComponent extends AbstractPrimeMusic implements OnInit
             this.get().subscribe(res => {
                 this.result = res;
                 console.log(res);
+                //this.router.navigateByUrl('/music-categories/list/1')
+                location.replace('/music-categories/list/1')
             })
         
         }
+        
     }
         )}
 

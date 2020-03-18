@@ -9,20 +9,42 @@ namespace AmazonApp.Domain.UserModule
 {
     public class VerifyLoginDomain : IVerifyLoginDomain
     {
-        public VerifyLoginDomain(IUserUow uow) {
+        public VerifyLoginDomain(IUserUow uow)
+        {
             this.Uow = uow;
         }
 
-        public Task<object> GetAsync(AppUser parameters)
+        public async Task<object> GetAsync(AppUser parameters)
+
         {
-            throw new NotImplementedException();
+            var temp = 0;
+            temp = Uow.Repository<AppUser>().Count(t => t.AppUserId == parameters.AppUserId);
+            if (temp != 0)
+            {
+                return await Task.FromResult("Successfully Verified");
+            }
+            else
+            {
+                return await Task.FromResult("Please Login");
+            }
+            // throw new NotImplementedException();
         }
 
-        public Task<object> GetBy(AppUser parameters)
+        public async Task<object> GetBy(AppUser parameters)
         {
-            throw new NotImplementedException();
+            var temp = 0;
+            temp = Uow.Repository<AppUser>().Count(t => t.AppUserId == parameters.AppUserId);
+            if (temp != 0)
+            {
+                return await Task.FromResult("Successfully Verified");
+            }
+            else
+            {
+                return await Task.FromResult("Please Login");
+            }
+            //throw new NotImplementedException();
         }
-        
+
 
         public HashSet<string> AddValidation(AppUser entity)
         {

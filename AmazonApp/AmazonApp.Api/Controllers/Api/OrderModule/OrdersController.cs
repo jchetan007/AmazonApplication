@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AmazonApp.Api.Controllers.OrderModule
 {
-    [AllowAnonymous]
+   
     [ApiController]
     [Route("api/[controller]")]
 	

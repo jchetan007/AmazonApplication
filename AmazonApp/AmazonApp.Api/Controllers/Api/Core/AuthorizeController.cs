@@ -47,7 +47,7 @@ namespace AmazonApp.Api.Controllers
         [HttpPost(REFRESH)]
         public async Task<IActionResult> Refresh(UserConfig userConfig)
         {
-            var user = await this.LoginUow.Repository<vUser>().SingleAsync(t => t.UserId == UserClaim.UserId);
+            var user = await this.LoginUow.Repository<AppUser>().SingleAsync(t => t.AppUserId == UserClaim.UserId);
             var token = await ApplicationTokenProvider.RefereshTokenAsync(user, userConfig);
             return Ok(token);
         }

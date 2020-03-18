@@ -7,8 +7,7 @@ using RxWeb.Core.Security.Authorization;
 using Microsoft.AspNetCore.Authorization;
 
 namespace AmazonApp.Api.Controllers.PrimeMusicModule
-{
-    [AllowAnonymous]
+{   
     [ApiController]
     [Route("api/[controller]")]
 	

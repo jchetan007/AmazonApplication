@@ -13,14 +13,15 @@ namespace AmazonApp.Domain.PrimeMusicModule
             this.Uow = uow;
         }
 
-        public Task<object> GetAsync(vMusic parameters)
+        public async Task<object> GetAsync(vMusic parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<vMusic>().AllAsync();
         }
 
-        public Task<object> GetBy(vMusic parameters)
+        public async Task<object> GetBy(vMusic parameters)
         {
-            throw new NotImplementedException();
+            return await Uow.Repository<vMusic>().FindByAsync(t => t.MusicSubCategoryId == parameters.MusicSubCategoryId);
+           // throw new NotImplementedException();
         }
         
 

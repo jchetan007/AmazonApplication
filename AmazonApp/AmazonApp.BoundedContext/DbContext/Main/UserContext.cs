@@ -17,7 +17,7 @@ namespace AmazonApp.BoundedContext.Main
 
             #region DbSets
             		public DbSet<AppUser> AppUser { get; set; }
-		public DbSet<FeedBack> FeedBack { get; set; }
+        public DbSet<FeedBack> FeedBack { get; set; }
 		public DbSet<Otp> Otp { get; set; }
 		public DbSet<BankDetail> BankDetail { get; set; }
             		public DbSet<UserAddress> UserAddress { get; set; }

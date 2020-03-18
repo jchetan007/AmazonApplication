@@ -9,6 +9,7 @@ using AmazonApp.BoundedContext.SqlContext;
 using Microsoft.Data.SqlClient;
 using AmazonApp.Models.ViewModels;
 using RxWeb.Core.Security.Cryptography;
+using AmazonApp.Infrastructure.Security;
 
 namespace AmazonApp.Domain.UserModule
 {
@@ -16,26 +17,30 @@ namespace AmazonApp.Domain.UserModule
     {
         bool flag = true;
         private IPasswordHash PasswordHash { get; set; }
-        public AppUserDomain(IUserUow uow, IDbContextManager<MainSqlDbContext> dbContextManager, IPasswordHash passwordHash) {
+        private IApplicationTokenProvider ApplicationTokenProvider { get; set; }
+        public AppUserDomain(IUserUow uow, IDbContextManager<MainSqlDbContext> dbContextManager, IPasswordHash passwordHash, IApplicationTokenProvider tokenProvider) {
             this.Uow = uow;
             PasswordHash = passwordHash;
+            ApplicationTokenProvider = tokenProvider;
         }
 
-        public async Task<object> GetAsync(AppUser1 parameters)
+        public async Task<object> GetAsync(AppUser parameters)
         {
             
-             return await Uow.Repository<AppUser1>().AllAsync();
+             return await Uow.Repository<AppUser>().AllAsync();
            
             //throw new NotImplementedException();
         }
 
-        public async Task<object> GetBy(AppUser1 parameters)
+        public async Task<object> GetBy(AppUser parameters)
         {
            
             var result =  await Uow.Repository<AppUser>().SingleOrDefaultAsync(t => t.MobileNumber == parameters.MobileNumber);
-            if(result != null && PasswordHash.VerifySignature(parameters.Password, result.Password, result.Salt))
+            if(result != null && PasswordHash.VerifySignature(parameters.userPassword, result.Password, result.Salt))
             {
-                return (result.AppUserId);
+                var token = await ApplicationTokenProvider.GetTokenAsync(result);
+                result.token = token;
+                return (result);
             }
             else
             {
@@ -45,15 +50,15 @@ namespace AmazonApp.Domain.UserModule
         }
 
 
-        public HashSet<string> AddValidation(AppUser1 entity)
+        public HashSet<string> AddValidation(AppUser entity)
         {
             return ValidationMessages;
         }
 
-        public async Task AddAsync(AppUser1 entity)
+        public async Task AddAsync(AppUser entity)
         {
             AppUser appuser = new AppUser();
-            PasswordResult passwordResult = PasswordHash.Encrypt(entity.Password);
+            PasswordResult passwordResult = PasswordHash.Encrypt(entity.userPassword);
             appuser.AppUserName = entity.AppUserName;
             appuser.MobileNumber = entity.MobileNumber;
             appuser.EmailId = entity.EmailId;
@@ -68,12 +73,12 @@ namespace AmazonApp.Domain.UserModule
             //return await Task.FromResult(entity.AppUserId);
         }
 
-        public HashSet<string> UpdateValidation(AppUser1 entity)
+        public HashSet<string> UpdateValidation(AppUser entity)
         {
             return ValidationMessages;
         }
 
-        public async Task UpdateAsync(AppUser1 parameters)
+        public async Task UpdateAsync(AppUser parameters)
         {
            
 
@@ -86,12 +91,12 @@ namespace AmazonApp.Domain.UserModule
 
         }
 
-        public HashSet<string> DeleteValidation(AppUser1 parameters)
+        public HashSet<string> DeleteValidation(AppUser parameters)
         {
             return ValidationMessages;
         }
 
-        public Task DeleteAsync(AppUser1 parameters)
+        public Task DeleteAsync(AppUser parameters)
         {
             throw new NotImplementedException();
         }
@@ -103,5 +108,5 @@ namespace AmazonApp.Domain.UserModule
         private IDbContextManager<MainSqlDbContext> DbContextManager { get; set; }
     }
 
-    public interface IAppUserDomain : ICoreDomain<AppUser1, AppUser1> { }
+    public interface IAppUserDomain : ICoreDomain<AppUser, AppUser> { }
 }

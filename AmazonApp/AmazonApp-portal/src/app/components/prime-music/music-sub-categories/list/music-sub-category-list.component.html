@@ -1,14 +1,14 @@
-<h1>MusicSubCategories LIST</h1>
+<h2 align="center">MusicSubCategories LIST</h2>
 
 
-<div class="card" *ngFor="let category of musicSubCategories">
+<div  *ngFor="let category of musicSubCategories">
     
-    <div class="card-header">
-        {{category.categoryName}}
+  <div class="container" style="margin-left: 800px;width: 500px;" ><br/>
+    <h3>{{category.categoryName}}</h3>  
+  
+        <div><br/>
+        <button  class="btn btn-warning" (click)="GetById(id=category.musicSubCategoryId)">Play Song</button>
       </div>
-      <div class="card-body">     
-        <p class="card-text">Click on the button for {{category.categoryName}}</p>
-        
-        <button  class="btn btn-primary" (click)="GetById(id=this.id)">{{category.categoryName}}</button>
-      </div>
+
+    </div>
   </div>

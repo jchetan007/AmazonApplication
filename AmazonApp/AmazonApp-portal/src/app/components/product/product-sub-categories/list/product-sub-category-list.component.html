@@ -1,12 +1,12 @@
-<div class="container" style="margin-top: 40px;width: 500px;"  >
+<div class="container" style="margin-top: 40px;width: 200px;margin-left: 800px;" >
 <div *ngFor="let category of productSubCategories"><br/>
     
-    
-      <div>
-        <h5 class="card-title">{{category.productSubCategoryName}}</h5>
-        <p class="card-text">Click on the button for {{category.productSubCategoryName}}</p>
+      <div >
+        <img src="assets/images/{{category.productSubCategoryName}}.jpg"   >
+        <h5 class="card-title" style="margin-left: 100px;">{{category.productSubCategoryName}}</h5>
+        
       
-        <button  class="btn btn-warning" [routerLink]="['/products/list',category.productSubCategoryId]" style="border-color: black;">{{category.productSubCategoryName}}</button>
+        <button  class="btn btn-warning" [routerLink]="['/products/list',category.productSubCategoryId]" style="border-color: black;">Click to Know More</button>
       </div>
   </div>
   </div>

@@ -36,13 +36,13 @@ export class AppUserAddComponent extends AbstractAppUser implements OnInit,OnDes
         this.appUser = new AppUser();
         this.userFormGroup = this.formBuilder.group({
 
-           appusername:['',RxwebValidators.required()] ,
+           appusername:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.alpha()] })] ,
 
-           mobilenumber:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.digit()] })] ,
+           mobilenumber:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.digit(),RxwebValidators.range({minimumNumber:10  ,maximumNumber:10 })] })] ,
 
            emailid:[''] ,
 
-           password:['',RxwebValidators.required()] ,
+           password:['',RxwebValidators.compose({validators:[RxwebValidators.required(), RxwebValidators.range({minimumNumber:8  ,maximumNumber:12 })] })] ,
 
 
 
@@ -111,8 +111,8 @@ export class AppUserAddComponent extends AbstractAppUser implements OnInit,OnDes
                     this.result=res;
                     console.log(res);
                 })
-                sessionStorage.setItem("AppUserId",this.result);
-                console.log(  sessionStorage.setItem("AppUserId",this.result));
+                // sessionStorage.setItem("AppUserId",this.result);
+                // console.log(  sessionStorage.setItem("AppUserId",this.result));
             }
         }
             )}

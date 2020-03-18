@@ -1,13 +1,14 @@
 
-<div class="container" style="margin-top: 40px;width: 500px;"  >
+<div class="container" style="margin-top: 40px;width: 200px;margin-left: 800px;"  >
 <div  *ngFor="let category of productCategories" >
     
     
-      <div class="card-body">
-        <h5 class="card-title">{{category.productCategoryName}}</h5>
-        <p class="card-text">Click on the button for {{category.productCategoryName}}</p>
+      <div >
+        <img src="assets/images/{{category.productCategoryName}}.jpg"  ><br/>
+        <h5 class="card-title">{{category.productCategoryName}}</h5><br/>
         
-        <button  class="btn btn-warning" (click)="GetById(id=this.id)" style="border-color: black;">{{category.productCategoryName}}</button>
+        
+        <button  class="btn btn-warning" (click)="GetById(id=category.productCategoryId)" style="border-color: black;">Click to Know More</button><br/>
       </div>
   </div>
 </div>

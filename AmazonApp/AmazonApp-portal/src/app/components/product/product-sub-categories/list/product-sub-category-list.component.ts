@@ -18,6 +18,17 @@ export class ProductSubCategoryListComponent extends AbstractProductSubCategory 
     result:any;
 
     
+    constructor(private router:Router,private activatedRoute:ActivatedRoute){
+        super();
+        this.activatedRoute.params.subscribe(t => {
+            this.id = t['id'];
+            
+        })
+        console.log(this.id);
+    }
+
+
+    
     ngOnInit(): void {
 
        // sessionStorage.getItem("pc");
@@ -35,15 +46,7 @@ export class ProductSubCategoryListComponent extends AbstractProductSubCategory 
        
     }
 
-    constructor(private router:Router,private activatedRoute:ActivatedRoute){
-        super();
-        this.activatedRoute.params.subscribe(t => {
-            this.id = t['id'];
-            
-        })
-        console.log(this.id);
-    }
-
+    
 
     ngOnDestroy(): void {
         if (this.subscription)

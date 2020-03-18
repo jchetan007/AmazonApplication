@@ -71,18 +71,23 @@ export class HeaderAppComponent extends RxHttp implements OnInit{
 }
 
 Login() {
-//   this.router.navigateByUrl('/login')
-  this.router.navigate(['/login']);
+ 
+  this.router.navigateByUrl('/login')
+  
+ // this.router.navigate(['/login']);
 }
 SignUp() {
   this.router.navigateByUrl('app-users/add')
 }
 
+
 Logout() {
   localStorage.clear();
+  sessionStorage.clear();
   this.showLoginButton = true;
   this.showSignUpButton = true;
-  this.showLogoutButton = false
+  this.showLogoutButton = false;
+  this.router.navigateByUrl('product-main-categories')
 }
 
 

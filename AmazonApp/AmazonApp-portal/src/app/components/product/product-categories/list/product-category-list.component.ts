@@ -16,6 +16,8 @@ export class ProductCategoryListComponent extends AbstractProductCategory implem
     id:number;
     Pid:number;
    //data:any=temp;
+
+   
    constructor(private router:Router,private activatedRoute:ActivatedRoute){
     super();
     this.activatedRoute.params.subscribe(t => {

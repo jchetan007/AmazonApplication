@@ -9,7 +9,7 @@ import { BrowserStorage } from '../../services/browser-storage';
 export class LoggedInMiddleware implements IMiddleware {
     constructor(private router: Router, private storage: BrowserStorage) { }
     invoke(user: { [key: string]: any; }, activateRouteSnapshot: any): boolean | Promise<boolean> {
-        var auth = this.storage.local.get('auth');
+        var auth = this.storage.local.get('auth',false);
         if (auth)
             this.router.navigate(['login']);
         return true;

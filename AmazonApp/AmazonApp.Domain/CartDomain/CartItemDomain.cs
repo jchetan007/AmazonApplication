@@ -25,6 +25,11 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task<object> GetBy(CartItem parameters)
         {
+            var spParameters = new SqlParameter[1];
+            spParameters[0] = new SqlParameter() { ParameterName = "ProductId", Value = parameters.ProductId };
+
+            await DbContextManager.StoreProc<StoreProcResult>("[dbo].spCartRemove ", spParameters);
+            await DbContextManager.CommitAsync();
             return await Uow.Repository<CartItem>().FindByAsync(t => t.AppUserId == parameters.AppUserId);
         }
         
@@ -53,6 +58,7 @@ namespace AmazonApp.Domain.CartModule
 
         public async Task UpdateAsync(CartItem entity)
         {
+            
             await Uow.RegisterDirtyAsync(entity);
             await Uow.CommitAsync();
         }

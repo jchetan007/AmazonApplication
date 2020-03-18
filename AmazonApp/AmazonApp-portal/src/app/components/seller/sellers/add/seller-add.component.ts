@@ -41,6 +41,7 @@ export class SellerAddComponent extends AbstractSeller implements OnInit, OnDest
     }
 
     ngOnInit(): void {
+        console.log("Seller Add")
         // if(!sessionStorage.getItem('AppUserId'))
         // {
         //     this.router.navigate(['login'])

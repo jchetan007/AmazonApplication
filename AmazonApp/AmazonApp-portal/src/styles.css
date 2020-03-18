@@ -125,4 +125,6 @@
     text-align: right;
   }
 
-  
+  .a-text-strike {
+    text-decoration: line-through!important;
+}

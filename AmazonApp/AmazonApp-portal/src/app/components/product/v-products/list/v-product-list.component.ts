@@ -15,11 +15,14 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
     vProducts: List<vProduct>;
     subscription: Subscription;
     id:any;
-    value=0;
+    value=1;
     AppUserId: any;
     vCartItem: any;
     result: any;
     Password: any;
+    discountPrice: any;
+    amount: any;
+    url:any;
 
     constructor(private formBuilder: RxFormBuilder, private activatedRoute: ActivatedRoute, private router:Router) {
         super();
@@ -30,8 +33,12 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
     }
 
     ngOnInit(): void {
+        this.url=['/v-products/list/'+this.id]
+        //sessionStorage.setItem('ProductPrice', this.vProducts[0].discountPrice);
+        sessionStorage.setItem("Url",this.url)
         this.AppUserId = localStorage.getItem("AppUserId");
         this.Password = localStorage.getItem("Password");
+        
         this.get({params:[this.id],queryParams:{ProductId:this.id}}).subscribe((t: List<vProduct>) => {
             console.log(t);    
               this.vProducts = t;
@@ -65,6 +72,7 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
           this.value--;
       }
 
+
     ngOnDestroy(): void {
         if (this.subscription)
             this.subscription.unsubscribe();
@@ -79,49 +87,60 @@ export class vProductListComponent extends AbstractvProduct implements OnInit, O
     // }
 
     AddtoCart() {
-        this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
-                        this.vCartItem = res;
+        // this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
+        //                 this.vCartItem = res;
             
-                        console.log(this.vCartItem);
-                         alert("Added to Cart");
-                     });
-        // this.get({path:'api/AppUsers', params:[1],queryParams:{AppUserId:this.AppUserId, Password:this.Password}}).subscribe(res=>{
-        //     this.result=res;
-        //     console.log(res);
-        //     if(res=="Successfully Verified")
-        //     {
-        //         this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
-        //             this.vCartItem = res;
+        //                 console.log(this.vCartItem);
+        //                  alert("Added to Cart");
+        //              });
+        if(!this.AppUserId)
+        {
+            console.log(this.AppUserId)
+            this.router.navigateByUrl('/login');
+           
+          }
+       
+          else
+            {
+                this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:0 } }).subscribe(res => {
+                    this.vCartItem = res;
         
-        //             console.log(this.vCartItem);
-        //             alert("Added to Cart");
-        //         });
-        //     }
-        //     // else
-        //     // {
-        //     //     this.router.navigateByUrl('/login');
-        //     // }
-        // })
+                    console.log(this.vCartItem);
+                    alert("Added to Cart");
+                });
+            }
+            
+        
         
         //this.router.navigate(['/v-cart-items'])
      }
 
      BuyNow()
      {
-        this.get({path:'api/AppUsers', params:[1],queryParams:{AppUserId:this.AppUserId}}).subscribe(res=>{
-            this.result=res;
-            console.log(res);
+        this.discountPrice=sessionStorage.getItem("ProductPrice")
+        this.amount=this.discountPrice*this.value;
+        sessionStorage.setItem('Amount', this.amount);
+
+        if(this.AppUserId === null)
+        {
+            this.router.navigateByUrl('/login');
+           
+          }
        
-            if(res=="Successfully Verified")
-            {
-                this.router.navigateByUrl('/transaction/add');
+            //if(res=="Successfully Verified")
+            //{
+                // this.post({path:'api/CartItems', body: {ProductId:this.id, AppUserId:this.AppUserId, productQuantity:this.value, TotalPrice:this.amount } }).subscribe(res => {
+                //     this.vCartItem = res;
+        
+                //     console.log(this.vCartItem);
+                
           
-            }
+            //}
             else
             {
-                this.router.navigateByUrl('/login');
+                this.router.navigateByUrl('/buy-now-transaction/add');
             }
-        })
+        //})
     }
    
 

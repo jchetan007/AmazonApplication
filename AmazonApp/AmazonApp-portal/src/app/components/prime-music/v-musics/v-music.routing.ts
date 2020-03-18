@@ -7,7 +7,7 @@ import { vMusicEditComponent } from './edit/v-music-edit.component';
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: 'list/:id',
         component: vMusicListComponent
     },
     {

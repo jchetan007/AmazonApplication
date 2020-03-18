@@ -1,4 +1,5 @@
-<h1 style="margin-left: 900px;">Prime Login</h1>
+<div><a class="navbar-brand"><img src="https://www.paredro.com/wp-content/uploads/2018/08/Amazon-Logo.jpg"width="150px"  style="margin-left: 900px;" height="60px"[routerLink]="['/product-main-categories']"></a><br/>
+<h1 style="margin-left: 400px; margin-top: 40px;">Prime Login</h1>
 <div class="border border-secondary"  style="margin-left: 700px;width: 700px;margin-top: 40px;"  ><br/>
 <h3 style="margin-left: 200px;" >Enter Mobile Number</h3>
 <div class="container" ><br/>
@@ -16,6 +17,7 @@
   </div>
  
 </div><br/>
+</div>
 
 
 <div class="border border-secondary" style="margin-left: 700px;width: 700px;"><br/>
@@ -28,7 +30,7 @@
     <form  [formGroup]="userFormGroup2">
       <div class="form-group">
         <label>Password</label>
-        <input type="text" formControlName="password" class="form-control"  />
+        <input type="password" formControlName="password" class="form-control"  />
        <small class="form-text text-danger" *ngIf="userFormGroup2.controls.password?.errors">{{userFormGroup2.controls.password.errors?.required?.message}}<br/></small>  
       </div>
       <button [disabled]="!userFormGroup2.valid" class="btn btn-warning" (click)="getOTP()" style="border-color: black;">Submit</button><br/>
